@@ -1,65 +1,23 @@
-import { DoublyLinkedList } from 'aureooms-js-dll' ;
-import compile from './compile' ;
-import core from './core' ;
-
-const collections = compile( Set , Map , DoublyLinkedList , core ) ;
-
-export default collections ;
-
-const {
-
-	bisect ,
-	chainmap ,
-	counter ,
-	deque ,
-	dict ,
-	ordereddict ,
-	defaultdict ,
-	heapq ,
-	Mapping ,
-	namedtuple ,
-	set ,
-
-	ArbitrarySizeDeque ,
-	BoundedDeque ,
+import deque from './deque' ;
+import _deque from './_deque' ;
+import {
 	Deque ,
-	EmptyDeque ,
-	SingleElementDeque ,
+	ArbitrarySizeDeque ,
 	UnboundedDeque ,
+	BoundedDeque ,
+	SingleElementDeque ,
+	EmptyDeque ,
+} from './implementation' ;
 
-	IndexError ,
-	KeyError ,
-	NotImplementedError ,
-	TypeError ,
-	ValueError ,
-
-} = collections ;
+export default deque ;
 
 export {
-
-	bisect ,
-	chainmap ,
-	counter ,
 	deque ,
-	dict ,
-	ordereddict ,
-	defaultdict ,
-	heapq ,
-	Mapping ,
-	namedtuple ,
-	set ,
-
-	ArbitrarySizeDeque ,
-	BoundedDeque ,
+	_deque ,
 	Deque ,
-	EmptyDeque ,
-	SingleElementDeque ,
+	ArbitrarySizeDeque ,
 	UnboundedDeque ,
-
-	IndexError ,
-	KeyError ,
-	NotImplementedError ,
-	TypeError ,
-	ValueError ,
-
+	BoundedDeque ,
+	SingleElementDeque ,
+	EmptyDeque ,
 } ;

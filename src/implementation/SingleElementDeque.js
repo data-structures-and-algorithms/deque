@@ -1,4 +1,4 @@
-import { IndexError } from '../../error' ;
+import { IndexError } from 'aureooms-js-collections' ;
 import Deque from './Deque' ;
 
 export default function SingleElementDeque ( iterable ) {

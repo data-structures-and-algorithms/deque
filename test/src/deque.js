@@ -12,6 +12,9 @@ import {
 	IndexError ,
 	ValueError ,
 	NotImplementedError ,
+} from 'aureooms-js-collections' ;
+
+import {
 	deque ,
 	Deque ,
 	UnboundedDeque ,
@@ -20,9 +23,9 @@ import {
 	EmptyDeque ,
 } from '../../src' ;
 
-test( deque.name , t => {
+test( 'Deque base class' , t => {
 
-	let d = new Deque( ) ;
+	const d = new Deque( ) ;
 
 	t.throws( d.values.bind( d ) , NotImplementedError , "Deque values" ) ;
 	t.throws( l.bind( null , d ) , NotImplementedError , "list( Deque )" ) ;
@@ -43,12 +46,24 @@ test( deque.name , t => {
 	t.throws( d.pop.bind( d ) , NotImplementedError , "Deque pop" ) ;
 	t.throws( d.popleft.bind( d ) , NotImplementedError , "Deque popleft" ) ;
 
+}) ;
+
+test( 'deque throws' , t => {
+
 	t.throws( deque.bind( null , null , 1.2 ) , TypeError , "maxlen float" ) ;
 	t.throws( deque.bind( null , null , -1 ) , ValueError , "maxlen negative" ) ;
 	t.throws( deque.bind( null , null , { } ) , TypeError , "maxlen object" ) ;
 
+}) ;
+
+test ( 'empty' , t => {
+
 	t.true( deque( ).empty( ) , "empty" ) ;
-	t.true( !deque( "abc" ).empty( ) , "not empty" ) ;
+	t.false( deque( "abc" ).empty( ) , "not empty" ) ;
+
+}) ;
+
+test( 'base class is Deque' , t => {
 
 	t.true( deque( ) instanceof Deque , "deque( ) is a Deque" ) ;
 	t.true( deque( 'abc' ) instanceof Deque , "deque( 'abc' ) is a Deque" ) ;
@@ -60,26 +75,46 @@ test( deque.name , t => {
 	t.true( deque( 'abc' , 1 ) instanceof Deque , "deque( 'abc' , 1 ) is a Deque" ) ;
 	t.true( deque( 'abc' , 2 ) instanceof Deque , "deque( 'abc' , 33 ) is a Deque" ) ;
 
+}) ;
+
+test( 'from string' , t => {
+
 	t.deepEqual( l( deque( "abc" ) ) , l( "abc" ) , "iterable constructor" ) ;
 	t.deepEqual( l( deque( "abc" , 0 ) ) , l( "" ) , "iterable constructor 0" ) ;
 	t.deepEqual( l( deque( "abc" , 1 ) ) , l( "c" ) , "iterable constructor 1" ) ;
 	t.deepEqual( l( deque( "abc" , 2 ) ) , l( "bc" ) , "iterable constructor 2" ) ;
 
+});
+
+test( 'capacity' , t => {
+
 	t.deepEqual( deque( "abc" , 0 ).capacity( ) , 0 , "capacity 0" ) ;
 	t.deepEqual( deque( "abc" , 1 ).capacity( ) , 1 , "capacity 1" ) ;
 	t.deepEqual( deque( "abc" , 2 ).capacity( ) , 2 , "capacity 2" ) ;
+
+});
+
+test( 'extendleft' , t => {
 
 	t.deepEqual( l( deque( null ).extendleft( "abc" ) ) , l( "cba" ) , "extendleft" ) ;
 	t.deepEqual( l( deque( null , 0 ).extendleft( "abc" ) ) , l( "" ) , "extendleft 0" ) ;
 	t.deepEqual( l( deque( null , 1 ).extendleft( "abc" ) ) , l( "c" ) , "extendleft 1" ) ;
 	t.deepEqual( l( deque( null , 2 ).extendleft( "abc" ) ) , l( "cb" ) , "extendleft 2" ) ;
 
+});
+
+test('from range' , t => {
+
 	t.deepEqual( l( deque( r( 0 , 100 , 1 ) ) ) , l( r( 0 , 100 , 1 ) ) , "range unbounded" ) ;
 	t.deepEqual( l( deque( r( 0 , 100 , 1 ) , 50 ) ) , l( r( 50 , 100 , 1 ) ) , "range bounded" ) ;
 	t.deepEqual( l( deque( r( 0 , 100 , 1 ) , 1 ) ) , l( r( 99 , 100 , 1 ) ) , "range 1" ) ;
 	t.deepEqual( l( deque( r( 0 , 100 , 1 ) , 0 ) ) , l( r( 100 , 100 , 1 ) ) , "range 0" ) ;
 
-	d = deque( "abc" , 0 ) ;
+});
+
+test( 'EmptyDeque' , t => {
+
+	const d = deque( "abc" , 0 ) ;
 
 	t.deepEqual( d.len( ) , 0 , "empty len" ) ;
 	t.true( d.copy( ) instanceof EmptyDeque , "empty copy is EmptyDeque" ) ;
@@ -90,7 +125,11 @@ test( deque.name , t => {
 	t.throws( d.append( "a" ).set.bind( d , 0 , "b" ) , IndexError , "empty set" ) ;
 	t.throws( d.append( "a" ).pop.bind( d ) , IndexError , "empty pop" ) ;
 
-	d = deque( "abc" , 1 ) ;
+}) ;
+
+test( 'SingleElementDeque' , t => {
+
+	const d = deque( "abc" , 1 ) ;
 
 	t.deepEqual( d.len( ) , 1 , "single len" ) ;
 	t.true( d.copy( ) instanceof SingleElementDeque , "single copy is EmptyDeque" ) ;
@@ -119,13 +158,15 @@ test( deque.name , t => {
 
 	t.deepEqual( l( d ) , l( "" ) , "single empty values" ) ;
 
-	// UNBOUNDED
+});
+
+test( 'unbounded' , t => {
 
 	let i = 0 ;
 
 	let j = 10000 ;
 
-	d = deque( r( i , j , 1 ) ) ;
+	const d = deque( r( i , j , 1 ) ) ;
 
 	t.deepEqual( l( d ) , l( r( i , j , 1 ) ) , "big unbounded 10000" ) ;
 
@@ -151,13 +192,15 @@ test( deque.name , t => {
 
 	t.deepEqual( l( d.copy( ) ) , l( d ) , "big unbounded copy" ) ;
 
-	// BOUNDED WITHOUT OVERFLOW
+});
 
-	i = 0 ;
+test( 'bounded without overflow' , t => {
 
-	j = 10000 ;
+	let i = 0 ;
 
-	d = deque( r( i , j , 1 ) , j - i ) ;
+	let j = 10000 ;
+
+	const d = deque( r( i , j , 1 ) , j - i ) ;
 
 	t.deepEqual( l( d ) , l( r( i , j , 1 ) ) , "big bounded(10000) 10000" ) ;
 
@@ -183,9 +226,11 @@ test( deque.name , t => {
 
 	t.deepEqual( l( d.copy( ) ) , l( d ) , "big bounded(10000) copy" ) ;
 
-	// BOUNDED WITH OVERFLOW
+});
 
-	d = deque( [ ] , 5000 ) ;
+test( 'bounded with overflow' , t => {
+
+	const d = deque( [ ] , 5000 ) ;
 
 	d.extend( r( 0 , 10000 , 1 ) ) ;
 
@@ -195,7 +240,15 @@ test( deque.name , t => {
 
 	t.deepEqual( l( d ) , l( c( [ r( 2499 , -1 , -1 ) , r( 5000 , 7500 , 1) ] ) ) , "bounded overflow extend left" ) ;
 
-	// COUNT
+}) ;
+
+test( 'count' , t => {
+
+	const d = deque( [ ] , 5000 ) ;
+
+	d.extend( r( 0 , 10000 , 1 ) ) ;
+
+	d.extendleft( r( 0 , 2500 , 1 ) ) ;
 
 	t.deepEqual( d.count( 0 ) , 1 , "count 0 bounded" ) ;
 
@@ -213,7 +266,9 @@ test( deque.name , t => {
 	t.deepEqual( deque( "aaa" , 1 ).count( "a" ) , 1 , "count single a" ) ;
 	t.deepEqual( deque( "aaa" , 1 ).count( "b" ) , 0 , "count single b" ) ;
 
-	// MISC
+}) ;
+
+test( 'miscellaneous' , t => {
 
 	t.deepEqual( l( deque( "abcde" ).set( 2 , "X" ) ) , l( "abXde" ) , "set" ) ;
 	t.deepEqual( l( deque( "abcde" ).reverse() ) , l( "edcba" ) , "reverse" ) ;
@@ -243,4 +298,4 @@ test( deque.name , t => {
 	t.deepEqual( l( deque( "abXde" , 5 ).delete( 2 ) ) , l( "abde" ) , "bounded delete"  ) ;
 	t.deepEqual( l( deque( "abXde" , 5 ).remove( "X" ) ) , l( "abde" ) , "bounded remove"  ) ;
 
-} ) ;
+}) ;

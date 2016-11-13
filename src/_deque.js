@@ -1,4 +1,4 @@
-import { TypeError , ValueError } from '../error' ;
+import { TypeError , ValueError } from 'aureooms-js-collections' ;
 
 export default function _deque ( UnboundedDeque , BoundedDeque , SingleElementDeque , EmptyDeque ) {
 
