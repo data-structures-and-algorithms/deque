@@ -270,6 +270,12 @@ test( 'count' , t => {
 
 test( 'miscellaneous' , t => {
 
+	const d = deque( [ ] , 5000 ) ;
+
+	d.extend( r( 0 , 10000 , 1 ) ) ;
+
+	d.extendleft( r( 0 , 2500 , 1 ) ) ;
+
 	t.deepEqual( l( deque( "abcde" ).set( 2 , "X" ) ) , l( "abXde" ) , "set" ) ;
 	t.deepEqual( l( deque( "abcde" ).reverse() ) , l( "edcba" ) , "reverse" ) ;
 	t.deepEqual( l( deque( ).extendleft( "abcde" ).reverse() ) , l( "abcde" ) , "reverse left" ) ;
