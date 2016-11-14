@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/implementation/Deque.js | aureooms/js-collections-deque API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+<script data-ice="userScript" src="user/script/0-header.js"></script>
+<link data-ice="userStyle" rel="stylesheet" href="user/css/0-style.css">
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <a data-ice="repoURL" href="https://github.com/aureooms/js-collections-deque.git" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_deque">_deque</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">implementation</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ArbitrarySizeDeque">ArbitrarySizeDeque</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BoundedDeque">BoundedDeque</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Deque">Deque</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-EmptyDeque">EmptyDeque</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SingleElementDeque">SingleElementDeque</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-UnboundedDeque">UnboundedDeque</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/implementation/Deque.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { NotImplementedError , IndexError , ValueError } from &apos;aureooms-js-collections&apos; ;
+
+export default function Deque ( ) { }
+
+Deque.prototype.len = function ( ) {
+
+	throw new NotImplementedError( &quot;len&quot; ) ;
+
+} ;
+
+Deque.prototype.capacity = function ( ) {
+
+	throw new NotImplementedError( &quot;capcity&quot; ) ;
+
+} ;
+
+Deque.prototype.empty = function ( ) {
+
+	return this.len( ) === 0 ;
+
+} ;
+
+Deque.prototype[Symbol.iterator] = function ( ) {
+
+	return this.values( ) ;
+
+} ;
+
+Deque.prototype.values = function ( ) {
+
+	throw new NotImplementedError( &quot;values&quot; ) ;
+
+} ;
+
+Deque.prototype.append = function ( x ) {
+
+	throw new NotImplementedError( &quot;append&quot; ) ;
+
+} ;
+
+Deque.prototype.appendleft = function ( x ) {
+
+	throw new NotImplementedError( &quot;appendleft&quot; ) ;
+
+} ;
+
+Deque.prototype.clear = function ( ) {
+
+	throw new NotImplementedError( &quot;clear&quot; ) ;
+
+} ;
+
+Deque.prototype.copy = function ( ) {
+
+	throw new NotImplementedError( &quot;copy&quot; ) ;
+
+} ;
+
+
+Deque.prototype.count = function ( x ) {
+
+	let c = 0 ;
+
+	for ( let element of this ) if ( element === x ) ++c ;
+
+	return c ;
+
+} ;
+
+Deque.prototype.extend = function ( iterable ) {
+
+	for ( let x of iterable ) this.append( x ) ;
+
+	return this ;
+
+} ;
+
+Deque.prototype.extendleft = function ( iterable ) {
+
+	for ( let x of iterable ) this.appendleft( x ) ;
+
+	return this ;
+
+} ;
+
+Deque.prototype._checkbounds = function ( i ) {
+
+	if ( i &lt; 0 || i &gt;= this.len( ) ) throw new IndexError( i ) ;
+
+} ;
+
+
+Deque.prototype._where = function ( i ) {
+
+	throw new NotImplementedError( &quot;_where&quot; ) ;
+
+} ;
+
+Deque.prototype.get = function ( i ) {
+
+	const [ container , index ] = this._where( i ) ;
+
+	return container[index] ;
+
+} ;
+
+Deque.prototype.set = function ( i , value ) {
+
+	const [ container , index ] = this._where( i ) ;
+
+	container[index] = value ;
+
+	return this ;
+
+} ;
+
+Deque.prototype._range = function* ( start , stop ) {
+
+	for ( let i = start ; i &lt; stop ; ++i ) yield [ i , this.get( i ) ] ;
+
+} ;
+
+Deque.prototype.index = function ( x , start = 0 , stop = this.len( ) ) {
+
+	for ( let [ i , element ] of this._range( start , stop ) ) {
+
+		if ( element === x ) return i ;
+
+	}
+
+	throw new ValueError( &quot;not found&quot; ) ;
+
+} ;
+
+Deque.prototype.pop = function ( ) {
+
+	throw new NotImplementedError( &quot;pop&quot; ) ;
+
+} ;
+
+Deque.prototype.popleft = function ( ) {
+
+	throw new NotImplementedError( &quot;popleft&quot; ) ;
+
+} ;
+
+Deque.prototype.insert = function ( i , x ) {
+
+	this._checkbounds( i ) ;
+
+	this.append( x ) ;
+
+	let j = this.len( ) - 1 ;
+
+	for ( ; i &lt; j ; --j ) {
+
+		const a = this.get( j ) ;
+		this.set( j , this.get( j - 1 ) ) ;
+		this.set( j - 1 , a ) ;
+
+	}
+
+	return this ;
+
+} ;
+
+Deque.prototype.delete = function ( i ) {
+
+	this._checkbounds( i ) ;
+
+	const len = this.len( ) - 1 ;
+
+	for ( ; i &lt; len ; ++i ) this.set( i , this.get( i + 1 ) ) ;
+
+	this.pop( ) ;
+
+	return this ;
+
+} ;
+
+
+Deque.prototype.remove = function ( value ) {
+
+	const i = this.index( value ) ;
+
+	this.delete( i ) ;
+
+	return this ;
+
+} ;
+
+Deque.prototype.reverse = function ( ) {
+
+	for ( let i = 0 , j = this.len( ) ; i &lt;-- j ; ++i ) {
+
+		let a = this.get( i ) ;
+		let b = this.get( j ) ;
+		this.set( i , b ) ;
+		this.set( j , a ) ;
+
+	}
+
+	return this ;
+
+} ;
+
+
+Deque.prototype.rotate = function ( n ) {
+
+	if ( n &gt; 0 ) {
+
+		while ( n --&gt; 0 ) this.appendleft( this.pop( ) ) ;
+
+	}
+
+	else if ( n &lt; 0 ) {
+
+		while ( n ++&lt; 0 ) this.append( this.popleft( ) ) ;
+
+	}
+
+	return this ;
+
+} ;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
