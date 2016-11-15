@@ -1,7 +1,7 @@
 {
   "name": "aureooms-js-collections-deque",
   "description": "Python's deque data structure for JavaScript",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
   "ava": {
     "require": [
@@ -23,7 +23,7 @@
     "url": "https://github.com/aureooms/js-collections-deque/issues"
   },
   "dependencies": {
-    "aureooms-js-collections": "^2.0.0"
+    "aureooms-js-error": "^3.0.0"
   },
   "devDependencies": {
     "aureooms-js-itertools": "^3.1.0",
@@ -34,7 +34,7 @@
     "codeclimate-test-reporter": "^0.4.0",
     "coveralls": "^2.11.15",
     "esdoc": "^0.4.8",
-    "nyc": "^8.4.0"
+    "nyc": "^9.0.1"
   },
   "homepage": "https://aureooms.github.io/js-collections-deque",
   "keywords": [
