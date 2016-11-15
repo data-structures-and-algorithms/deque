@@ -12,7 +12,7 @@ import {
 	IndexError ,
 	ValueError ,
 	NotImplementedError ,
-} from 'aureooms-js-collections' ;
+} from 'aureooms-js-error' ;
 
 import {
 	deque ,

@@ -1,4 +1,4 @@
-import { NotImplementedError , IndexError , ValueError } from 'aureooms-js-collections' ;
+import { NotImplementedError , IndexError , ValueError } from 'aureooms-js-error' ;
 
 export default function Deque ( ) { }
 
