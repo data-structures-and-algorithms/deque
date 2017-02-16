@@ -4,10 +4,10 @@ or [npm](https://github.com/npm/npm).
 
 ### jspm
 ```terminal
-jspm install npm:aureooms-js-collections-deque
+jspm install npm:@aureooms/js-collections-deque
 ```
 
 ### npm
 ```terminal
-npm install aureooms-js-collections-deque --save
+npm install @aureooms/js-collections-deque --save
 ```
