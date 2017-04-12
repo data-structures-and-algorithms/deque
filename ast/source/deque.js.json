@@ -1,0 +1,1897 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 286,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 15,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 286,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 15,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 137,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 8,
+            "column": 27
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 10,
+            "end": 15,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 1
+              },
+              "end": {
+                "line": 2,
+                "column": 6
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 10,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 1
+                },
+                "end": {
+                  "line": 2,
+                  "column": 6
+                },
+                "identifierName": "Deque"
+              },
+              "name": "Deque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 10,
+              "end": 15,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 1
+                },
+                "end": {
+                  "line": 2,
+                  "column": 6
+                },
+                "identifierName": "Deque"
+              },
+              "name": "Deque"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 19,
+            "end": 37,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 1
+              },
+              "end": {
+                "line": 3,
+                "column": 19
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 19,
+              "end": 37,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 1
+                },
+                "end": {
+                  "line": 3,
+                  "column": 19
+                },
+                "identifierName": "ArbitrarySizeDeque"
+              },
+              "name": "ArbitrarySizeDeque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 19,
+              "end": 37,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 1
+                },
+                "end": {
+                  "line": 3,
+                  "column": 19
+                },
+                "identifierName": "ArbitrarySizeDeque"
+              },
+              "name": "ArbitrarySizeDeque"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 41,
+            "end": 55,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 1
+              },
+              "end": {
+                "line": 4,
+                "column": 15
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 41,
+              "end": 55,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 1
+                },
+                "end": {
+                  "line": 4,
+                  "column": 15
+                },
+                "identifierName": "UnboundedDeque"
+              },
+              "name": "UnboundedDeque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 41,
+              "end": 55,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 1
+                },
+                "end": {
+                  "line": 4,
+                  "column": 15
+                },
+                "identifierName": "UnboundedDeque"
+              },
+              "name": "UnboundedDeque"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 59,
+            "end": 71,
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 1
+              },
+              "end": {
+                "line": 5,
+                "column": 13
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 59,
+              "end": 71,
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 1
+                },
+                "end": {
+                  "line": 5,
+                  "column": 13
+                },
+                "identifierName": "BoundedDeque"
+              },
+              "name": "BoundedDeque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 59,
+              "end": 71,
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 1
+                },
+                "end": {
+                  "line": 5,
+                  "column": 13
+                },
+                "identifierName": "BoundedDeque"
+              },
+              "name": "BoundedDeque"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 75,
+            "end": 93,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 1
+              },
+              "end": {
+                "line": 6,
+                "column": 19
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 75,
+              "end": 93,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 1
+                },
+                "end": {
+                  "line": 6,
+                  "column": 19
+                },
+                "identifierName": "SingleElementDeque"
+              },
+              "name": "SingleElementDeque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 75,
+              "end": 93,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 1
+                },
+                "end": {
+                  "line": 6,
+                  "column": 19
+                },
+                "identifierName": "SingleElementDeque"
+              },
+              "name": "SingleElementDeque"
+            }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 97,
+            "end": 107,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 1
+              },
+              "end": {
+                "line": 7,
+                "column": 11
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 97,
+              "end": 107,
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 1
+                },
+                "end": {
+                  "line": 7,
+                  "column": 11
+                },
+                "identifierName": "EmptyDeque"
+              },
+              "name": "EmptyDeque"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 97,
+              "end": 107,
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 1
+                },
+                "end": {
+                  "line": 7,
+                  "column": 11
+                },
+                "identifierName": "EmptyDeque"
+              },
+              "name": "EmptyDeque"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 117,
+          "end": 135,
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 7
+            },
+            "end": {
+              "line": 8,
+              "column": 25
+            }
+          },
+          "extra": {
+            "rawValue": "./implementation",
+            "raw": "'./implementation'"
+          },
+          "value": "./implementation"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 139,
+        "end": 170,
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 0
+          },
+          "end": {
+            "line": 10,
+            "column": 31
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportDefaultSpecifier",
+            "start": 146,
+            "end": 152,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 7
+              },
+              "end": {
+                "line": 10,
+                "column": 13
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 146,
+              "end": 152,
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 7
+                },
+                "end": {
+                  "line": 10,
+                  "column": 13
+                },
+                "identifierName": "_deque"
+              },
+              "name": "_deque"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 158,
+          "end": 168,
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 19
+            },
+            "end": {
+              "line": 10,
+              "column": 29
+            }
+          },
+          "extra": {
+            "rawValue": "./_deque",
+            "raw": "'./_deque'"
+          },
+          "value": "./_deque"
+        }
+      },
+      {
+        "type": "Identifier",
+        "start": 172,
+        "end": 261,
+        "loc": {
+          "start": {
+            "line": 12,
+            "column": 0
+          },
+          "end": {
+            "line": 12,
+            "column": 89
+          }
+        },
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start": 178,
+            "end": 259,
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 6
+              },
+              "end": {
+                "line": 12,
+                "column": 87
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 178,
+              "end": 183,
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 6
+                },
+                "end": {
+                  "line": 12,
+                  "column": 11
+                },
+                "identifierName": "deque"
+              },
+              "name": "deque"
+            },
+            "init": {
+              "type": "CallExpression",
+              "start": 186,
+              "end": 259,
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 14
+                },
+                "end": {
+                  "line": 12,
+                  "column": 87
+                }
+              },
+              "callee": {
+                "type": "Identifier",
+                "start": 186,
+                "end": 192,
+                "loc": {
+                  "start": {
+                    "line": 12,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 12,
+                    "column": 20
+                  },
+                  "identifierName": "_deque"
+                },
+                "name": "_deque"
+              },
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "start": 194,
+                  "end": 208,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 22
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 36
+                    },
+                    "identifierName": "UnboundedDeque"
+                  },
+                  "name": "UnboundedDeque"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 211,
+                  "end": 223,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 39
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 51
+                    },
+                    "identifierName": "BoundedDeque"
+                  },
+                  "name": "BoundedDeque"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 226,
+                  "end": 244,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 54
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 72
+                    },
+                    "identifierName": "SingleElementDeque"
+                  },
+                  "name": "SingleElementDeque"
+                },
+                {
+                  "type": "Identifier",
+                  "start": 247,
+                  "end": 257,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 75
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 85
+                    },
+                    "identifierName": "EmptyDeque"
+                  },
+                  "name": "EmptyDeque"
+                }
+              ]
+            }
+          }
+        ],
+        "kind": "const",
+        "name": "_",
+        "leadingComments": [],
+        "trailingComments": []
+      },
+      {
+        "type": "Identifier",
+        "start": 263,
+        "end": 285,
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 14,
+            "column": 22
+          }
+        },
+        "declaration": {
+          "type": "Identifier",
+          "start": 278,
+          "end": 283,
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 15
+            },
+            "end": {
+              "line": 14,
+              "column": 20
+            },
+            "identifierName": "deque"
+          },
+          "name": "deque"
+        },
+        "name": "_",
+        "leadingComments": [],
+        "trailingComments": []
+      },
+      {
+        "type": "ExportDefaultDeclaration",
+        "start": 263,
+        "end": 285,
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 0
+          },
+          "end": {
+            "line": 14,
+            "column": 22
+          }
+        },
+        "declaration": {
+          "type": "VariableDeclaration",
+          "start": 172,
+          "end": 261,
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 0
+            },
+            "end": {
+              "line": 12,
+              "column": 89
+            }
+          },
+          "declarations": [
+            {
+              "type": "VariableDeclarator",
+              "start": 178,
+              "end": 259,
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 6
+                },
+                "end": {
+                  "line": 12,
+                  "column": 87
+                }
+              },
+              "id": {
+                "type": "Identifier",
+                "start": 178,
+                "end": 183,
+                "loc": {
+                  "start": {
+                    "line": 12,
+                    "column": 6
+                  },
+                  "end": {
+                    "line": 12,
+                    "column": 11
+                  },
+                  "identifierName": "deque"
+                },
+                "name": "deque"
+              },
+              "init": {
+                "type": "CallExpression",
+                "start": 186,
+                "end": 259,
+                "loc": {
+                  "start": {
+                    "line": 12,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 12,
+                    "column": 87
+                  }
+                },
+                "callee": {
+                  "type": "Identifier",
+                  "start": 186,
+                  "end": 192,
+                  "loc": {
+                    "start": {
+                      "line": 12,
+                      "column": 14
+                    },
+                    "end": {
+                      "line": 12,
+                      "column": 20
+                    },
+                    "identifierName": "_deque"
+                  },
+                  "name": "_deque"
+                },
+                "arguments": [
+                  {
+                    "type": "Identifier",
+                    "start": 194,
+                    "end": 208,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+                        "column": 22
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 36
+                      },
+                      "identifierName": "UnboundedDeque"
+                    },
+                    "name": "UnboundedDeque"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 211,
+                    "end": 223,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+                        "column": 39
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 51
+                      },
+                      "identifierName": "BoundedDeque"
+                    },
+                    "name": "BoundedDeque"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 226,
+                    "end": 244,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+                        "column": 54
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 72
+                      },
+                      "identifierName": "SingleElementDeque"
+                    },
+                    "name": "SingleElementDeque"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 247,
+                    "end": 257,
+                    "loc": {
+                      "start": {
+                        "line": 12,
+                        "column": 75
+                      },
+                      "end": {
+                        "line": 12,
+                        "column": 85
+                      },
+                      "identifierName": "EmptyDeque"
+                    },
+                    "name": "EmptyDeque"
+                  }
+                ]
+              }
+            }
+          ],
+          "kind": "const",
+          "leadingComments": [],
+          "trailingComments": []
+        }
+      }
+    ],
+    "directives": []
+  },
+  "comments": [],
+  "tokens": [
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 0,
+      "end": 6,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 7,
+      "end": 8,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 1,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Deque",
+      "start": 10,
+      "end": 15,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1
+        },
+        "end": {
+          "line": 2,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 16,
+      "end": 17,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 2,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ArbitrarySizeDeque",
+      "start": 19,
+      "end": 37,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1
+        },
+        "end": {
+          "line": 3,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 38,
+      "end": 39,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 20
+        },
+        "end": {
+          "line": 3,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "UnboundedDeque",
+      "start": 41,
+      "end": 55,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 1
+        },
+        "end": {
+          "line": 4,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 56,
+      "end": 57,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 16
+        },
+        "end": {
+          "line": 4,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "BoundedDeque",
+      "start": 59,
+      "end": 71,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 1
+        },
+        "end": {
+          "line": 5,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 72,
+      "end": 73,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 14
+        },
+        "end": {
+          "line": 5,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "SingleElementDeque",
+      "start": 75,
+      "end": 93,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 1
+        },
+        "end": {
+          "line": 6,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 94,
+      "end": 95,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 20
+        },
+        "end": {
+          "line": 6,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "EmptyDeque",
+      "start": 97,
+      "end": 107,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1
+        },
+        "end": {
+          "line": 7,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 108,
+      "end": 109,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 12
+        },
+        "end": {
+          "line": 7,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 110,
+      "end": 111,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 1
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 112,
+      "end": 116,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 2
+        },
+        "end": {
+          "line": 8,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./implementation",
+      "start": 117,
+      "end": 135,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 7
+        },
+        "end": {
+          "line": 8,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 136,
+      "end": 137,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 26
+        },
+        "end": {
+          "line": 8,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 139,
+      "end": 145,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "_deque",
+      "start": 146,
+      "end": 152,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 7
+        },
+        "end": {
+          "line": 10,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 153,
+      "end": 157,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 14
+        },
+        "end": {
+          "line": 10,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./_deque",
+      "start": 158,
+      "end": 168,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 19
+        },
+        "end": {
+          "line": 10,
+          "column": 29
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 169,
+      "end": 170,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 30
+        },
+        "end": {
+          "line": 10,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "const",
+        "keyword": "const",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "const",
+      "start": 172,
+      "end": 177,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "deque",
+      "start": 178,
+      "end": 183,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 6
+        },
+        "end": {
+          "line": 12,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 184,
+      "end": 185,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 12
+        },
+        "end": {
+          "line": 12,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "_deque",
+      "start": 186,
+      "end": 192,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 14
+        },
+        "end": {
+          "line": 12,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 192,
+      "end": 193,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 20
+        },
+        "end": {
+          "line": 12,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "UnboundedDeque",
+      "start": 194,
+      "end": 208,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 22
+        },
+        "end": {
+          "line": 12,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 209,
+      "end": 210,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 37
+        },
+        "end": {
+          "line": 12,
+          "column": 38
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "BoundedDeque",
+      "start": 211,
+      "end": 223,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 39
+        },
+        "end": {
+          "line": 12,
+          "column": 51
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 224,
+      "end": 225,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 52
+        },
+        "end": {
+          "line": 12,
+          "column": 53
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "SingleElementDeque",
+      "start": 226,
+      "end": 244,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 54
+        },
+        "end": {
+          "line": 12,
+          "column": 72
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 245,
+      "end": 246,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 73
+        },
+        "end": {
+          "line": 12,
+          "column": 74
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "EmptyDeque",
+      "start": 247,
+      "end": 257,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 75
+        },
+        "end": {
+          "line": 12,
+          "column": 85
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 258,
+      "end": 259,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 86
+        },
+        "end": {
+          "line": 12,
+          "column": 87
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 260,
+      "end": 261,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 88
+        },
+        "end": {
+          "line": 12,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "export",
+        "keyword": "export",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "export",
+      "start": 263,
+      "end": 269,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "default",
+        "keyword": "default",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "default",
+      "start": 270,
+      "end": 277,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 7
+        },
+        "end": {
+          "line": 14,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "deque",
+      "start": 278,
+      "end": 283,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 15
+        },
+        "end": {
+          "line": 14,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 284,
+      "end": 285,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 21
+        },
+        "end": {
+          "line": 14,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 286,
+      "end": 286,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "coverage": "0%",
-  "expectCount": 7,
+  "expectCount": 8,
   "actualCount": 0,
   "files": {
     "src/implementation/ArbitrarySizeDeque.js": {
@@ -50,6 +50,13 @@
       "actualCount": 0,
       "undocumentLines": [
         3
+      ]
+    },
+    "src/deque.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        12
       ]
     }
   }
