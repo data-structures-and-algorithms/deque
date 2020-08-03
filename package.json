@@ -27,7 +27,7 @@
     "url": "https://github.com/aureooms/js-collections-deque/issues"
   },
   "dependencies": {
-    "@aureooms/js-error": "^4.0.0"
+    "@aureooms/js-error": "^4.0.1"
   },
   "devDependencies": {
     "@aureooms/js-itertools": "4.0.0",
