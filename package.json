@@ -45,7 +45,8 @@
     "debug": "NODE_ENV=debug npm run test -- -st --fail-fast",
     "dev": "npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast",
     "install-hooks": "husky install",
-    "lint": "true",
+    "lint": "xo",
+    "lint-and-fix": "npm run lint -- --fix",
     "lint-config": "fixpack --dryRun",
     "lint-config-and-fix": "fixpack || fixpack",
     "postinstall": "npm run install-hooks",
@@ -82,7 +83,8 @@
     "np": "7.4.0",
     "pinst": "2.1.6",
     "power-assert": "1.6.1",
-    "regenerator-runtime": "0.13.7"
+    "regenerator-runtime": "0.13.7",
+    "xo": "0.38.2"
   },
   "ava": {
     "files": [
@@ -175,5 +177,33 @@
         ]
       }
     }
+  },
+  "prettier": {
+    "trailingComma": "all"
+  },
+  "xo": {
+    "prettier": true,
+    "plugins": [
+      "unicorn"
+    ],
+    "rules": {
+      "unicorn/filename-case": [
+        "error",
+        {
+          "cases": {
+            "camelCase": true,
+            "pascalCase": true
+          }
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "doc/**"
+        ],
+        "env": "browser"
+      }
+    ]
   }
 }
