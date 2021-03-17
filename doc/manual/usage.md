@@ -9,7 +9,7 @@ import 'regenerator-runtime/runtime.js' ;
 
 Then
 ```js
-const number = require( '@aureooms/js-collections-deque' ) ;
+const {deque} = require( '@aureooms/js-collections-deque' ) ;
 // or
-import number from '@aureooms/js-collections-deque' ;
+import deque from '@aureooms/js-collections-deque' ;
 ```
