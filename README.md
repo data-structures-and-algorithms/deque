@@ -13,7 +13,7 @@ deque( 'abcde' , 3 ) ; // 'cde'
 
 [![License](https://img.shields.io/github/license/aureooms/js-collections-deque.svg)](https://raw.githubusercontent.com/aureooms/js-collections-deque/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@aureooms/js-collections-deque.svg)](https://www.npmjs.org/package/@aureooms/js-collections-deque)
-[![Build](https://img.shields.io/travis/aureooms/js-collections-deque/main.svg)](https://travis-ci.org/aureooms/js-collections-deque/branches)
+[![Build](https://img.shields.io/travis/aureooms/js-collections-deque/main.svg)](https://travis-ci.com/aureooms/js-collections-deque/branches)
 [![Dependencies](https://img.shields.io/david/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque)
 [![Dev dependencies](https://img.shields.io/david/dev/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/aureooms/js-collections-deque.svg)](https://github.com/aureooms/js-collections-deque/issues)
