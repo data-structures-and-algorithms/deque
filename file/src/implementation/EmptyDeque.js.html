@@ -24,7 +24,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque.git"><img width="20px" src="./image/github.png"></a></header>
+<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque"><img width="20px" src="./image/github.png"></a></header>
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
@@ -42,71 +42,58 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/implementation/EmptyDeque.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { IndexError } from &apos;@aureooms/js-error&apos; ;
-import Deque from &apos;./Deque&apos; ;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {IndexError} from &apos;@aureooms/js-error&apos;;
+import Deque from &apos;./Deque.js&apos;;
 
-export default function EmptyDeque ( iterable ) {
-
-	if ( iterable !== null ) this.extend( iterable ) ;
-
+export default function EmptyDeque(iterable) {
+	if (iterable !== null) {
+		this.extend(iterable);
+	}
 }
 
-EmptyDeque.prototype = new Deque( ) ;
+EmptyDeque.prototype = new Deque();
 
-EmptyDeque.prototype.len = function ( ) {
+EmptyDeque.prototype.len = function () {
+	return 0;
+};
 
-	return 0 ;
+EmptyDeque.prototype.capacity = function () {
+	return 0;
+};
 
-} ;
+EmptyDeque.prototype.values = function () {
+	return {
+		next() {
+			return {done: true};
+		},
+	};
+};
 
-EmptyDeque.prototype.capacity = function ( ) {
+EmptyDeque.prototype.append = function (_x) {
+	return this;
+};
 
-	return 0 ;
+EmptyDeque.prototype.appendleft = function (_x) {
+	return this;
+};
 
-} ;
+EmptyDeque.prototype.clear = function () {
+	return this;
+};
 
-EmptyDeque.prototype.values = function ( ) {
+EmptyDeque.prototype.copy = function () {
+	return new EmptyDeque(this);
+};
 
-	return { next : function ( ) { return { done : true } ; } } ;
-
-} ;
-
-EmptyDeque.prototype.append = function ( x ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.appendleft = function ( x ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.clear = function ( ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.copy = function ( ) {
-
-	return new EmptyDeque( this ) ;
-
-} ;
-
-EmptyDeque.prototype._where = function ( i ) {
-
-	throw new IndexError( i ) ;
-
-} ;
+EmptyDeque.prototype._where = function (i) {
+	throw new IndexError(i);
+};
 
 EmptyDeque.prototype.pop =
-EmptyDeque.prototype.popleft = function ( ) {
-
-	throw new IndexError( &quot;pop / popleft&quot; ) ;
-
-} ;
+	// eslint-disable-next-line no-multi-assign
+	EmptyDeque.prototype.popleft = function () {
+		throw new IndexError(&apos;pop / popleft&apos;);
+	};
 </code></pre>
 
 </div>

@@ -24,7 +24,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque.git"><img width="20px" src="./image/github.png"></a></header>
+<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque"><img width="20px" src="./image/github.png"></a></header>
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
@@ -43,19 +43,22 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/deque.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {
-	Deque ,
-	ArbitrarySizeDeque ,
-	UnboundedDeque ,
-	BoundedDeque ,
-	SingleElementDeque ,
-	EmptyDeque ,
-} from &apos;./implementation&apos; ;
+	UnboundedDeque,
+	BoundedDeque,
+	SingleElementDeque,
+	EmptyDeque,
+} from &apos;./implementation/index.js&apos;;
 
-import _deque from &apos;./_deque&apos; ;
+import _deque from &apos;./_deque.js&apos;;
 
-const deque = _deque( UnboundedDeque , BoundedDeque , SingleElementDeque , EmptyDeque ) ;
+const deque = _deque(
+	UnboundedDeque,
+	BoundedDeque,
+	SingleElementDeque,
+	EmptyDeque,
+);
 
-export default deque ;
+export default deque;
 </code></pre>
 
 </div>

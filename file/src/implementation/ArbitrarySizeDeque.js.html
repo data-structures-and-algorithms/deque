@@ -24,7 +24,7 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque.git"><img width="20px" src="./image/github.png"></a></header>
+<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-collections-deque"><img width="20px" src="./image/github.png"></a></header>
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
@@ -42,44 +42,44 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/implementation/ArbitrarySizeDeque.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Deque from &apos;./Deque&apos; ;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Deque from &apos;./Deque.js&apos;;
 
-export default function ArbitrarySizeDeque ( ) { }
+export default function ArbitrarySizeDeque() {}
 
-ArbitrarySizeDeque.prototype = new Deque( ) ;
+ArbitrarySizeDeque.prototype = new Deque();
 
-ArbitrarySizeDeque.prototype.values = function* ( ) {
+ArbitrarySizeDeque.prototype.values = function* () {
+	let i = this.center;
+	const _m = i + this.length;
+	const m = Math.min(this.capacity(), _m);
 
-	let i = this.center ;
-	const _m = ( i + this.length ) ;
-	const m = Math.min( this.capacity( ) , _m ) ;
+	for (; i &lt; m; ++i) {
+		yield this.container[i];
+	}
 
-	for ( ; i &lt; m ; ++i ) yield this.container[i] ;
+	const n = _m % this.capacity();
 
-	const n = _m % this.capacity( ) ;
+	if (n &lt; _m) {
+		for (i = 0; i &lt; n; ++i) {
+			yield this.container[i];
+		}
+	}
+};
 
-	if ( n &lt; _m ) for ( i = 0 ; i &lt; n ; ++i ) yield this.container[i] ;
+ArbitrarySizeDeque.prototype.pop = function () {
+	const [container, index] = this._where(this.length - 1);
 
-} ;
+	return this._popindex(container, index);
+};
 
-ArbitrarySizeDeque.prototype.pop = function ( ) {
+ArbitrarySizeDeque.prototype.popleft = function () {
+	const [container, index] = this._where(0);
 
-	const [ container , index ] = this._where( this.length - 1 ) ;
+	++this.center;
+	this.center %= this.capacity();
 
-	return this._popindex( container , index ) ;
-
-} ;
-
-ArbitrarySizeDeque.prototype.popleft = function ( ) {
-
-	const [ container , index ] = this._where( 0 ) ;
-
-	++this.center ;
-	this.center %= this.capacity( ) ;
-
-	return this._popindex( container , index ) ;
-
-} ;
+	return this._popindex(container, index);
+};
 </code></pre>
 
 </div>

@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 358,
+  "end": 354,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 358,
+    "end": 354,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ImportDeclaration",
         "start": 0,
-        "end": 29,
+        "end": 31,
         "loc": {
           "start": {
             "line": 1,
@@ -39,7 +39,7 @@
           },
           "end": {
             "line": 1,
-            "column": 29
+            "column": 31
           }
         },
         "specifiers": [
@@ -79,7 +79,7 @@
         "source": {
           "type": "StringLiteral",
           "start": 18,
-          "end": 27,
+          "end": 30,
           "loc": {
             "start": {
               "line": 1,
@@ -87,20 +87,20 @@
             },
             "end": {
               "line": 1,
-              "column": 27
+              "column": 30
             }
           },
           "extra": {
-            "rawValue": "./deque",
-            "raw": "'./deque'"
+            "rawValue": "./deque.js",
+            "raw": "'./deque.js'"
           },
-          "value": "./deque"
+          "value": "./deque.js"
         }
       },
       {
         "type": "ImportDeclaration",
-        "start": 30,
-        "end": 61,
+        "start": 32,
+        "end": 65,
         "loc": {
           "start": {
             "line": 2,
@@ -108,14 +108,14 @@
           },
           "end": {
             "line": 2,
-            "column": 31
+            "column": 33
           }
         },
         "specifiers": [
           {
             "type": "ImportDefaultSpecifier",
-            "start": 37,
-            "end": 43,
+            "start": 39,
+            "end": 45,
             "loc": {
               "start": {
                 "line": 2,
@@ -128,8 +128,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 37,
-              "end": 43,
+              "start": 39,
+              "end": 45,
               "loc": {
                 "start": {
                   "line": 2,
@@ -147,8 +147,8 @@
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 49,
-          "end": 59,
+          "start": 51,
+          "end": 64,
           "loc": {
             "start": {
               "line": 2,
@@ -156,20 +156,20 @@
             },
             "end": {
               "line": 2,
-              "column": 29
+              "column": 32
             }
           },
           "extra": {
-            "rawValue": "./_deque",
-            "raw": "'./_deque'"
+            "rawValue": "./_deque.js",
+            "raw": "'./_deque.js'"
           },
-          "value": "./_deque"
+          "value": "./_deque.js"
         }
       },
       {
         "type": "ImportDeclaration",
-        "start": 62,
-        "end": 199,
+        "start": 66,
+        "end": 205,
         "loc": {
           "start": {
             "line": 3,
@@ -177,14 +177,14 @@
           },
           "end": {
             "line": 10,
-            "column": 27
+            "column": 35
           }
         },
         "specifiers": [
           {
             "type": "ImportSpecifier",
-            "start": 72,
-            "end": 77,
+            "start": 76,
+            "end": 81,
             "loc": {
               "start": {
                 "line": 4,
@@ -197,8 +197,8 @@
             },
             "imported": {
               "type": "Identifier",
-              "start": 72,
-              "end": 77,
+              "start": 76,
+              "end": 81,
               "loc": {
                 "start": {
                   "line": 4,
@@ -214,8 +214,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 72,
-              "end": 77,
+              "start": 76,
+              "end": 81,
               "loc": {
                 "start": {
                   "line": 4,
@@ -232,8 +232,8 @@
           },
           {
             "type": "ImportSpecifier",
-            "start": 81,
-            "end": 99,
+            "start": 84,
+            "end": 102,
             "loc": {
               "start": {
                 "line": 5,
@@ -246,8 +246,8 @@
             },
             "imported": {
               "type": "Identifier",
-              "start": 81,
-              "end": 99,
+              "start": 84,
+              "end": 102,
               "loc": {
                 "start": {
                   "line": 5,
@@ -263,8 +263,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 81,
-              "end": 99,
+              "start": 84,
+              "end": 102,
               "loc": {
                 "start": {
                   "line": 5,
@@ -281,8 +281,8 @@
           },
           {
             "type": "ImportSpecifier",
-            "start": 103,
-            "end": 117,
+            "start": 105,
+            "end": 119,
             "loc": {
               "start": {
                 "line": 6,
@@ -295,8 +295,8 @@
             },
             "imported": {
               "type": "Identifier",
-              "start": 103,
-              "end": 117,
+              "start": 105,
+              "end": 119,
               "loc": {
                 "start": {
                   "line": 6,
@@ -312,8 +312,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 103,
-              "end": 117,
+              "start": 105,
+              "end": 119,
               "loc": {
                 "start": {
                   "line": 6,
@@ -330,8 +330,8 @@
           },
           {
             "type": "ImportSpecifier",
-            "start": 121,
-            "end": 133,
+            "start": 122,
+            "end": 134,
             "loc": {
               "start": {
                 "line": 7,
@@ -344,8 +344,8 @@
             },
             "imported": {
               "type": "Identifier",
-              "start": 121,
-              "end": 133,
+              "start": 122,
+              "end": 134,
               "loc": {
                 "start": {
                   "line": 7,
@@ -361,8 +361,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 121,
-              "end": 133,
+              "start": 122,
+              "end": 134,
               "loc": {
                 "start": {
                   "line": 7,
@@ -428,8 +428,8 @@
           },
           {
             "type": "ImportSpecifier",
-            "start": 159,
-            "end": 169,
+            "start": 158,
+            "end": 168,
             "loc": {
               "start": {
                 "line": 9,
@@ -442,8 +442,8 @@
             },
             "imported": {
               "type": "Identifier",
-              "start": 159,
-              "end": 169,
+              "start": 158,
+              "end": 168,
               "loc": {
                 "start": {
                   "line": 9,
@@ -459,8 +459,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 159,
-              "end": 169,
+              "start": 158,
+              "end": 168,
               "loc": {
                 "start": {
                   "line": 9,
@@ -478,8 +478,8 @@
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 179,
-          "end": 197,
+          "start": 177,
+          "end": 204,
           "loc": {
             "start": {
               "line": 10,
@@ -487,20 +487,20 @@
             },
             "end": {
               "line": 10,
-              "column": 25
+              "column": 34
             }
           },
           "extra": {
-            "rawValue": "./implementation",
-            "raw": "'./implementation'"
+            "rawValue": "./implementation/index.js",
+            "raw": "'./implementation/index.js'"
           },
-          "value": "./implementation"
+          "value": "./implementation/index.js"
         }
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 201,
-        "end": 223,
+        "start": 207,
+        "end": 228,
         "loc": {
           "start": {
             "line": 12,
@@ -508,13 +508,13 @@
           },
           "end": {
             "line": 12,
-            "column": 22
+            "column": 21
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 216,
-          "end": 221,
+          "start": 222,
+          "end": 227,
           "loc": {
             "start": {
               "line": 12,
@@ -533,8 +533,8 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 225,
-        "end": 357,
+        "start": 230,
+        "end": 353,
         "loc": {
           "start": {
             "line": 14,
@@ -542,15 +542,15 @@
           },
           "end": {
             "line": 23,
-            "column": 3
+            "column": 2
           }
         },
         "declaration": null,
         "specifiers": [
           {
             "type": "ExportSpecifier",
-            "start": 235,
-            "end": 240,
+            "start": 240,
+            "end": 245,
             "loc": {
               "start": {
                 "line": 15,
@@ -563,8 +563,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 235,
-              "end": 240,
+              "start": 240,
+              "end": 245,
               "loc": {
                 "start": {
                   "line": 15,
@@ -580,8 +580,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 235,
-              "end": 240,
+              "start": 240,
+              "end": 245,
               "loc": {
                 "start": {
                   "line": 15,
@@ -598,8 +598,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 244,
-            "end": 250,
+            "start": 248,
+            "end": 254,
             "loc": {
               "start": {
                 "line": 16,
@@ -612,8 +612,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 244,
-              "end": 250,
+              "start": 248,
+              "end": 254,
               "loc": {
                 "start": {
                   "line": 16,
@@ -629,8 +629,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 244,
-              "end": 250,
+              "start": 248,
+              "end": 254,
               "loc": {
                 "start": {
                   "line": 16,
@@ -647,8 +647,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 254,
-            "end": 259,
+            "start": 257,
+            "end": 262,
             "loc": {
               "start": {
                 "line": 17,
@@ -661,8 +661,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 254,
-              "end": 259,
+              "start": 257,
+              "end": 262,
               "loc": {
                 "start": {
                   "line": 17,
@@ -678,8 +678,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 254,
-              "end": 259,
+              "start": 257,
+              "end": 262,
               "loc": {
                 "start": {
                   "line": 17,
@@ -696,8 +696,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 263,
-            "end": 281,
+            "start": 265,
+            "end": 283,
             "loc": {
               "start": {
                 "line": 18,
@@ -710,8 +710,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 263,
-              "end": 281,
+              "start": 265,
+              "end": 283,
               "loc": {
                 "start": {
                   "line": 18,
@@ -727,8 +727,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 263,
-              "end": 281,
+              "start": 265,
+              "end": 283,
               "loc": {
                 "start": {
                   "line": 18,
@@ -745,8 +745,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 285,
-            "end": 299,
+            "start": 286,
+            "end": 300,
             "loc": {
               "start": {
                 "line": 19,
@@ -759,8 +759,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 285,
-              "end": 299,
+              "start": 286,
+              "end": 300,
               "loc": {
                 "start": {
                   "line": 19,
@@ -776,8 +776,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 285,
-              "end": 299,
+              "start": 286,
+              "end": 300,
               "loc": {
                 "start": {
                   "line": 19,
@@ -843,8 +843,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 319,
-            "end": 337,
+            "start": 318,
+            "end": 336,
             "loc": {
               "start": {
                 "line": 21,
@@ -857,8 +857,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 319,
-              "end": 337,
+              "start": 318,
+              "end": 336,
               "loc": {
                 "start": {
                   "line": 21,
@@ -874,8 +874,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 319,
-              "end": 337,
+              "start": 318,
+              "end": 336,
               "loc": {
                 "start": {
                   "line": 21,
@@ -892,8 +892,8 @@
           },
           {
             "type": "ExportSpecifier",
-            "start": 341,
-            "end": 351,
+            "start": 339,
+            "end": 349,
             "loc": {
               "start": {
                 "line": 22,
@@ -906,8 +906,8 @@
             },
             "local": {
               "type": "Identifier",
-              "start": 341,
-              "end": 351,
+              "start": 339,
+              "end": 349,
               "loc": {
                 "start": {
                   "line": 22,
@@ -923,8 +923,8 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 341,
-              "end": 351,
+              "start": 339,
+              "end": 349,
               "loc": {
                 "start": {
                   "line": 22,
@@ -1040,9 +1040,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./deque",
+      "value": "./deque.js",
       "start": 18,
-      "end": 27,
+      "end": 30,
       "loc": {
         "start": {
           "line": 1,
@@ -1050,7 +1050,7 @@
         },
         "end": {
           "line": 1,
-          "column": 27
+          "column": 30
         }
       }
     },
@@ -1067,16 +1067,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 28,
-      "end": 29,
+      "start": 30,
+      "end": 31,
       "loc": {
         "start": {
           "line": 1,
-          "column": 28
+          "column": 30
         },
         "end": {
           "line": 1,
-          "column": 29
+          "column": 31
         }
       }
     },
@@ -1095,8 +1095,8 @@
         "updateContext": null
       },
       "value": "import",
-      "start": 30,
-      "end": 36,
+      "start": 32,
+      "end": 38,
       "loc": {
         "start": {
           "line": 2,
@@ -1121,8 +1121,8 @@
         "binop": null
       },
       "value": "_deque",
-      "start": 37,
-      "end": 43,
+      "start": 39,
+      "end": 45,
       "loc": {
         "start": {
           "line": 2,
@@ -1147,8 +1147,8 @@
         "binop": null
       },
       "value": "from",
-      "start": 44,
-      "end": 48,
+      "start": 46,
+      "end": 50,
       "loc": {
         "start": {
           "line": 2,
@@ -1173,9 +1173,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./_deque",
-      "start": 49,
-      "end": 59,
+      "value": "./_deque.js",
+      "start": 51,
+      "end": 64,
       "loc": {
         "start": {
           "line": 2,
@@ -1183,7 +1183,7 @@
         },
         "end": {
           "line": 2,
-          "column": 29
+          "column": 32
         }
       }
     },
@@ -1200,16 +1200,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 60,
-      "end": 61,
+      "start": 64,
+      "end": 65,
       "loc": {
         "start": {
           "line": 2,
-          "column": 30
+          "column": 32
         },
         "end": {
           "line": 2,
-          "column": 31
+          "column": 33
         }
       }
     },
@@ -1228,8 +1228,8 @@
         "updateContext": null
       },
       "value": "import",
-      "start": 62,
-      "end": 68,
+      "start": 66,
+      "end": 72,
       "loc": {
         "start": {
           "line": 3,
@@ -1253,8 +1253,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 69,
-      "end": 70,
+      "start": 73,
+      "end": 74,
       "loc": {
         "start": {
           "line": 3,
@@ -1279,8 +1279,8 @@
         "binop": null
       },
       "value": "Deque",
-      "start": 72,
-      "end": 77,
+      "start": 76,
+      "end": 81,
       "loc": {
         "start": {
           "line": 4,
@@ -1305,16 +1305,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 78,
-      "end": 79,
+      "start": 81,
+      "end": 82,
       "loc": {
         "start": {
           "line": 4,
-          "column": 7
+          "column": 6
         },
         "end": {
           "line": 4,
-          "column": 8
+          "column": 7
         }
       }
     },
@@ -1331,8 +1331,8 @@
         "binop": null
       },
       "value": "ArbitrarySizeDeque",
-      "start": 81,
-      "end": 99,
+      "start": 84,
+      "end": 102,
       "loc": {
         "start": {
           "line": 5,
@@ -1357,16 +1357,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 100,
-      "end": 101,
+      "start": 102,
+      "end": 103,
       "loc": {
         "start": {
           "line": 5,
-          "column": 20
+          "column": 19
         },
         "end": {
           "line": 5,
-          "column": 21
+          "column": 20
         }
       }
     },
@@ -1383,8 +1383,8 @@
         "binop": null
       },
       "value": "UnboundedDeque",
-      "start": 103,
-      "end": 117,
+      "start": 105,
+      "end": 119,
       "loc": {
         "start": {
           "line": 6,
@@ -1409,16 +1409,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 118,
-      "end": 119,
+      "start": 119,
+      "end": 120,
       "loc": {
         "start": {
           "line": 6,
-          "column": 16
+          "column": 15
         },
         "end": {
           "line": 6,
-          "column": 17
+          "column": 16
         }
       }
     },
@@ -1435,8 +1435,8 @@
         "binop": null
       },
       "value": "BoundedDeque",
-      "start": 121,
-      "end": 133,
+      "start": 122,
+      "end": 134,
       "loc": {
         "start": {
           "line": 7,
@@ -1466,11 +1466,11 @@
       "loc": {
         "start": {
           "line": 7,
-          "column": 14
+          "column": 13
         },
         "end": {
           "line": 7,
-          "column": 15
+          "column": 14
         }
       }
     },
@@ -1513,16 +1513,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 156,
-      "end": 157,
+      "start": 155,
+      "end": 156,
       "loc": {
         "start": {
           "line": 8,
-          "column": 20
+          "column": 19
         },
         "end": {
           "line": 8,
-          "column": 21
+          "column": 20
         }
       }
     },
@@ -1539,8 +1539,8 @@
         "binop": null
       },
       "value": "EmptyDeque",
-      "start": 159,
-      "end": 169,
+      "start": 158,
+      "end": 168,
       "loc": {
         "start": {
           "line": 9,
@@ -1565,16 +1565,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 170,
-      "end": 171,
+      "start": 168,
+      "end": 169,
       "loc": {
         "start": {
           "line": 9,
-          "column": 12
+          "column": 11
         },
         "end": {
           "line": 9,
-          "column": 13
+          "column": 12
         }
       }
     },
@@ -1590,8 +1590,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 172,
-      "end": 173,
+      "start": 170,
+      "end": 171,
       "loc": {
         "start": {
           "line": 10,
@@ -1616,8 +1616,8 @@
         "binop": null
       },
       "value": "from",
-      "start": 174,
-      "end": 178,
+      "start": 172,
+      "end": 176,
       "loc": {
         "start": {
           "line": 10,
@@ -1642,9 +1642,9 @@
         "binop": null,
         "updateContext": null
       },
-      "value": "./implementation",
-      "start": 179,
-      "end": 197,
+      "value": "./implementation/index.js",
+      "start": 177,
+      "end": 204,
       "loc": {
         "start": {
           "line": 10,
@@ -1652,7 +1652,7 @@
         },
         "end": {
           "line": 10,
-          "column": 25
+          "column": 34
         }
       }
     },
@@ -1669,16 +1669,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 198,
-      "end": 199,
+      "start": 204,
+      "end": 205,
       "loc": {
         "start": {
           "line": 10,
-          "column": 26
+          "column": 34
         },
         "end": {
           "line": 10,
-          "column": 27
+          "column": 35
         }
       }
     },
@@ -1697,8 +1697,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 201,
-      "end": 207,
+      "start": 207,
+      "end": 213,
       "loc": {
         "start": {
           "line": 12,
@@ -1725,8 +1725,8 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 208,
-      "end": 215,
+      "start": 214,
+      "end": 221,
       "loc": {
         "start": {
           "line": 12,
@@ -1751,8 +1751,8 @@
         "binop": null
       },
       "value": "deque",
-      "start": 216,
-      "end": 221,
+      "start": 222,
+      "end": 227,
       "loc": {
         "start": {
           "line": 12,
@@ -1777,16 +1777,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 222,
-      "end": 223,
+      "start": 227,
+      "end": 228,
       "loc": {
         "start": {
           "line": 12,
-          "column": 21
+          "column": 20
         },
         "end": {
           "line": 12,
-          "column": 22
+          "column": 21
         }
       }
     },
@@ -1805,8 +1805,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 225,
-      "end": 231,
+      "start": 230,
+      "end": 236,
       "loc": {
         "start": {
           "line": 14,
@@ -1830,8 +1830,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 232,
-      "end": 233,
+      "start": 237,
+      "end": 238,
       "loc": {
         "start": {
           "line": 14,
@@ -1856,8 +1856,8 @@
         "binop": null
       },
       "value": "deque",
-      "start": 235,
-      "end": 240,
+      "start": 240,
+      "end": 245,
       "loc": {
         "start": {
           "line": 15,
@@ -1882,16 +1882,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 241,
-      "end": 242,
+      "start": 245,
+      "end": 246,
       "loc": {
         "start": {
           "line": 15,
-          "column": 7
+          "column": 6
         },
         "end": {
           "line": 15,
-          "column": 8
+          "column": 7
         }
       }
     },
@@ -1908,8 +1908,8 @@
         "binop": null
       },
       "value": "_deque",
-      "start": 244,
-      "end": 250,
+      "start": 248,
+      "end": 254,
       "loc": {
         "start": {
           "line": 16,
@@ -1934,16 +1934,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 251,
-      "end": 252,
+      "start": 254,
+      "end": 255,
       "loc": {
         "start": {
           "line": 16,
-          "column": 8
+          "column": 7
         },
         "end": {
           "line": 16,
-          "column": 9
+          "column": 8
         }
       }
     },
@@ -1960,8 +1960,8 @@
         "binop": null
       },
       "value": "Deque",
-      "start": 254,
-      "end": 259,
+      "start": 257,
+      "end": 262,
       "loc": {
         "start": {
           "line": 17,
@@ -1986,16 +1986,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 260,
-      "end": 261,
+      "start": 262,
+      "end": 263,
       "loc": {
         "start": {
           "line": 17,
-          "column": 7
+          "column": 6
         },
         "end": {
           "line": 17,
-          "column": 8
+          "column": 7
         }
       }
     },
@@ -2012,8 +2012,8 @@
         "binop": null
       },
       "value": "ArbitrarySizeDeque",
-      "start": 263,
-      "end": 281,
+      "start": 265,
+      "end": 283,
       "loc": {
         "start": {
           "line": 18,
@@ -2038,16 +2038,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 282,
-      "end": 283,
+      "start": 283,
+      "end": 284,
       "loc": {
         "start": {
           "line": 18,
-          "column": 20
+          "column": 19
         },
         "end": {
           "line": 18,
-          "column": 21
+          "column": 20
         }
       }
     },
@@ -2064,8 +2064,8 @@
         "binop": null
       },
       "value": "UnboundedDeque",
-      "start": 285,
-      "end": 299,
+      "start": 286,
+      "end": 300,
       "loc": {
         "start": {
           "line": 19,
@@ -2095,11 +2095,11 @@
       "loc": {
         "start": {
           "line": 19,
-          "column": 16
+          "column": 15
         },
         "end": {
           "line": 19,
-          "column": 17
+          "column": 16
         }
       }
     },
@@ -2142,16 +2142,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 316,
-      "end": 317,
+      "start": 315,
+      "end": 316,
       "loc": {
         "start": {
           "line": 20,
-          "column": 14
+          "column": 13
         },
         "end": {
           "line": 20,
-          "column": 15
+          "column": 14
         }
       }
     },
@@ -2168,8 +2168,8 @@
         "binop": null
       },
       "value": "SingleElementDeque",
-      "start": 319,
-      "end": 337,
+      "start": 318,
+      "end": 336,
       "loc": {
         "start": {
           "line": 21,
@@ -2194,16 +2194,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 338,
-      "end": 339,
+      "start": 336,
+      "end": 337,
       "loc": {
         "start": {
           "line": 21,
-          "column": 20
+          "column": 19
         },
         "end": {
           "line": 21,
-          "column": 21
+          "column": 20
         }
       }
     },
@@ -2220,8 +2220,8 @@
         "binop": null
       },
       "value": "EmptyDeque",
-      "start": 341,
-      "end": 351,
+      "start": 339,
+      "end": 349,
       "loc": {
         "start": {
           "line": 22,
@@ -2246,16 +2246,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 352,
-      "end": 353,
+      "start": 349,
+      "end": 350,
       "loc": {
         "start": {
           "line": 22,
-          "column": 12
+          "column": 11
         },
         "end": {
           "line": 22,
-          "column": 13
+          "column": 12
         }
       }
     },
@@ -2271,8 +2271,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 354,
-      "end": 355,
+      "start": 351,
+      "end": 352,
       "loc": {
         "start": {
           "line": 23,
@@ -2297,16 +2297,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 356,
-      "end": 357,
+      "start": 352,
+      "end": 353,
       "loc": {
         "start": {
           "line": 23,
-          "column": 2
+          "column": 1
         },
         "end": {
           "line": 23,
-          "column": 3
+          "column": 2
         }
       }
     },
@@ -2323,8 +2323,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 358,
-      "end": 358,
+      "start": 354,
+      "end": 354,
       "loc": {
         "start": {
           "line": 24,
