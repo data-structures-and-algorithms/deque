@@ -1,14 +1,12 @@
 import {
-	Deque ,
-	ArbitrarySizeDeque ,
-	UnboundedDeque ,
-	BoundedDeque ,
-	SingleElementDeque ,
-	EmptyDeque ,
-} from './implementation' ;
+	UnboundedDeque,
+	BoundedDeque,
+	SingleElementDeque,
+	EmptyDeque
+} from './implementation/index.js';
 
-import _deque from './_deque' ;
+import _deque from './_deque.js';
 
-const deque = _deque( UnboundedDeque , BoundedDeque , SingleElementDeque , EmptyDeque ) ;
+const deque = _deque(UnboundedDeque, BoundedDeque, SingleElementDeque, EmptyDeque);
 
-export default deque ;
+export default deque;

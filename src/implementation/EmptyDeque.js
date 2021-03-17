@@ -1,65 +1,50 @@
-import { IndexError } from '@aureooms/js-error' ;
-import Deque from './Deque' ;
+import {IndexError} from '@aureooms/js-error';
+import Deque from './Deque.js';
 
-export default function EmptyDeque ( iterable ) {
-
-	if ( iterable !== null ) this.extend( iterable ) ;
-
+export default function EmptyDeque(iterable) {
+	if (iterable !== null) {
+		this.extend(iterable);
+	}
 }
 
-EmptyDeque.prototype = new Deque( ) ;
+EmptyDeque.prototype = new Deque();
 
-EmptyDeque.prototype.len = function ( ) {
+EmptyDeque.prototype.len = function () {
+	return 0;
+};
 
-	return 0 ;
+EmptyDeque.prototype.capacity = function () {
+	return 0;
+};
 
-} ;
+EmptyDeque.prototype.values = function () {
+	return {next() {
+		return {done: true};
+	}};
+};
 
-EmptyDeque.prototype.capacity = function ( ) {
+EmptyDeque.prototype.append = function (_x) {
+	return this;
+};
 
-	return 0 ;
+EmptyDeque.prototype.appendleft = function (_x) {
+	return this;
+};
 
-} ;
+EmptyDeque.prototype.clear = function () {
+	return this;
+};
 
-EmptyDeque.prototype.values = function ( ) {
+EmptyDeque.prototype.copy = function () {
+	return new EmptyDeque(this);
+};
 
-	return { next : function ( ) { return { done : true } ; } } ;
-
-} ;
-
-EmptyDeque.prototype.append = function ( x ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.appendleft = function ( x ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.clear = function ( ) {
-
-	return this ;
-
-} ;
-
-EmptyDeque.prototype.copy = function ( ) {
-
-	return new EmptyDeque( this ) ;
-
-} ;
-
-EmptyDeque.prototype._where = function ( i ) {
-
-	throw new IndexError( i ) ;
-
-} ;
+EmptyDeque.prototype._where = function (i) {
+	throw new IndexError(i);
+};
 
 EmptyDeque.prototype.pop =
-EmptyDeque.prototype.popleft = function ( ) {
-
-	throw new IndexError( "pop / popleft" ) ;
-
-} ;
+// eslint-disable-next-line no-multi-assign
+EmptyDeque.prototype.popleft = function () {
+	throw new IndexError('pop / popleft');
+};

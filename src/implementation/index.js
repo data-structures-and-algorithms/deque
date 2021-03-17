@@ -1,24 +1,15 @@
-import ArbitrarySizeDeque from './ArbitrarySizeDeque' ;
-import BoundedDeque from './BoundedDeque' ;
-import Deque from './Deque' ;
-import EmptyDeque from './EmptyDeque' ;
-import SingleElementDeque from './SingleElementDeque' ;
-import UnboundedDeque from './UnboundedDeque' ;
-
-export default {
-	ArbitrarySizeDeque ,
-	BoundedDeque ,
-	Deque ,
-	EmptyDeque ,
-	SingleElementDeque ,
-	UnboundedDeque ,
-} ;
+import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';
+import BoundedDeque from './BoundedDeque.js';
+import Deque from './Deque.js';
+import EmptyDeque from './EmptyDeque.js';
+import SingleElementDeque from './SingleElementDeque.js';
+import UnboundedDeque from './UnboundedDeque.js';
 
 export {
-	ArbitrarySizeDeque ,
-	BoundedDeque ,
-	Deque ,
-	EmptyDeque ,
-	SingleElementDeque ,
-	UnboundedDeque ,
-} ;
+	ArbitrarySizeDeque,
+	BoundedDeque,
+	Deque,
+	EmptyDeque,
+	SingleElementDeque,
+	UnboundedDeque
+};

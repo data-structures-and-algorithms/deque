@@ -1,23 +1,23 @@
-import deque from './deque' ;
-import _deque from './_deque' ;
+import deque from './deque.js';
+import _deque from './_deque.js';
 import {
-	Deque ,
-	ArbitrarySizeDeque ,
-	UnboundedDeque ,
-	BoundedDeque ,
-	SingleElementDeque ,
-	EmptyDeque ,
-} from './implementation' ;
+	Deque,
+	ArbitrarySizeDeque,
+	UnboundedDeque,
+	BoundedDeque,
+	SingleElementDeque,
+	EmptyDeque
+} from './implementation/index.js';
 
-export default deque ;
+export default deque;
 
 export {
-	deque ,
-	_deque ,
-	Deque ,
-	ArbitrarySizeDeque ,
-	UnboundedDeque ,
-	BoundedDeque ,
-	SingleElementDeque ,
-	EmptyDeque ,
-} ;
+	deque,
+	_deque,
+	Deque,
+	ArbitrarySizeDeque,
+	UnboundedDeque,
+	BoundedDeque,
+	SingleElementDeque,
+	EmptyDeque
+};

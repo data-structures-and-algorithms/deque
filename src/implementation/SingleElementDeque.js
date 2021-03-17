@@ -1,91 +1,83 @@
-import { IndexError } from '@aureooms/js-error' ;
-import Deque from './Deque' ;
+import {IndexError} from '@aureooms/js-error';
+import Deque from './Deque.js';
 
-export default function SingleElementDeque ( iterable ) {
+export default function SingleElementDeque(iterable) {
+	this.empty = true;
 
-	this.empty = true ;
+	this.value = 0;
 
-	this.value = 0 ;
-
-	if ( iterable !== null ) this.extend( iterable ) ;
-
+	if (iterable !== null) {
+		this.extend(iterable);
+	}
 }
 
-SingleElementDeque.prototype = new Deque( ) ;
+SingleElementDeque.prototype = new Deque();
 
-SingleElementDeque.prototype.len = function ( ) {
+SingleElementDeque.prototype.len = function () {
+	return this.empty ? 0 : 1;
+};
 
-	return this.empty ? 0 : 1 ;
+SingleElementDeque.prototype.capacity = function () {
+	return 1;
+};
 
-} ;
+SingleElementDeque.prototype.values = function * () {
+	if (this.empty) {
+		return;
+	}
 
-SingleElementDeque.prototype.capacity = function ( ) {
-
-	return 1 ;
-
-} ;
-
-SingleElementDeque.prototype.values = function* ( ) {
-
-	if ( this.empty ) return ;
-
-	yield this.value ;
-
-} ;
+	yield this.value;
+};
 
 SingleElementDeque.prototype.append =
-SingleElementDeque.prototype.appendleft = function ( x ) {
+// eslint-disable-next-line no-multi-assign
+SingleElementDeque.prototype.appendleft = function (x) {
+	this.empty = false;
+	this.value = x;
 
-	this.empty = false ;
-	this.value = x ;
+	return this;
+};
 
-	return this ;
+SingleElementDeque.prototype.clear = function () {
+	this.empty = true;
+	this.value = 0;
 
-} ;
+	return this;
+};
 
-SingleElementDeque.prototype.clear = function ( ) {
-
-	this.empty = true ;
-	this.value = 0 ;
-
-	return this ;
-
-} ;
-
-SingleElementDeque.prototype.copy = function ( ) {
-
-	return new SingleElementDeque( this ) ;
-
-} ;
+SingleElementDeque.prototype.copy = function () {
+	return new SingleElementDeque(this);
+};
 
 SingleElementDeque.prototype.pop =
-SingleElementDeque.prototype.popleft = function ( ) {
+// eslint-disable-next-line no-multi-assign
+SingleElementDeque.prototype.popleft = function () {
+	if (this.empty) {
+		throw new IndexError('pop / popleft');
+	}
 
-	if ( this.empty ) throw new IndexError( "pop / popleft" ) ;
+	const value = this.value;
 
-	const value = this.value ;
+	this.empty = true;
+	this.value = 0;
 
-	this.empty = true ;
-	this.value = 0 ;
+	return value;
+};
 
-	return value ;
+SingleElementDeque.prototype.get = function (i) {
+	if (this.empty || i !== 0) {
+		throw new IndexError(i);
+	}
 
-} ;
+	return this.value;
+};
 
-SingleElementDeque.prototype.get = function ( i ) {
+SingleElementDeque.prototype.set = function (i, value) {
+	if (this.empty || i !== 0) {
+		throw new IndexError(i);
+	}
 
-	if ( this.empty || i !== 0 ) throw new IndexError( i ) ;
+	this.value = value;
 
-	return this.value ;
-
-} ;
-
-SingleElementDeque.prototype.set = function ( i , value ) {
-
-	if ( this.empty || i !== 0 ) throw new IndexError( i ) ;
-
-	this.value = value ;
-
-	return this ;
-
-} ;
+	return this;
+};
