@@ -19,7 +19,7 @@ import {
 	Deque,
 	SingleElementDeque,
 	EmptyDeque
-} from '../../src';
+} from "../../src/index.js";
 
 test('Deque base class', t => {
 	const d = new Deque();
