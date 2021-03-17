@@ -18,9 +18,11 @@ EmptyDeque.prototype.capacity = function () {
 };
 
 EmptyDeque.prototype.values = function () {
-	return {next() {
-		return {done: true};
-	}};
+	return {
+		next() {
+			return {done: true};
+		},
+	};
 };
 
 EmptyDeque.prototype.append = function (_x) {
@@ -44,7 +46,7 @@ EmptyDeque.prototype._where = function (i) {
 };
 
 EmptyDeque.prototype.pop =
-// eslint-disable-next-line no-multi-assign
-EmptyDeque.prototype.popleft = function () {
-	throw new IndexError('pop / popleft');
-};
+	// eslint-disable-next-line no-multi-assign
+	EmptyDeque.prototype.popleft = function () {
+		throw new IndexError('pop / popleft');
+	};

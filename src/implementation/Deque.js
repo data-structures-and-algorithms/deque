@@ -90,7 +90,7 @@ Deque.prototype.set = function (i, value) {
 	return this;
 };
 
-Deque.prototype._range = function * (start, stop) {
+Deque.prototype._range = function* (start, stop) {
 	for (let i = start; i < stop; ++i) {
 		yield [i, this.get(i)];
 	}

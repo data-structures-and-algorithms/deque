@@ -6,7 +6,7 @@ import {
 	UnboundedDeque,
 	BoundedDeque,
 	SingleElementDeque,
-	EmptyDeque
+	EmptyDeque,
 } from './implementation/index.js';
 
 export default deque;
@@ -19,5 +19,5 @@ export {
 	UnboundedDeque,
 	BoundedDeque,
 	SingleElementDeque,
-	EmptyDeque
+	EmptyDeque,
 };

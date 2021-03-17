@@ -4,9 +4,9 @@ export default function ArbitrarySizeDeque() {}
 
 ArbitrarySizeDeque.prototype = new Deque();
 
-ArbitrarySizeDeque.prototype.values = function * () {
+ArbitrarySizeDeque.prototype.values = function* () {
 	let i = this.center;
-	const _m = (i + this.length);
+	const _m = i + this.length;
 	const m = Math.min(this.capacity(), _m);
 
 	for (; i < m; ++i) {

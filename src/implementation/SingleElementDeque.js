@@ -21,7 +21,7 @@ SingleElementDeque.prototype.capacity = function () {
 	return 1;
 };
 
-SingleElementDeque.prototype.values = function * () {
+SingleElementDeque.prototype.values = function* () {
 	if (this.empty) {
 		return;
 	}
@@ -30,13 +30,13 @@ SingleElementDeque.prototype.values = function * () {
 };
 
 SingleElementDeque.prototype.append =
-// eslint-disable-next-line no-multi-assign
-SingleElementDeque.prototype.appendleft = function (x) {
-	this.empty = false;
-	this.value = x;
+	// eslint-disable-next-line no-multi-assign
+	SingleElementDeque.prototype.appendleft = function (x) {
+		this.empty = false;
+		this.value = x;
 
-	return this;
-};
+		return this;
+	};
 
 SingleElementDeque.prototype.clear = function () {
 	this.empty = true;
@@ -50,19 +50,19 @@ SingleElementDeque.prototype.copy = function () {
 };
 
 SingleElementDeque.prototype.pop =
-// eslint-disable-next-line no-multi-assign
-SingleElementDeque.prototype.popleft = function () {
-	if (this.empty) {
-		throw new IndexError('pop / popleft');
-	}
+	// eslint-disable-next-line no-multi-assign
+	SingleElementDeque.prototype.popleft = function () {
+		if (this.empty) {
+			throw new IndexError('pop / popleft');
+		}
 
-	const value = this.value;
+		const value = this.value;
 
-	this.empty = true;
-	this.value = 0;
+		this.empty = true;
+		this.value = 0;
 
-	return value;
-};
+		return value;
+	};
 
 SingleElementDeque.prototype.get = function (i) {
 	if (this.empty || i !== 0) {

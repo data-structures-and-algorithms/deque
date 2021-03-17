@@ -11,5 +11,5 @@ export {
 	Deque,
 	EmptyDeque,
 	SingleElementDeque,
-	UnboundedDeque
+	UnboundedDeque,
 };
