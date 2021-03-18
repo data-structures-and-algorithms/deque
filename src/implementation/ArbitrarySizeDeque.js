@@ -5,19 +5,19 @@ export default function ArbitrarySizeDeque() {}
 ArbitrarySizeDeque.prototype = new Deque();
 
 ArbitrarySizeDeque.prototype.values = function* () {
-	let i = this.center;
+	let i = this._center;
 	const _m = i + this.length;
 	const m = Math.min(this.capacity(), _m);
 
 	for (; i < m; ++i) {
-		yield this.container[i];
+		yield this._container[i];
 	}
 
 	const n = _m % this.capacity();
 
 	if (n < _m) {
 		for (i = 0; i < n; ++i) {
-			yield this.container[i];
+			yield this._container[i];
 		}
 	}
 };
@@ -31,8 +31,8 @@ ArbitrarySizeDeque.prototype.pop = function () {
 ArbitrarySizeDeque.prototype.popleft = function () {
 	const [container, index] = this._where(0);
 
-	++this.center;
-	this.center %= this.capacity();
+	++this._center;
+	this._center %= this.capacity();
 
 	return this._popindex(container, index);
 };

@@ -1,16 +1,16 @@
 import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';
 
 export default function UnboundedDeque(iterable) {
-	this.growth = 2;
+	this._growth = 2;
 
-	this.minsize = 10;
+	this._minsize = 10;
 
-	this.currentsize = this.minsize;
+	this._currentsize = this._minsize;
 
 	// eslint-disable-next-line unicorn/no-new-array
-	this.container = new Array(this.currentsize);
+	this._container = new Array(this._currentsize);
 
-	this.center = 0;
+	this._center = 0;
 
 	this.length = 0;
 
@@ -35,17 +35,17 @@ UnboundedDeque.prototype._realloc = function (newsize) {
 
 	this._copy(container);
 
-	this.container = container;
+	this._container = container;
 
-	this.center = 0;
+	this._center = 0;
 
-	this.currentsize = newsize;
+	this._currentsize = newsize;
 };
 
 UnboundedDeque.prototype._shrink = function () {
-	const newsize = Math.max(this.minsize, this.length * this.growth);
+	const newsize = Math.max(this._minsize, this.length * this._growth);
 
-	if (newsize * this.growth >= this.currentsize) {
+	if (newsize * this._growth >= this._currentsize) {
 		return;
 	}
 
@@ -53,11 +53,11 @@ UnboundedDeque.prototype._shrink = function () {
 };
 
 UnboundedDeque.prototype._grow = function (newlen) {
-	if (newlen <= this.currentsize) {
+	if (newlen <= this._currentsize) {
 		return;
 	}
 
-	this._realloc(newlen * this.growth);
+	this._realloc(newlen * this._growth);
 };
 
 UnboundedDeque.prototype.len = function () {
@@ -65,14 +65,14 @@ UnboundedDeque.prototype.len = function () {
 };
 
 UnboundedDeque.prototype.capacity = function () {
-	return this.currentsize;
+	return this._currentsize;
 };
 
 UnboundedDeque.prototype.append = function (x) {
 	this._grow(this.length + 1);
 
-	const i = (this.center + this.length) % this.currentsize;
-	this.container[i] = x;
+	const i = (this._center + this.length) % this._currentsize;
+	this._container[i] = x;
 	++this.length;
 
 	return this;
@@ -81,10 +81,10 @@ UnboundedDeque.prototype.append = function (x) {
 UnboundedDeque.prototype.appendleft = function (x) {
 	this._grow(this.length + 1);
 
-	--this.center;
-	this.center += this.currentsize;
-	this.center %= this.currentsize;
-	this.container[this.center] = x;
+	--this._center;
+	this._center += this._currentsize;
+	this._center %= this._currentsize;
+	this._container[this._center] = x;
 
 	++this.length;
 
@@ -92,12 +92,12 @@ UnboundedDeque.prototype.appendleft = function (x) {
 };
 
 UnboundedDeque.prototype.clear = function () {
-	this.currentsize = this.minsize;
+	this._currentsize = this._minsize;
 
 	// eslint-disable-next-line unicorn/no-new-array
-	this.container = new Array(this.currentsize);
+	this._container = new Array(this._currentsize);
 
-	this.center = 0;
+	this._center = 0;
 
 	this.length = 0;
 
@@ -111,7 +111,7 @@ UnboundedDeque.prototype.copy = function () {
 UnboundedDeque.prototype._where = function (i) {
 	this._checkbounds(i);
 
-	return [this.container, (this.center + i) % this.currentsize];
+	return [this._container, (this._center + i) % this._currentsize];
 };
 
 UnboundedDeque.prototype._popindex = function (container, index) {

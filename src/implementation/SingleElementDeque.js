@@ -2,9 +2,9 @@ import {IndexError} from '@aureooms/js-error';
 import Deque from './Deque.js';
 
 export default function SingleElementDeque(iterable) {
-	this.empty = true;
+	this._empty = true;
 
-	this.value = 0;
+	this._value = 0;
 
 	if (iterable !== null) {
 		this.extend(iterable);
@@ -14,7 +14,7 @@ export default function SingleElementDeque(iterable) {
 SingleElementDeque.prototype = new Deque();
 
 SingleElementDeque.prototype.len = function () {
-	return this.empty ? 0 : 1;
+	return this._empty ? 0 : 1;
 };
 
 SingleElementDeque.prototype.capacity = function () {
@@ -22,25 +22,25 @@ SingleElementDeque.prototype.capacity = function () {
 };
 
 SingleElementDeque.prototype.values = function* () {
-	if (this.empty) {
+	if (this._empty) {
 		return;
 	}
 
-	yield this.value;
+	yield this._value;
 };
 
 SingleElementDeque.prototype.append =
 	// eslint-disable-next-line no-multi-assign
 	SingleElementDeque.prototype.appendleft = function (x) {
-		this.empty = false;
-		this.value = x;
+		this._empty = false;
+		this._value = x;
 
 		return this;
 	};
 
 SingleElementDeque.prototype.clear = function () {
-	this.empty = true;
-	this.value = 0;
+	this._empty = true;
+	this._value = 0;
 
 	return this;
 };
@@ -52,32 +52,32 @@ SingleElementDeque.prototype.copy = function () {
 SingleElementDeque.prototype.pop =
 	// eslint-disable-next-line no-multi-assign
 	SingleElementDeque.prototype.popleft = function () {
-		if (this.empty) {
+		if (this._empty) {
 			throw new IndexError('pop / popleft');
 		}
 
-		const value = this.value;
+		const value = this._value;
 
-		this.empty = true;
-		this.value = 0;
+		this._empty = true;
+		this._value = 0;
 
 		return value;
 	};
 
 SingleElementDeque.prototype.get = function (i) {
-	if (this.empty || i !== 0) {
+	if (this._empty || i !== 0) {
 		throw new IndexError(i);
 	}
 
-	return this.value;
+	return this._value;
 };
 
 SingleElementDeque.prototype.set = function (i, value) {
-	if (this.empty || i !== 0) {
+	if (this._empty || i !== 0) {
 		throw new IndexError(i);
 	}
 
-	this.value = value;
+	this._value = value;
 
 	return this;
 };

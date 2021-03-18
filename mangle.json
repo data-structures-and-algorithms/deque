@@ -7,6 +7,23 @@
     }
   },
   "props": {
-    "props": {}
+    "props": {
+      "$_center": "x",
+      "$_checkbounds": "b",
+      "$_container": "c",
+      "$_copy": "y",
+      "$_currentsize": "s",
+      "$_empty": "e",
+      "$_grow": "g",
+      "$_growth": "G",
+      "$_maxlen": "M",
+      "$_minsize": "m",
+      "$_popindex": "p",
+      "$_range": "r",
+      "$_realloc": "a",
+      "$_shrink": "s",
+      "$_value": "v",
+      "$_where": "w"
+    }
   }
 }
