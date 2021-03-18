@@ -20,7 +20,7 @@ Deque.prototype.len = function () {
  * @return {Number}
  */
 Deque.prototype.capacity = function () {
-	throw new NotImplementedError('capcity');
+	throw new NotImplementedError('capacity');
 };
 
 /**
