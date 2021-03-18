@@ -1,5 +1,11 @@
 import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';
 
+/**
+ * BoundedDeque.
+ *
+ * @param {Iterable<any>} iterable
+ * @param {Number} maxlen
+ */
 export default function BoundedDeque(iterable, maxlen) {
 	this._maxlen = maxlen;
 
@@ -73,6 +79,13 @@ BoundedDeque.prototype._where = function (i) {
 	return [this._container, (this._center + i) % this._maxlen];
 };
 
+/**
+ * BoundedDeque.prototype._popindex.
+ *
+ * @param {any} container
+ * @param {Number} index
+ * @return {any}
+ */
 BoundedDeque.prototype._popindex = function (container, index) {
 	const value = container[index];
 

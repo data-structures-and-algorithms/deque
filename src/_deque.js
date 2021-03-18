@@ -1,11 +1,25 @@
 import {TypeError, ValueError} from '@aureooms/js-error';
 
+/**
+ * _deque.
+ *
+ * @param {Deque} UnboundedDeque
+ * @param {Deque} BoundedDeque
+ * @param {Deque} SingleElementDeque
+ * @param {Deque} EmptyDeque
+ */
 export default function _deque(
 	UnboundedDeque,
 	BoundedDeque,
 	SingleElementDeque,
 	EmptyDeque,
 ) {
+	/**
+	 * Deque.
+	 *
+	 * @param {Iterable<any>} iterable
+	 * @param {Number} maxlen
+	 */
 	const deque = (iterable = null, maxlen = null) => {
 		if (maxlen === null) {
 			return new UnboundedDeque(iterable);

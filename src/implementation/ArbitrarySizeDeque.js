@@ -1,5 +1,8 @@
 import Deque from './Deque.js';
 
+/**
+ * ArbitrarySizeDeque.
+ */
 export default function ArbitrarySizeDeque() {}
 
 ArbitrarySizeDeque.prototype = new Deque();

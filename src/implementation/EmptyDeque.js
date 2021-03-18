@@ -1,6 +1,11 @@
 import {IndexError} from '@aureooms/js-error';
 import Deque from './Deque.js';
 
+/**
+ * EmptyDeque.
+ *
+ * @param {Iterable<any>} iterable
+ */
 export default function EmptyDeque(iterable) {
 	if (iterable !== null) {
 		this.extend(iterable);

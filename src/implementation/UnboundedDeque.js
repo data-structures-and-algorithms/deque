@@ -1,5 +1,10 @@
 import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';
 
+/**
+ * UnboundedDeque.
+ *
+ * @param {Iterable<any>} iterable
+ */
 export default function UnboundedDeque(iterable) {
 	this._growth = 2;
 
