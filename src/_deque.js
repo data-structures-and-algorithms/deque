@@ -6,7 +6,7 @@ export default function _deque(
 	SingleElementDeque,
 	EmptyDeque,
 ) {
-	const deque = function (iterable = null, maxlen = null) {
+	const deque = (iterable = null, maxlen = null) => {
 		if (maxlen === null) {
 			return new UnboundedDeque(iterable);
 		}
