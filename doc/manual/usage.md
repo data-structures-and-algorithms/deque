@@ -11,5 +11,5 @@ Then
 ```js
 const {deque} = require( '@aureooms/js-collections-deque' ) ;
 // or
-import deque from '@aureooms/js-collections-deque' ;
+import {deque} from '@aureooms/js-collections-deque' ;
 ```

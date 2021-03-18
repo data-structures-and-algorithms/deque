@@ -8,6 +8,7 @@ See [docs](https://aureooms.github.io/js-collections-deque).
 Parent is [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).
 
 ```js
+import {deque} from '@aureooms/js-collections-deque';
 deque( 'abcde' , 3 ) ; // 'cde'
 ```
 
