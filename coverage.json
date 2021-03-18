@@ -1,14 +1,12 @@
 {
-  "coverage": "0%",
-  "expectCount": 71,
-  "actualCount": 0,
+  "coverage": "47.22%",
+  "expectCount": 72,
+  "actualCount": 34,
   "files": {
     "src/_deque.js": {
       "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        3
-      ]
+      "actualCount": 1,
+      "undocumentLines": []
     },
     "src/deque.js": {
       "expectCount": 1,
@@ -18,108 +16,75 @@
       ]
     },
     "src/implementation/ArbitrarySizeDeque.js": {
-      "expectCount": 4,
-      "actualCount": 0,
+      "expectCount": 5,
+      "actualCount": 2,
       "undocumentLines": [
-        3,
-        7,
-        25,
-        31
+        11,
+        40,
+        46
       ]
     },
     "src/implementation/BoundedDeque.js": {
       "expectCount": 9,
-      "actualCount": 0,
+      "actualCount": 2,
       "undocumentLines": [
-        3,
-        20,
-        24,
-        28,
-        42,
-        55,
-        66,
-        70,
+        26,
+        30,
+        34,
+        48,
+        61,
+        72,
         76
       ]
     },
     "src/implementation/Deque.js": {
       "expectCount": 26,
-      "actualCount": 0,
-      "undocumentLines": [
-        3,
-        5,
-        9,
-        13,
-        17,
-        21,
-        25,
-        29,
-        33,
-        37,
-        41,
-        53,
-        61,
-        69,
-        75,
-        79,
-        85,
-        93,
-        99,
-        109,
-        113,
-        117,
-        133,
-        147,
-        155,
-        166
-      ]
+      "actualCount": 26,
+      "undocumentLines": []
     },
     "src/implementation/EmptyDeque.js": {
       "expectCount": 9,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        4,
-        12,
-        16,
-        20,
-        28,
-        32,
-        36,
-        40,
-        44
+        17,
+        21,
+        25,
+        33,
+        37,
+        41,
+        45,
+        49
       ]
     },
     "src/implementation/SingleElementDeque.js": {
       "expectCount": 8,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        4,
-        16,
-        20,
-        24,
-        41,
-        48,
-        67,
-        75
+        21,
+        25,
+        29,
+        46,
+        53,
+        72,
+        80
       ]
     },
     "src/implementation/UnboundedDeque.js": {
       "expectCount": 13,
-      "actualCount": 0,
+      "actualCount": 1,
       "undocumentLines": [
-        3,
-        24,
-        32,
-        45,
-        55,
-        63,
-        67,
-        71,
-        81,
-        94,
-        107,
-        111,
-        117
+        29,
+        37,
+        50,
+        60,
+        68,
+        72,
+        76,
+        86,
+        99,
+        112,
+        116,
+        122
       ]
     }
   }

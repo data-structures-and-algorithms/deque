@@ -44,44 +44,98 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/implementation/Deque.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {NotImplementedError, IndexError, ValueError} from &apos;@aureooms/js-error&apos;;
 
+/**
+ * Deque.
+ */
 export default function Deque() {}
 
+/**
+ * Deque.prototype.len.
+ *
+ * @return {Number}
+ */
 Deque.prototype.len = function () {
 	throw new NotImplementedError(&apos;len&apos;);
 };
 
+/**
+ * Deque.prototype.capacity.
+ *
+ * @return {Number}
+ */
 Deque.prototype.capacity = function () {
-	throw new NotImplementedError(&apos;capcity&apos;);
+	throw new NotImplementedError(&apos;capacity&apos;);
 };
 
+/**
+ * Deque.prototype.empty.
+ *
+ * @return {Boolean}
+ */
 Deque.prototype.empty = function () {
 	return this.len() === 0;
 };
 
+/**
+ * Deque.prototype[Symbol.iterator].
+ *
+ * @return {Iterable&lt;any&gt;}
+ */
 Deque.prototype[Symbol.iterator] = function () {
 	return this.values();
 };
 
+/**
+ * Deque.prototype.values.
+ *
+ * @return {Iterable&lt;any&gt;}
+ */
 Deque.prototype.values = function () {
 	throw new NotImplementedError(&apos;values&apos;);
 };
 
+/**
+ * Deque.prototype.append.
+ *
+ * @param {any} _x
+ */
 Deque.prototype.append = function (_x) {
 	throw new NotImplementedError(&apos;append&apos;);
 };
 
+/**
+ * Deque.prototype.appendleft.
+ *
+ * @param {any} _x
+ */
 Deque.prototype.appendleft = function (_x) {
 	throw new NotImplementedError(&apos;appendleft&apos;);
 };
 
+/**
+ * Deque.prototype.clear.
+ *
+ * @return {Deque}
+ */
 Deque.prototype.clear = function () {
 	throw new NotImplementedError(&apos;clear&apos;);
 };
 
+/**
+ * Deque.prototype.copy.
+ *
+ * @return {Deque}
+ */
 Deque.prototype.copy = function () {
 	throw new NotImplementedError(&apos;copy&apos;);
 };
 
+/**
+ * Deque.prototype.count.
+ *
+ * @param {any} x
+ * @return {Number}
+ */
 Deque.prototype.count = function (x) {
 	let c = 0;
 
@@ -94,6 +148,11 @@ Deque.prototype.count = function (x) {
 	return c;
 };
 
+/**
+ * Deque.prototype.extend.
+ *
+ * @param {Iterable&lt;any&gt;} iterable
+ */
 Deque.prototype.extend = function (iterable) {
 	for (const x of iterable) {
 		this.append(x);
@@ -102,6 +161,11 @@ Deque.prototype.extend = function (iterable) {
 	return this;
 };
 
+/**
+ * Deque.prototype.extendleft.
+ *
+ * @param {Iterable&lt;any&gt;} iterable
+ */
 Deque.prototype.extendleft = function (iterable) {
 	for (const x of iterable) {
 		this.appendleft(x);
@@ -110,22 +174,46 @@ Deque.prototype.extendleft = function (iterable) {
 	return this;
 };
 
+/**
+ * Deque.prototype._checkbounds.
+ *
+ * @param {Number} i
+ */
 Deque.prototype._checkbounds = function (i) {
 	if (i &lt; 0 || i &gt;= this.len()) {
 		throw new IndexError(i);
 	}
 };
 
+/**
+ * Deque.prototype._where.
+ *
+ * @param {Number} _i
+ * @return {Array}
+ */
 Deque.prototype._where = function (_i) {
 	throw new NotImplementedError(&apos;_where&apos;);
 };
 
+/**
+ * Deque.prototype.get.
+ *
+ * @param {Number} i
+ * @return {any}
+ */
 Deque.prototype.get = function (i) {
 	const [container, index] = this._where(i);
 
 	return container[index];
 };
 
+/**
+ * Deque.prototype.set.
+ *
+ * @param {Number} i
+ * @param {any} value
+ * @return {Deque}
+ */
 Deque.prototype.set = function (i, value) {
 	const [container, index] = this._where(i);
 
@@ -134,12 +222,26 @@ Deque.prototype.set = function (i, value) {
 	return this;
 };
 
+/**
+ * Deque.prototype._range
+ *
+ * @param {Number} start
+ * @param {Number} stop
+ * @return {Iterable&lt;any&gt;}
+ */
 Deque.prototype._range = function* (start, stop) {
 	for (let i = start; i &lt; stop; ++i) {
 		yield [i, this.get(i)];
 	}
 };
 
+/**
+ * Deque.prototype.index.
+ *
+ * @param {any} x
+ * @param {Number} start
+ * @param {Number} stop
+ */
 Deque.prototype.index = function (x, start = 0, stop = this.len()) {
 	for (const [i, element] of this._range(start, stop)) {
 		if (element === x) {
@@ -150,14 +252,30 @@ Deque.prototype.index = function (x, start = 0, stop = this.len()) {
 	throw new ValueError(&apos;not found&apos;);
 };
 
+/**
+ * Deque.prototype.pop.
+ *
+ * @return {any}
+ */
 Deque.prototype.pop = function () {
 	throw new NotImplementedError(&apos;pop&apos;);
 };
 
+/**
+ * Deque.prototype.popleft.
+ *
+ * @return {any}
+ */
 Deque.prototype.popleft = function () {
 	throw new NotImplementedError(&apos;popleft&apos;);
 };
 
+/**
+ * Deque.prototype.insert.
+ *
+ * @param {Number} i
+ * @param {any} x
+ */
 Deque.prototype.insert = function (i, x) {
 	this._checkbounds(i);
 
@@ -174,6 +292,11 @@ Deque.prototype.insert = function (i, x) {
 	return this;
 };
 
+/**
+ * Deque.prototype.delete.
+ *
+ * @param {Number} i
+ */
 Deque.prototype.delete = function (i) {
 	this._checkbounds(i);
 
@@ -188,6 +311,11 @@ Deque.prototype.delete = function (i) {
 	return this;
 };
 
+/**
+ * Deque.prototype.remove.
+ *
+ * @param {any} value
+ */
 Deque.prototype.remove = function (value) {
 	const i = this.index(value);
 
@@ -196,6 +324,11 @@ Deque.prototype.remove = function (value) {
 	return this;
 };
 
+/**
+ * Deque.prototype.reverse.
+ *
+ * @return {Deque}
+ */
 Deque.prototype.reverse = function () {
 	for (let i = 0, j = this.len(); i &lt; --j; ++i) {
 		const a = this.get(i);
@@ -207,6 +340,11 @@ Deque.prototype.reverse = function () {
 	return this;
 };
 
+/**
+ * Deque.prototype.rotate.
+ *
+ * @param {Number} n
+ */
 Deque.prototype.rotate = function (n) {
 	if (n &gt; 0) {
 		while (n-- &gt; 0) {

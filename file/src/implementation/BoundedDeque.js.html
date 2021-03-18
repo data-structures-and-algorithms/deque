@@ -44,13 +44,19 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/implementation/BoundedDeque.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import ArbitrarySizeDeque from &apos;./ArbitrarySizeDeque.js&apos;;
 
+/**
+ * BoundedDeque.
+ *
+ * @param {Iterable&lt;any&gt;} iterable
+ * @param {Number} maxlen
+ */
 export default function BoundedDeque(iterable, maxlen) {
-	this.maxlen = maxlen;
+	this._maxlen = maxlen;
 
 	// eslint-disable-next-line unicorn/no-new-array
-	this.container = new Array(maxlen);
+	this._container = new Array(maxlen);
 
-	this.center = 0;
+	this._center = 0;
 
 	this.length = 0;
 
@@ -66,17 +72,17 @@ BoundedDeque.prototype.len = function () {
 };
 
 BoundedDeque.prototype.capacity = function () {
-	return this.maxlen;
+	return this._maxlen;
 };
 
 BoundedDeque.prototype.append = function (x) {
-	if (this.length === this.maxlen) {
-		this.container[this.center] = x;
-		++this.center;
-		this.center %= this.maxlen;
+	if (this.length === this._maxlen) {
+		this._container[this._center] = x;
+		++this._center;
+		this._center %= this._maxlen;
 	} else {
-		const i = (this.center + this.length) % this.maxlen;
-		this.container[i] = x;
+		const i = (this._center + this.length) % this._maxlen;
+		this._container[i] = x;
 		++this.length;
 	}
 
@@ -84,12 +90,12 @@ BoundedDeque.prototype.append = function (x) {
 };
 
 BoundedDeque.prototype.appendleft = function (x) {
-	--this.center;
-	this.center += this.maxlen;
-	this.center %= this.maxlen;
-	this.container[this.center] = x;
+	--this._center;
+	this._center += this._maxlen;
+	this._center %= this._maxlen;
+	this._container[this._center] = x;
 
-	if (this.length &lt; this.maxlen) {
+	if (this.length &lt; this._maxlen) {
 		++this.length;
 	}
 
@@ -97,26 +103,33 @@ BoundedDeque.prototype.appendleft = function (x) {
 };
 
 BoundedDeque.prototype.clear = function () {
-	this.center = 0;
+	this._center = 0;
 
 	this.length = 0;
 
 	// eslint-disable-next-line unicorn/no-new-array
-	this.container = new Array(this.maxlen);
+	this._container = new Array(this._maxlen);
 
 	return this;
 };
 
 BoundedDeque.prototype.copy = function () {
-	return new BoundedDeque(this, this.maxlen);
+	return new BoundedDeque(this, this._maxlen);
 };
 
 BoundedDeque.prototype._where = function (i) {
 	this._checkbounds(i);
 
-	return [this.container, (this.center + i) % this.maxlen];
+	return [this._container, (this._center + i) % this._maxlen];
 };
 
+/**
+ * BoundedDeque.prototype._popindex.
+ *
+ * @param {any} container
+ * @param {Number} index
+ * @return {any}
+ */
 BoundedDeque.prototype._popindex = function (container, index) {
 	const value = container[index];
 

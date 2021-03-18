@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/_deque.js",
-    "content": "import {TypeError, ValueError} from '@aureooms/js-error';\n\nexport default function _deque(\n\tUnboundedDeque,\n\tBoundedDeque,\n\tSingleElementDeque,\n\tEmptyDeque,\n) {\n\tconst deque = function (iterable = null, maxlen = null) {\n\t\tif (maxlen === null) {\n\t\t\treturn new UnboundedDeque(iterable);\n\t\t}\n\n\t\tif (!Number.isInteger(maxlen)) {\n\t\t\tthrow new TypeError(maxlen);\n\t\t}\n\n\t\tif (maxlen === 0) {\n\t\t\treturn new EmptyDeque(iterable);\n\t\t}\n\n\t\tif (maxlen === 1) {\n\t\t\treturn new SingleElementDeque(iterable);\n\t\t}\n\n\t\tif (maxlen > 0) {\n\t\t\treturn new BoundedDeque(iterable, maxlen);\n\t\t}\n\n\t\tthrow new ValueError(maxlen);\n\t};\n\n\treturn deque;\n}\n",
+    "content": "import {TypeError, ValueError} from '@aureooms/js-error';\n\n/**\n * _deque.\n *\n * @param {Deque} UnboundedDeque\n * @param {Deque} BoundedDeque\n * @param {Deque} SingleElementDeque\n * @param {Deque} EmptyDeque\n */\nexport default function _deque(\n\tUnboundedDeque,\n\tBoundedDeque,\n\tSingleElementDeque,\n\tEmptyDeque,\n) {\n\t/**\n\t * Deque.\n\t *\n\t * @param {Iterable<any>} iterable\n\t * @param {Number} maxlen\n\t */\n\tconst deque = (iterable = null, maxlen = null) => {\n\t\tif (maxlen === null) {\n\t\t\treturn new UnboundedDeque(iterable);\n\t\t}\n\n\t\tif (!Number.isInteger(maxlen)) {\n\t\t\tthrow new TypeError(maxlen);\n\t\t}\n\n\t\tif (maxlen === 0) {\n\t\t\treturn new EmptyDeque(iterable);\n\t\t}\n\n\t\tif (maxlen === 1) {\n\t\t\treturn new SingleElementDeque(iterable);\n\t\t}\n\n\t\tif (maxlen > 0) {\n\t\t\treturn new BoundedDeque(iterable, maxlen);\n\t\t}\n\n\t\tthrow new ValueError(maxlen);\n\t};\n\n\treturn deque;\n}\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/_deque.js",
     "access": "public",
@@ -587,33 +587,48 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/_deque.js",
     "importStyle": "_deque",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "_deque.",
+    "lineNumber": 11,
     "params": [
       {
+        "nullable": null,
+        "types": [
+          "Deque"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "UnboundedDeque",
-        "types": [
-          "*"
-        ]
+        "description": ""
       },
       {
+        "nullable": null,
+        "types": [
+          "Deque"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "BoundedDeque",
-        "types": [
-          "*"
-        ]
+        "description": ""
       },
       {
+        "nullable": null,
+        "types": [
+          "Deque"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "SingleElementDeque",
-        "types": [
-          "*"
-        ]
+        "description": ""
       },
       {
-        "name": "EmptyDeque",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Deque"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "EmptyDeque",
+        "description": ""
       }
     ],
     "return": {
@@ -657,7 +672,7 @@
     "__docId__": 52,
     "kind": "file",
     "name": "src/implementation/ArbitrarySizeDeque.js",
-    "content": "import Deque from './Deque.js';\n\nexport default function ArbitrarySizeDeque() {}\n\nArbitrarySizeDeque.prototype = new Deque();\n\nArbitrarySizeDeque.prototype.values = function* () {\n\tlet i = this.center;\n\tconst _m = i + this.length;\n\tconst m = Math.min(this.capacity(), _m);\n\n\tfor (; i < m; ++i) {\n\t\tyield this.container[i];\n\t}\n\n\tconst n = _m % this.capacity();\n\n\tif (n < _m) {\n\t\tfor (i = 0; i < n; ++i) {\n\t\t\tyield this.container[i];\n\t\t}\n\t}\n};\n\nArbitrarySizeDeque.prototype.pop = function () {\n\tconst [container, index] = this._where(this.length - 1);\n\n\treturn this._popindex(container, index);\n};\n\nArbitrarySizeDeque.prototype.popleft = function () {\n\tconst [container, index] = this._where(0);\n\n\t++this.center;\n\tthis.center %= this.capacity();\n\n\treturn this._popindex(container, index);\n};\n",
+    "content": "import Deque from './Deque.js';\nimport {NotImplementedError} from '@aureooms/js-error';\n\n/**\n * ArbitrarySizeDeque.\n */\nexport default function ArbitrarySizeDeque() {}\n\nArbitrarySizeDeque.prototype = new Deque();\n\nArbitrarySizeDeque.prototype.values = function* () {\n\tlet i = this._center;\n\tconst _m = i + this.length;\n\tconst m = Math.min(this.capacity(), _m);\n\n\tfor (; i < m; ++i) {\n\t\tyield this._container[i];\n\t}\n\n\tconst n = _m % this.capacity();\n\n\tif (n < _m) {\n\t\tfor (i = 0; i < n; ++i) {\n\t\t\tyield this._container[i];\n\t\t}\n\t}\n};\n\n/**\n * ArbitrarySizeDeque.prototype._popindex.\n *\n * @param {any} _container\n * @param {Number} _index\n * @return {any}\n */\nArbitrarySizeDeque.prototype._popindex = function (_container, _index) {\n\tthrow new NotImplementedError('_popindex');\n};\n\nArbitrarySizeDeque.prototype.pop = function () {\n\tconst [container, index] = this._where(this.length - 1);\n\n\treturn this._popindex(container, index);\n};\n\nArbitrarySizeDeque.prototype.popleft = function () {\n\tconst [container, index] = this._where(0);\n\n\t++this._center;\n\tthis._center %= this.capacity();\n\n\treturn this._popindex(container, index);\n};\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
     "access": "public",
@@ -677,9 +692,8 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
     "importStyle": "ArbitrarySizeDeque",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "ArbitrarySizeDeque.",
+    "lineNumber": 7,
     "params": [],
     "return": null
   },
@@ -697,7 +711,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 7,
+    "lineNumber": 11,
     "undocument": true,
     "params": [],
     "return": null,
@@ -705,6 +719,53 @@
   },
   {
     "__docId__": 55,
+    "kind": "function",
+    "name": "_popindex",
+    "memberof": "src/implementation/ArbitrarySizeDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/ArbitrarySizeDeque.js~_popindex",
+    "access": "private",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
+    "importStyle": null,
+    "description": "ArbitrarySizeDeque.prototype._popindex.",
+    "lineNumber": 36,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_container",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_index",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "any"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 56,
     "kind": "function",
     "name": "pop",
     "memberof": "src/implementation/ArbitrarySizeDeque.js",
@@ -717,7 +778,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 25,
+    "lineNumber": 40,
     "undocument": true,
     "params": [],
     "return": {
@@ -728,7 +789,7 @@
     "ignore": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "function",
     "name": "popleft",
     "memberof": "src/implementation/ArbitrarySizeDeque.js",
@@ -741,7 +802,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 31,
+    "lineNumber": 46,
     "undocument": true,
     "params": [],
     "return": {
@@ -752,10 +813,10 @@
     "ignore": true
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "file",
     "name": "src/implementation/BoundedDeque.js",
-    "content": "import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';\n\nexport default function BoundedDeque(iterable, maxlen) {\n\tthis.maxlen = maxlen;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis.container = new Array(maxlen);\n\n\tthis.center = 0;\n\n\tthis.length = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nBoundedDeque.prototype = new ArbitrarySizeDeque();\n\nBoundedDeque.prototype.len = function () {\n\treturn this.length;\n};\n\nBoundedDeque.prototype.capacity = function () {\n\treturn this.maxlen;\n};\n\nBoundedDeque.prototype.append = function (x) {\n\tif (this.length === this.maxlen) {\n\t\tthis.container[this.center] = x;\n\t\t++this.center;\n\t\tthis.center %= this.maxlen;\n\t} else {\n\t\tconst i = (this.center + this.length) % this.maxlen;\n\t\tthis.container[i] = x;\n\t\t++this.length;\n\t}\n\n\treturn this;\n};\n\nBoundedDeque.prototype.appendleft = function (x) {\n\t--this.center;\n\tthis.center += this.maxlen;\n\tthis.center %= this.maxlen;\n\tthis.container[this.center] = x;\n\n\tif (this.length < this.maxlen) {\n\t\t++this.length;\n\t}\n\n\treturn this;\n};\n\nBoundedDeque.prototype.clear = function () {\n\tthis.center = 0;\n\n\tthis.length = 0;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis.container = new Array(this.maxlen);\n\n\treturn this;\n};\n\nBoundedDeque.prototype.copy = function () {\n\treturn new BoundedDeque(this, this.maxlen);\n};\n\nBoundedDeque.prototype._where = function (i) {\n\tthis._checkbounds(i);\n\n\treturn [this.container, (this.center + i) % this.maxlen];\n};\n\nBoundedDeque.prototype._popindex = function (container, index) {\n\tconst value = container[index];\n\n\t// GC\n\t// TODO use null instead of 0 for non-Number deques\n\tcontainer[index] = 0;\n\n\t--this.length;\n\n\treturn value;\n};\n",
+    "content": "import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';\n\n/**\n * BoundedDeque.\n *\n * @param {Iterable<any>} iterable\n * @param {Number} maxlen\n */\nexport default function BoundedDeque(iterable, maxlen) {\n\tthis._maxlen = maxlen;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis._container = new Array(maxlen);\n\n\tthis._center = 0;\n\n\tthis.length = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nBoundedDeque.prototype = new ArbitrarySizeDeque();\n\nBoundedDeque.prototype.len = function () {\n\treturn this.length;\n};\n\nBoundedDeque.prototype.capacity = function () {\n\treturn this._maxlen;\n};\n\nBoundedDeque.prototype.append = function (x) {\n\tif (this.length === this._maxlen) {\n\t\tthis._container[this._center] = x;\n\t\t++this._center;\n\t\tthis._center %= this._maxlen;\n\t} else {\n\t\tconst i = (this._center + this.length) % this._maxlen;\n\t\tthis._container[i] = x;\n\t\t++this.length;\n\t}\n\n\treturn this;\n};\n\nBoundedDeque.prototype.appendleft = function (x) {\n\t--this._center;\n\tthis._center += this._maxlen;\n\tthis._center %= this._maxlen;\n\tthis._container[this._center] = x;\n\n\tif (this.length < this._maxlen) {\n\t\t++this.length;\n\t}\n\n\treturn this;\n};\n\nBoundedDeque.prototype.clear = function () {\n\tthis._center = 0;\n\n\tthis.length = 0;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis._container = new Array(this._maxlen);\n\n\treturn this;\n};\n\nBoundedDeque.prototype.copy = function () {\n\treturn new BoundedDeque(this, this._maxlen);\n};\n\nBoundedDeque.prototype._where = function (i) {\n\tthis._checkbounds(i);\n\n\treturn [this._container, (this._center + i) % this._maxlen];\n};\n\n/**\n * BoundedDeque.prototype._popindex.\n *\n * @param {any} container\n * @param {Number} index\n * @return {any}\n */\nBoundedDeque.prototype._popindex = function (container, index) {\n\tconst value = container[index];\n\n\t// GC\n\t// TODO use null instead of 0 for non-Number deques\n\tcontainer[index] = 0;\n\n\t--this.length;\n\n\treturn value;\n};\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/BoundedDeque.js",
     "access": "public",
@@ -763,7 +824,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 58,
+    "__docId__": 59,
     "kind": "function",
     "name": "BoundedDeque",
     "memberof": "src/implementation/BoundedDeque.js",
@@ -775,27 +836,34 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": "BoundedDeque",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "BoundedDeque.",
+    "lineNumber": 9,
     "params": [
       {
-        "name": "iterable",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
       },
       {
-        "name": "maxlen",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "maxlen",
+        "description": ""
       }
     ],
     "return": null
   },
   {
-    "__docId__": 59,
+    "__docId__": 60,
     "kind": "function",
     "name": "len",
     "memberof": "src/implementation/BoundedDeque.js",
@@ -808,31 +876,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 20,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 60,
-    "kind": "function",
-    "name": "capacity",
-    "memberof": "src/implementation/BoundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/BoundedDeque.js~capacity",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 24,
+    "lineNumber": 26,
     "undocument": true,
     "params": [],
     "return": {
@@ -845,6 +889,30 @@
   {
     "__docId__": 61,
     "kind": "function",
+    "name": "capacity",
+    "memberof": "src/implementation/BoundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/BoundedDeque.js~capacity",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "function",
     "name": "append",
     "memberof": "src/implementation/BoundedDeque.js",
     "generator": false,
@@ -856,38 +924,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 28,
-    "undocument": true,
-    "params": [
-      {
-        "name": "x",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 62,
-    "kind": "function",
-    "name": "appendleft",
-    "memberof": "src/implementation/BoundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/BoundedDeque.js~appendleft",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 42,
+    "lineNumber": 34,
     "undocument": true,
     "params": [
       {
@@ -907,6 +944,37 @@
   {
     "__docId__": 63,
     "kind": "function",
+    "name": "appendleft",
+    "memberof": "src/implementation/BoundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/BoundedDeque.js~appendleft",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 48,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "function",
     "name": "clear",
     "memberof": "src/implementation/BoundedDeque.js",
     "generator": false,
@@ -918,31 +986,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 55,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 64,
-    "kind": "function",
-    "name": "copy",
-    "memberof": "src/implementation/BoundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/BoundedDeque.js~copy",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 66,
+    "lineNumber": 61,
     "undocument": true,
     "params": [],
     "return": {
@@ -955,6 +999,30 @@
   {
     "__docId__": 65,
     "kind": "function",
+    "name": "copy",
+    "memberof": "src/implementation/BoundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/BoundedDeque.js~copy",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "function",
     "name": "_where",
     "memberof": "src/implementation/BoundedDeque.js",
     "generator": false,
@@ -966,7 +1034,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 70,
+    "lineNumber": 76,
     "undocument": true,
     "params": [
       {
@@ -984,7 +1052,7 @@
     "ignore": true
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "function",
     "name": "_popindex",
     "memberof": "src/implementation/BoundedDeque.js",
@@ -996,35 +1064,45 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/BoundedDeque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 76,
-    "undocument": true,
+    "description": "BoundedDeque.prototype._popindex.",
+    "lineNumber": 89,
     "params": [
       {
-        "name": "container",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "container",
+        "description": ""
       },
       {
-        "name": "index",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "index",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "any"
+      ],
+      "spread": false,
+      "description": ""
     },
     "ignore": true
   },
   {
-    "__docId__": 67,
+    "__docId__": 68,
     "kind": "file",
     "name": "src/implementation/Deque.js",
-    "content": "import {NotImplementedError, IndexError, ValueError} from '@aureooms/js-error';\n\nexport default function Deque() {}\n\nDeque.prototype.len = function () {\n\tthrow new NotImplementedError('len');\n};\n\nDeque.prototype.capacity = function () {\n\tthrow new NotImplementedError('capcity');\n};\n\nDeque.prototype.empty = function () {\n\treturn this.len() === 0;\n};\n\nDeque.prototype[Symbol.iterator] = function () {\n\treturn this.values();\n};\n\nDeque.prototype.values = function () {\n\tthrow new NotImplementedError('values');\n};\n\nDeque.prototype.append = function (_x) {\n\tthrow new NotImplementedError('append');\n};\n\nDeque.prototype.appendleft = function (_x) {\n\tthrow new NotImplementedError('appendleft');\n};\n\nDeque.prototype.clear = function () {\n\tthrow new NotImplementedError('clear');\n};\n\nDeque.prototype.copy = function () {\n\tthrow new NotImplementedError('copy');\n};\n\nDeque.prototype.count = function (x) {\n\tlet c = 0;\n\n\tfor (const element of this) {\n\t\tif (element === x) {\n\t\t\t++c;\n\t\t}\n\t}\n\n\treturn c;\n};\n\nDeque.prototype.extend = function (iterable) {\n\tfor (const x of iterable) {\n\t\tthis.append(x);\n\t}\n\n\treturn this;\n};\n\nDeque.prototype.extendleft = function (iterable) {\n\tfor (const x of iterable) {\n\t\tthis.appendleft(x);\n\t}\n\n\treturn this;\n};\n\nDeque.prototype._checkbounds = function (i) {\n\tif (i < 0 || i >= this.len()) {\n\t\tthrow new IndexError(i);\n\t}\n};\n\nDeque.prototype._where = function (_i) {\n\tthrow new NotImplementedError('_where');\n};\n\nDeque.prototype.get = function (i) {\n\tconst [container, index] = this._where(i);\n\n\treturn container[index];\n};\n\nDeque.prototype.set = function (i, value) {\n\tconst [container, index] = this._where(i);\n\n\tcontainer[index] = value;\n\n\treturn this;\n};\n\nDeque.prototype._range = function* (start, stop) {\n\tfor (let i = start; i < stop; ++i) {\n\t\tyield [i, this.get(i)];\n\t}\n};\n\nDeque.prototype.index = function (x, start = 0, stop = this.len()) {\n\tfor (const [i, element] of this._range(start, stop)) {\n\t\tif (element === x) {\n\t\t\treturn i;\n\t\t}\n\t}\n\n\tthrow new ValueError('not found');\n};\n\nDeque.prototype.pop = function () {\n\tthrow new NotImplementedError('pop');\n};\n\nDeque.prototype.popleft = function () {\n\tthrow new NotImplementedError('popleft');\n};\n\nDeque.prototype.insert = function (i, x) {\n\tthis._checkbounds(i);\n\n\tthis.append(x);\n\n\tlet j = this.len() - 1;\n\n\tfor (; i < j; --j) {\n\t\tconst a = this.get(j);\n\t\tthis.set(j, this.get(j - 1));\n\t\tthis.set(j - 1, a);\n\t}\n\n\treturn this;\n};\n\nDeque.prototype.delete = function (i) {\n\tthis._checkbounds(i);\n\n\tconst length = this.len() - 1;\n\n\tfor (; i < length; ++i) {\n\t\tthis.set(i, this.get(i + 1));\n\t}\n\n\tthis.pop();\n\n\treturn this;\n};\n\nDeque.prototype.remove = function (value) {\n\tconst i = this.index(value);\n\n\tthis.delete(i);\n\n\treturn this;\n};\n\nDeque.prototype.reverse = function () {\n\tfor (let i = 0, j = this.len(); i < --j; ++i) {\n\t\tconst a = this.get(i);\n\t\tconst b = this.get(j);\n\t\tthis.set(i, b);\n\t\tthis.set(j, a);\n\t}\n\n\treturn this;\n};\n\nDeque.prototype.rotate = function (n) {\n\tif (n > 0) {\n\t\twhile (n-- > 0) {\n\t\t\tthis.appendleft(this.pop());\n\t\t}\n\t} else if (n < 0) {\n\t\twhile (n++ < 0) {\n\t\t\tthis.append(this.popleft());\n\t\t}\n\t}\n\n\treturn this;\n};\n",
+    "content": "import {NotImplementedError, IndexError, ValueError} from '@aureooms/js-error';\n\n/**\n * Deque.\n */\nexport default function Deque() {}\n\n/**\n * Deque.prototype.len.\n *\n * @return {Number}\n */\nDeque.prototype.len = function () {\n\tthrow new NotImplementedError('len');\n};\n\n/**\n * Deque.prototype.capacity.\n *\n * @return {Number}\n */\nDeque.prototype.capacity = function () {\n\tthrow new NotImplementedError('capacity');\n};\n\n/**\n * Deque.prototype.empty.\n *\n * @return {Boolean}\n */\nDeque.prototype.empty = function () {\n\treturn this.len() === 0;\n};\n\n/**\n * Deque.prototype[Symbol.iterator].\n *\n * @return {Iterable<any>}\n */\nDeque.prototype[Symbol.iterator] = function () {\n\treturn this.values();\n};\n\n/**\n * Deque.prototype.values.\n *\n * @return {Iterable<any>}\n */\nDeque.prototype.values = function () {\n\tthrow new NotImplementedError('values');\n};\n\n/**\n * Deque.prototype.append.\n *\n * @param {any} _x\n */\nDeque.prototype.append = function (_x) {\n\tthrow new NotImplementedError('append');\n};\n\n/**\n * Deque.prototype.appendleft.\n *\n * @param {any} _x\n */\nDeque.prototype.appendleft = function (_x) {\n\tthrow new NotImplementedError('appendleft');\n};\n\n/**\n * Deque.prototype.clear.\n *\n * @return {Deque}\n */\nDeque.prototype.clear = function () {\n\tthrow new NotImplementedError('clear');\n};\n\n/**\n * Deque.prototype.copy.\n *\n * @return {Deque}\n */\nDeque.prototype.copy = function () {\n\tthrow new NotImplementedError('copy');\n};\n\n/**\n * Deque.prototype.count.\n *\n * @param {any} x\n * @return {Number}\n */\nDeque.prototype.count = function (x) {\n\tlet c = 0;\n\n\tfor (const element of this) {\n\t\tif (element === x) {\n\t\t\t++c;\n\t\t}\n\t}\n\n\treturn c;\n};\n\n/**\n * Deque.prototype.extend.\n *\n * @param {Iterable<any>} iterable\n */\nDeque.prototype.extend = function (iterable) {\n\tfor (const x of iterable) {\n\t\tthis.append(x);\n\t}\n\n\treturn this;\n};\n\n/**\n * Deque.prototype.extendleft.\n *\n * @param {Iterable<any>} iterable\n */\nDeque.prototype.extendleft = function (iterable) {\n\tfor (const x of iterable) {\n\t\tthis.appendleft(x);\n\t}\n\n\treturn this;\n};\n\n/**\n * Deque.prototype._checkbounds.\n *\n * @param {Number} i\n */\nDeque.prototype._checkbounds = function (i) {\n\tif (i < 0 || i >= this.len()) {\n\t\tthrow new IndexError(i);\n\t}\n};\n\n/**\n * Deque.prototype._where.\n *\n * @param {Number} _i\n * @return {Array}\n */\nDeque.prototype._where = function (_i) {\n\tthrow new NotImplementedError('_where');\n};\n\n/**\n * Deque.prototype.get.\n *\n * @param {Number} i\n * @return {any}\n */\nDeque.prototype.get = function (i) {\n\tconst [container, index] = this._where(i);\n\n\treturn container[index];\n};\n\n/**\n * Deque.prototype.set.\n *\n * @param {Number} i\n * @param {any} value\n * @return {Deque}\n */\nDeque.prototype.set = function (i, value) {\n\tconst [container, index] = this._where(i);\n\n\tcontainer[index] = value;\n\n\treturn this;\n};\n\n/**\n * Deque.prototype._range\n *\n * @param {Number} start\n * @param {Number} stop\n * @return {Iterable<any>}\n */\nDeque.prototype._range = function* (start, stop) {\n\tfor (let i = start; i < stop; ++i) {\n\t\tyield [i, this.get(i)];\n\t}\n};\n\n/**\n * Deque.prototype.index.\n *\n * @param {any} x\n * @param {Number} start\n * @param {Number} stop\n */\nDeque.prototype.index = function (x, start = 0, stop = this.len()) {\n\tfor (const [i, element] of this._range(start, stop)) {\n\t\tif (element === x) {\n\t\t\treturn i;\n\t\t}\n\t}\n\n\tthrow new ValueError('not found');\n};\n\n/**\n * Deque.prototype.pop.\n *\n * @return {any}\n */\nDeque.prototype.pop = function () {\n\tthrow new NotImplementedError('pop');\n};\n\n/**\n * Deque.prototype.popleft.\n *\n * @return {any}\n */\nDeque.prototype.popleft = function () {\n\tthrow new NotImplementedError('popleft');\n};\n\n/**\n * Deque.prototype.insert.\n *\n * @param {Number} i\n * @param {any} x\n */\nDeque.prototype.insert = function (i, x) {\n\tthis._checkbounds(i);\n\n\tthis.append(x);\n\n\tlet j = this.len() - 1;\n\n\tfor (; i < j; --j) {\n\t\tconst a = this.get(j);\n\t\tthis.set(j, this.get(j - 1));\n\t\tthis.set(j - 1, a);\n\t}\n\n\treturn this;\n};\n\n/**\n * Deque.prototype.delete.\n *\n * @param {Number} i\n */\nDeque.prototype.delete = function (i) {\n\tthis._checkbounds(i);\n\n\tconst length = this.len() - 1;\n\n\tfor (; i < length; ++i) {\n\t\tthis.set(i, this.get(i + 1));\n\t}\n\n\tthis.pop();\n\n\treturn this;\n};\n\n/**\n * Deque.prototype.remove.\n *\n * @param {any} value\n */\nDeque.prototype.remove = function (value) {\n\tconst i = this.index(value);\n\n\tthis.delete(i);\n\n\treturn this;\n};\n\n/**\n * Deque.prototype.reverse.\n *\n * @return {Deque}\n */\nDeque.prototype.reverse = function () {\n\tfor (let i = 0, j = this.len(); i < --j; ++i) {\n\t\tconst a = this.get(i);\n\t\tconst b = this.get(j);\n\t\tthis.set(i, b);\n\t\tthis.set(j, a);\n\t}\n\n\treturn this;\n};\n\n/**\n * Deque.prototype.rotate.\n *\n * @param {Number} n\n */\nDeque.prototype.rotate = function (n) {\n\tif (n > 0) {\n\t\twhile (n-- > 0) {\n\t\t\tthis.appendleft(this.pop());\n\t\t}\n\t} else if (n < 0) {\n\t\twhile (n++ < 0) {\n\t\t\tthis.append(this.popleft());\n\t\t}\n\t}\n\n\treturn this;\n};\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/Deque.js",
     "access": "public",
@@ -1032,7 +1110,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "function",
     "name": "Deque",
     "memberof": "src/implementation/Deque.js",
@@ -1044,14 +1122,13 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": "Deque",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "Deque.",
+    "lineNumber": 6,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "function",
     "name": "len",
     "memberof": "src/implementation/Deque.js",
@@ -1063,15 +1140,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
+    "description": "Deque.prototype.len.",
+    "lineNumber": 13,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "function",
     "name": "capacity",
     "memberof": "src/implementation/Deque.js",
@@ -1083,15 +1166,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 9,
-    "undocument": true,
+    "description": "Deque.prototype.capacity.",
+    "lineNumber": 22,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "function",
     "name": "empty",
     "memberof": "src/implementation/Deque.js",
@@ -1103,19 +1192,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 13,
-    "undocument": true,
-    "params": [],
+    "description": "Deque.prototype.empty.",
+    "lineNumber": 31,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Boolean"
+      ],
+      "spread": false,
+      "description": ""
     },
+    "params": [],
     "ignore": true
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "function",
     "name": "[Symbol.iterator]",
     "memberof": "src/implementation/Deque.js",
@@ -1127,19 +1218,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true,
-    "params": [],
+    "description": "Deque.prototype[Symbol.iterator].",
+    "lineNumber": 40,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Iterable<any>"
+      ],
+      "spread": false,
+      "description": ""
     },
+    "params": [],
     "ignore": true
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "function",
     "name": "values",
     "memberof": "src/implementation/Deque.js",
@@ -1151,15 +1244,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 21,
-    "undocument": true,
+    "description": "Deque.prototype.values.",
+    "lineNumber": 49,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Iterable<any>"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "function",
     "name": "append",
     "memberof": "src/implementation/Deque.js",
@@ -1171,22 +1270,25 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 25,
-    "undocument": true,
+    "description": "Deque.prototype.append.",
+    "lineNumber": 58,
     "params": [
       {
-        "name": "_x",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_x",
+        "description": ""
       }
     ],
     "return": null,
     "ignore": true
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "function",
     "name": "appendleft",
     "memberof": "src/implementation/Deque.js",
@@ -1198,22 +1300,25 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 29,
-    "undocument": true,
+    "description": "Deque.prototype.appendleft.",
+    "lineNumber": 67,
     "params": [
       {
-        "name": "_x",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_x",
+        "description": ""
       }
     ],
     "return": null,
     "ignore": true
   },
   {
-    "__docId__": 76,
+    "__docId__": 77,
     "kind": "function",
     "name": "clear",
     "memberof": "src/implementation/Deque.js",
@@ -1225,15 +1330,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 33,
-    "undocument": true,
+    "description": "Deque.prototype.clear.",
+    "lineNumber": 76,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Deque"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "function",
     "name": "copy",
     "memberof": "src/implementation/Deque.js",
@@ -1245,15 +1356,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 37,
-    "undocument": true,
+    "description": "Deque.prototype.copy.",
+    "lineNumber": 85,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Deque"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 78,
+    "__docId__": 79,
     "kind": "function",
     "name": "count",
     "memberof": "src/implementation/Deque.js",
@@ -1265,26 +1382,32 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 41,
-    "undocument": true,
+    "description": "Deque.prototype.count.",
+    "lineNumber": 95,
     "params": [
       {
-        "name": "x",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Number"
+      ],
+      "spread": false,
+      "description": ""
     },
     "ignore": true
   },
   {
-    "__docId__": 79,
+    "__docId__": 80,
     "kind": "function",
     "name": "extend",
     "memberof": "src/implementation/Deque.js",
@@ -1296,46 +1419,18 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 53,
-    "undocument": true,
+    "description": "Deque.prototype.extend.",
+    "lineNumber": 112,
     "params": [
       {
-        "name": "iterable",
+        "nullable": null,
         "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 80,
-    "kind": "function",
-    "name": "extendleft",
-    "memberof": "src/implementation/Deque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/Deque.js~extendleft",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 61,
-    "undocument": true,
-    "params": [
-      {
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "iterable",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
@@ -1348,6 +1443,40 @@
   {
     "__docId__": 81,
     "kind": "function",
+    "name": "extendleft",
+    "memberof": "src/implementation/Deque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/Deque.js~extendleft",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
+    "importStyle": null,
+    "description": "Deque.prototype.extendleft.",
+    "lineNumber": 125,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "function",
     "name": "_checkbounds",
     "memberof": "src/implementation/Deque.js",
     "generator": false,
@@ -1358,22 +1487,25 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 69,
-    "undocument": true,
+    "description": "Deque.prototype._checkbounds.",
+    "lineNumber": 138,
     "params": [
       {
-        "name": "i",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": ""
       }
     ],
     "return": null,
     "ignore": true
   },
   {
-    "__docId__": 82,
+    "__docId__": 83,
     "kind": "function",
     "name": "_where",
     "memberof": "src/implementation/Deque.js",
@@ -1385,22 +1517,32 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 75,
-    "undocument": true,
+    "description": "Deque.prototype._where.",
+    "lineNumber": 150,
     "params": [
       {
-        "name": "_i",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_i",
+        "description": ""
       }
     ],
-    "return": null,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Array"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "ignore": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 84,
     "kind": "function",
     "name": "get",
     "memberof": "src/implementation/Deque.js",
@@ -1412,26 +1554,32 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 79,
-    "undocument": true,
+    "description": "Deque.prototype.get.",
+    "lineNumber": 160,
     "params": [
       {
-        "name": "i",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "any"
+      ],
+      "spread": false,
+      "description": ""
     },
     "ignore": true
   },
   {
-    "__docId__": 84,
+    "__docId__": 85,
     "kind": "function",
     "name": "set",
     "memberof": "src/implementation/Deque.js",
@@ -1443,32 +1591,42 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 85,
-    "undocument": true,
+    "description": "Deque.prototype.set.",
+    "lineNumber": 173,
     "params": [
       {
-        "name": "i",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": ""
       },
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Deque"
+      ],
+      "spread": false,
+      "description": ""
     },
     "ignore": true
   },
   {
-    "__docId__": 85,
+    "__docId__": 86,
     "kind": "function",
     "name": "_range",
     "memberof": "src/implementation/Deque.js",
@@ -1480,28 +1638,42 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 93,
-    "undocument": true,
+    "description": "Deque.prototype._range",
+    "lineNumber": 188,
     "params": [
       {
-        "name": "start",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "start",
+        "description": ""
       },
       {
-        "name": "stop",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stop",
+        "description": ""
       }
     ],
-    "return": null,
+    "return": {
+      "nullable": null,
+      "types": [
+        "Iterable<any>"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "ignore": true
   },
   {
-    "__docId__": 86,
+    "__docId__": 87,
     "kind": "function",
     "name": "index",
     "memberof": "src/implementation/Deque.js",
@@ -1513,31 +1685,38 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 99,
-    "undocument": true,
+    "description": "Deque.prototype.index.",
+    "lineNumber": 201,
     "params": [
       {
-        "name": "x",
+        "nullable": null,
         "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "start",
-        "optional": true,
-        "types": [
-          "number"
+          "any"
         ],
-        "defaultRaw": 0,
-        "defaultValue": "0"
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
       },
       {
-        "name": "stop",
-        "optional": true,
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "start",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stop",
+        "description": ""
       }
     ],
     "return": {
@@ -1548,7 +1727,7 @@
     "ignore": true
   },
   {
-    "__docId__": 87,
+    "__docId__": 88,
     "kind": "function",
     "name": "pop",
     "memberof": "src/implementation/Deque.js",
@@ -1560,15 +1739,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 109,
-    "undocument": true,
+    "description": "Deque.prototype.pop.",
+    "lineNumber": 216,
+    "return": {
+      "nullable": null,
+      "types": [
+        "any"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 88,
+    "__docId__": 89,
     "kind": "function",
     "name": "popleft",
     "memberof": "src/implementation/Deque.js",
@@ -1580,15 +1765,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 113,
-    "undocument": true,
+    "description": "Deque.prototype.popleft.",
+    "lineNumber": 225,
+    "return": {
+      "nullable": null,
+      "types": [
+        "any"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "params": [],
-    "return": null,
     "ignore": true
   },
   {
-    "__docId__": 89,
+    "__docId__": 90,
     "kind": "function",
     "name": "insert",
     "memberof": "src/implementation/Deque.js",
@@ -1600,52 +1791,28 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 117,
-    "undocument": true,
+    "description": "Deque.prototype.insert.",
+    "lineNumber": 235,
     "params": [
       {
-        "name": "i",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": ""
       },
       {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
         "name": "x",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 90,
-    "kind": "function",
-    "name": "delete",
-    "memberof": "src/implementation/Deque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/Deque.js~delete",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 133,
-    "undocument": true,
-    "params": [
-      {
-        "name": "i",
-        "types": [
-          "*"
-        ]
+        "description": ""
       }
     ],
     "return": {
@@ -1658,25 +1825,28 @@
   {
     "__docId__": 91,
     "kind": "function",
-    "name": "remove",
+    "name": "delete",
     "memberof": "src/implementation/Deque.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "src/implementation/Deque.js~remove",
+    "longname": "src/implementation/Deque.js~delete",
     "access": "public",
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 147,
-    "undocument": true,
+    "description": "Deque.prototype.delete.",
+    "lineNumber": 256,
     "params": [
       {
-        "name": "value",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "i",
+        "description": ""
       }
     ],
     "return": {
@@ -1689,6 +1859,40 @@
   {
     "__docId__": 92,
     "kind": "function",
+    "name": "remove",
+    "memberof": "src/implementation/Deque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/Deque.js~remove",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
+    "importStyle": null,
+    "description": "Deque.prototype.remove.",
+    "lineNumber": 275,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "function",
     "name": "reverse",
     "memberof": "src/implementation/Deque.js",
     "generator": false,
@@ -1699,19 +1903,21 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 155,
-    "undocument": true,
-    "params": [],
+    "description": "Deque.prototype.reverse.",
+    "lineNumber": 288,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Deque"
+      ],
+      "spread": false,
+      "description": ""
     },
+    "params": [],
     "ignore": true
   },
   {
-    "__docId__": 93,
+    "__docId__": 94,
     "kind": "function",
     "name": "rotate",
     "memberof": "src/implementation/Deque.js",
@@ -1723,15 +1929,18 @@
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/Deque.js",
     "importStyle": null,
-    "description": null,
-    "lineNumber": 166,
-    "undocument": true,
+    "description": "Deque.prototype.rotate.",
+    "lineNumber": 304,
     "params": [
       {
-        "name": "n",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "n",
+        "description": ""
       }
     ],
     "return": {
@@ -1742,10 +1951,10 @@
     "ignore": true
   },
   {
-    "__docId__": 94,
+    "__docId__": 95,
     "kind": "file",
     "name": "src/implementation/EmptyDeque.js",
-    "content": "import {IndexError} from '@aureooms/js-error';\nimport Deque from './Deque.js';\n\nexport default function EmptyDeque(iterable) {\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nEmptyDeque.prototype = new Deque();\n\nEmptyDeque.prototype.len = function () {\n\treturn 0;\n};\n\nEmptyDeque.prototype.capacity = function () {\n\treturn 0;\n};\n\nEmptyDeque.prototype.values = function () {\n\treturn {\n\t\tnext() {\n\t\t\treturn {done: true};\n\t\t},\n\t};\n};\n\nEmptyDeque.prototype.append = function (_x) {\n\treturn this;\n};\n\nEmptyDeque.prototype.appendleft = function (_x) {\n\treturn this;\n};\n\nEmptyDeque.prototype.clear = function () {\n\treturn this;\n};\n\nEmptyDeque.prototype.copy = function () {\n\treturn new EmptyDeque(this);\n};\n\nEmptyDeque.prototype._where = function (i) {\n\tthrow new IndexError(i);\n};\n\nEmptyDeque.prototype.pop =\n\t// eslint-disable-next-line no-multi-assign\n\tEmptyDeque.prototype.popleft = function () {\n\t\tthrow new IndexError('pop / popleft');\n\t};\n",
+    "content": "import {IndexError} from '@aureooms/js-error';\nimport Deque from './Deque.js';\n\n/**\n * EmptyDeque.\n *\n * @param {Iterable<any>} iterable\n */\nexport default function EmptyDeque(iterable) {\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nEmptyDeque.prototype = new Deque();\n\nEmptyDeque.prototype.len = function () {\n\treturn 0;\n};\n\nEmptyDeque.prototype.capacity = function () {\n\treturn 0;\n};\n\nEmptyDeque.prototype.values = function () {\n\treturn {\n\t\tnext() {\n\t\t\treturn {done: true};\n\t\t},\n\t};\n};\n\nEmptyDeque.prototype.append = function (_x) {\n\treturn this;\n};\n\nEmptyDeque.prototype.appendleft = function (_x) {\n\treturn this;\n};\n\nEmptyDeque.prototype.clear = function () {\n\treturn this;\n};\n\nEmptyDeque.prototype.copy = function () {\n\treturn new EmptyDeque(this);\n};\n\nEmptyDeque.prototype._where = function (i) {\n\tthrow new IndexError(i);\n};\n\nEmptyDeque.prototype.pop =\n\t// eslint-disable-next-line no-multi-assign\n\tEmptyDeque.prototype.popleft = function () {\n\t\tthrow new IndexError('pop / popleft');\n\t};\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/EmptyDeque.js",
     "access": "public",
@@ -1753,7 +1962,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 95,
+    "__docId__": 96,
     "kind": "function",
     "name": "EmptyDeque",
     "memberof": "src/implementation/EmptyDeque.js",
@@ -1765,21 +1974,24 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": "EmptyDeque",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
+    "description": "EmptyDeque.",
+    "lineNumber": 9,
     "params": [
       {
-        "name": "iterable",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
       }
     ],
     "return": null
   },
   {
-    "__docId__": 96,
+    "__docId__": 97,
     "kind": "function",
     "name": "len",
     "memberof": "src/implementation/EmptyDeque.js",
@@ -1792,31 +2004,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 12,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "number"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 97,
-    "kind": "function",
-    "name": "capacity",
-    "memberof": "src/implementation/EmptyDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/EmptyDeque.js~capacity",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 16,
+    "lineNumber": 17,
     "undocument": true,
     "params": [],
     "return": {
@@ -1829,6 +2017,30 @@
   {
     "__docId__": 98,
     "kind": "function",
+    "name": "capacity",
+    "memberof": "src/implementation/EmptyDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/EmptyDeque.js~capacity",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "function",
     "name": "values",
     "memberof": "src/implementation/EmptyDeque.js",
     "generator": false,
@@ -1840,7 +2052,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 20,
+    "lineNumber": 25,
     "undocument": true,
     "params": [],
     "return": {
@@ -1851,7 +2063,7 @@
     "ignore": true
   },
   {
-    "__docId__": 99,
+    "__docId__": 100,
     "kind": "function",
     "name": "append",
     "memberof": "src/implementation/EmptyDeque.js",
@@ -1864,38 +2076,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 28,
-    "undocument": true,
-    "params": [
-      {
-        "name": "_x",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 100,
-    "kind": "function",
-    "name": "appendleft",
-    "memberof": "src/implementation/EmptyDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/EmptyDeque.js~appendleft",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 32,
+    "lineNumber": 33,
     "undocument": true,
     "params": [
       {
@@ -1915,20 +2096,27 @@
   {
     "__docId__": 101,
     "kind": "function",
-    "name": "clear",
+    "name": "appendleft",
     "memberof": "src/implementation/EmptyDeque.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "src/implementation/EmptyDeque.js~clear",
+    "longname": "src/implementation/EmptyDeque.js~appendleft",
     "access": "public",
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 36,
+    "lineNumber": 37,
     "undocument": true,
-    "params": [],
+    "params": [
+      {
+        "name": "_x",
+        "types": [
+          "*"
+        ]
+      }
+    ],
     "return": {
       "types": [
         "*"
@@ -1939,171 +2127,15 @@
   {
     "__docId__": 102,
     "kind": "function",
-    "name": "copy",
-    "memberof": "src/implementation/EmptyDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/EmptyDeque.js~copy",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 40,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 103,
-    "kind": "function",
-    "name": "_where",
-    "memberof": "src/implementation/EmptyDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/EmptyDeque.js~_where",
-    "access": "private",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 44,
-    "undocument": true,
-    "params": [
-      {
-        "name": "i",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": null,
-    "ignore": true
-  },
-  {
-    "__docId__": 104,
-    "kind": "file",
-    "name": "src/implementation/SingleElementDeque.js",
-    "content": "import {IndexError} from '@aureooms/js-error';\nimport Deque from './Deque.js';\n\nexport default function SingleElementDeque(iterable) {\n\tthis.empty = true;\n\n\tthis.value = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nSingleElementDeque.prototype = new Deque();\n\nSingleElementDeque.prototype.len = function () {\n\treturn this.empty ? 0 : 1;\n};\n\nSingleElementDeque.prototype.capacity = function () {\n\treturn 1;\n};\n\nSingleElementDeque.prototype.values = function* () {\n\tif (this.empty) {\n\t\treturn;\n\t}\n\n\tyield this.value;\n};\n\nSingleElementDeque.prototype.append =\n\t// eslint-disable-next-line no-multi-assign\n\tSingleElementDeque.prototype.appendleft = function (x) {\n\t\tthis.empty = false;\n\t\tthis.value = x;\n\n\t\treturn this;\n\t};\n\nSingleElementDeque.prototype.clear = function () {\n\tthis.empty = true;\n\tthis.value = 0;\n\n\treturn this;\n};\n\nSingleElementDeque.prototype.copy = function () {\n\treturn new SingleElementDeque(this);\n};\n\nSingleElementDeque.prototype.pop =\n\t// eslint-disable-next-line no-multi-assign\n\tSingleElementDeque.prototype.popleft = function () {\n\t\tif (this.empty) {\n\t\t\tthrow new IndexError('pop / popleft');\n\t\t}\n\n\t\tconst value = this.value;\n\n\t\tthis.empty = true;\n\t\tthis.value = 0;\n\n\t\treturn value;\n\t};\n\nSingleElementDeque.prototype.get = function (i) {\n\tif (this.empty || i !== 0) {\n\t\tthrow new IndexError(i);\n\t}\n\n\treturn this.value;\n};\n\nSingleElementDeque.prototype.set = function (i, value) {\n\tif (this.empty || i !== 0) {\n\t\tthrow new IndexError(i);\n\t}\n\n\tthis.value = value;\n\n\treturn this;\n};\n",
-    "static": true,
-    "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/SingleElementDeque.js",
-    "access": "public",
-    "description": null,
-    "lineNumber": 1
-  },
-  {
-    "__docId__": 105,
-    "kind": "function",
-    "name": "SingleElementDeque",
-    "memberof": "src/implementation/SingleElementDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~SingleElementDeque",
-    "access": "public",
-    "export": true,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
-    "importStyle": "SingleElementDeque",
-    "description": null,
-    "lineNumber": 4,
-    "undocument": true,
-    "params": [
-      {
-        "name": "iterable",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": null
-  },
-  {
-    "__docId__": 106,
-    "kind": "function",
-    "name": "len",
-    "memberof": "src/implementation/SingleElementDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~len",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 16,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 107,
-    "kind": "function",
-    "name": "capacity",
-    "memberof": "src/implementation/SingleElementDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~capacity",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 20,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "number"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 108,
-    "kind": "function",
-    "name": "values",
-    "memberof": "src/implementation/SingleElementDeque.js",
-    "generator": true,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~values",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 24,
-    "undocument": true,
-    "params": [],
-    "return": null,
-    "ignore": true
-  },
-  {
-    "__docId__": 109,
-    "kind": "function",
     "name": "clear",
-    "memberof": "src/implementation/SingleElementDeque.js",
+    "memberof": "src/implementation/EmptyDeque.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~clear",
+    "longname": "src/implementation/EmptyDeque.js~clear",
     "access": "public",
     "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
     "importStyle": null,
     "description": null,
     "lineNumber": 41,
@@ -2117,20 +2149,179 @@
     "ignore": true
   },
   {
-    "__docId__": 110,
+    "__docId__": 103,
     "kind": "function",
     "name": "copy",
+    "memberof": "src/implementation/EmptyDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/EmptyDeque.js~copy",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 45,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 104,
+    "kind": "function",
+    "name": "_where",
+    "memberof": "src/implementation/EmptyDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/EmptyDeque.js~_where",
+    "access": "private",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/EmptyDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 49,
+    "undocument": true,
+    "params": [
+      {
+        "name": "i",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "file",
+    "name": "src/implementation/SingleElementDeque.js",
+    "content": "import {IndexError} from '@aureooms/js-error';\nimport Deque from './Deque.js';\n\n/**\n * SingleElementDeque.\n *\n * @param {Iterable<any>} iterable\n */\nexport default function SingleElementDeque(iterable) {\n\tthis._empty = true;\n\n\tthis._value = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nSingleElementDeque.prototype = new Deque();\n\nSingleElementDeque.prototype.len = function () {\n\treturn this._empty ? 0 : 1;\n};\n\nSingleElementDeque.prototype.capacity = function () {\n\treturn 1;\n};\n\nSingleElementDeque.prototype.values = function* () {\n\tif (this._empty) {\n\t\treturn;\n\t}\n\n\tyield this._value;\n};\n\nSingleElementDeque.prototype.append =\n\t// eslint-disable-next-line no-multi-assign\n\tSingleElementDeque.prototype.appendleft = function (x) {\n\t\tthis._empty = false;\n\t\tthis._value = x;\n\n\t\treturn this;\n\t};\n\nSingleElementDeque.prototype.clear = function () {\n\tthis._empty = true;\n\tthis._value = 0;\n\n\treturn this;\n};\n\nSingleElementDeque.prototype.copy = function () {\n\treturn new SingleElementDeque(this);\n};\n\nSingleElementDeque.prototype.pop =\n\t// eslint-disable-next-line no-multi-assign\n\tSingleElementDeque.prototype.popleft = function () {\n\t\tif (this._empty) {\n\t\t\tthrow new IndexError('pop / popleft');\n\t\t}\n\n\t\tconst value = this._value;\n\n\t\tthis._empty = true;\n\t\tthis._value = 0;\n\n\t\treturn value;\n\t};\n\nSingleElementDeque.prototype.get = function (i) {\n\tif (this._empty || i !== 0) {\n\t\tthrow new IndexError(i);\n\t}\n\n\treturn this._value;\n};\n\nSingleElementDeque.prototype.set = function (i, value) {\n\tif (this._empty || i !== 0) {\n\t\tthrow new IndexError(i);\n\t}\n\n\tthis._value = value;\n\n\treturn this;\n};\n",
+    "static": true,
+    "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 106,
+    "kind": "function",
+    "name": "SingleElementDeque",
     "memberof": "src/implementation/SingleElementDeque.js",
     "generator": false,
     "async": false,
     "static": true,
-    "longname": "src/implementation/SingleElementDeque.js~copy",
+    "longname": "src/implementation/SingleElementDeque.js~SingleElementDeque",
+    "access": "public",
+    "export": true,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importStyle": "SingleElementDeque",
+    "description": "SingleElementDeque.",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 107,
+    "kind": "function",
+    "name": "len",
+    "memberof": "src/implementation/SingleElementDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/SingleElementDeque.js~len",
     "access": "public",
     "export": false,
     "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 48,
+    "lineNumber": 21,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "function",
+    "name": "capacity",
+    "memberof": "src/implementation/SingleElementDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/SingleElementDeque.js~capacity",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 25,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "number"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 109,
+    "kind": "function",
+    "name": "values",
+    "memberof": "src/implementation/SingleElementDeque.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/SingleElementDeque.js~values",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 110,
+    "kind": "function",
+    "name": "clear",
+    "memberof": "src/implementation/SingleElementDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/SingleElementDeque.js~clear",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 46,
     "undocument": true,
     "params": [],
     "return": {
@@ -2143,6 +2334,30 @@
   {
     "__docId__": 111,
     "kind": "function",
+    "name": "copy",
+    "memberof": "src/implementation/SingleElementDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/SingleElementDeque.js~copy",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 112,
+    "kind": "function",
     "name": "get",
     "memberof": "src/implementation/SingleElementDeque.js",
     "generator": false,
@@ -2154,7 +2369,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 67,
+    "lineNumber": 72,
     "undocument": true,
     "params": [
       {
@@ -2172,7 +2387,7 @@
     "ignore": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 113,
     "kind": "function",
     "name": "set",
     "memberof": "src/implementation/SingleElementDeque.js",
@@ -2185,7 +2400,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 75,
+    "lineNumber": 80,
     "undocument": true,
     "params": [
       {
@@ -2209,10 +2424,10 @@
     "ignore": true
   },
   {
-    "__docId__": 113,
+    "__docId__": 114,
     "kind": "file",
     "name": "src/implementation/UnboundedDeque.js",
-    "content": "import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';\n\nexport default function UnboundedDeque(iterable) {\n\tthis.growth = 2;\n\n\tthis.minsize = 10;\n\n\tthis.currentsize = this.minsize;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis.container = new Array(this.currentsize);\n\n\tthis.center = 0;\n\n\tthis.length = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nUnboundedDeque.prototype = new ArbitrarySizeDeque();\n\nUnboundedDeque.prototype._copy = function (container) {\n\tconst length = this.length;\n\n\tfor (let i = 0; i < length; ++i) {\n\t\tcontainer[i] = this.get(i);\n\t}\n};\n\nUnboundedDeque.prototype._realloc = function (newsize) {\n\t// eslint-disable-next-line unicorn/no-new-array\n\tconst container = new Array(newsize);\n\n\tthis._copy(container);\n\n\tthis.container = container;\n\n\tthis.center = 0;\n\n\tthis.currentsize = newsize;\n};\n\nUnboundedDeque.prototype._shrink = function () {\n\tconst newsize = Math.max(this.minsize, this.length * this.growth);\n\n\tif (newsize * this.growth >= this.currentsize) {\n\t\treturn;\n\t}\n\n\tthis._realloc(newsize);\n};\n\nUnboundedDeque.prototype._grow = function (newlen) {\n\tif (newlen <= this.currentsize) {\n\t\treturn;\n\t}\n\n\tthis._realloc(newlen * this.growth);\n};\n\nUnboundedDeque.prototype.len = function () {\n\treturn this.length;\n};\n\nUnboundedDeque.prototype.capacity = function () {\n\treturn this.currentsize;\n};\n\nUnboundedDeque.prototype.append = function (x) {\n\tthis._grow(this.length + 1);\n\n\tconst i = (this.center + this.length) % this.currentsize;\n\tthis.container[i] = x;\n\t++this.length;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.appendleft = function (x) {\n\tthis._grow(this.length + 1);\n\n\t--this.center;\n\tthis.center += this.currentsize;\n\tthis.center %= this.currentsize;\n\tthis.container[this.center] = x;\n\n\t++this.length;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.clear = function () {\n\tthis.currentsize = this.minsize;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis.container = new Array(this.currentsize);\n\n\tthis.center = 0;\n\n\tthis.length = 0;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.copy = function () {\n\treturn new UnboundedDeque(this);\n};\n\nUnboundedDeque.prototype._where = function (i) {\n\tthis._checkbounds(i);\n\n\treturn [this.container, (this.center + i) % this.currentsize];\n};\n\nUnboundedDeque.prototype._popindex = function (container, index) {\n\tconst value = container[index];\n\n\t// GC\n\t// TODO use null instead of 0 for non-Number deques\n\tcontainer[index] = 0;\n\n\t--this.length;\n\n\tthis._shrink();\n\n\treturn value;\n};\n",
+    "content": "import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';\n\n/**\n * UnboundedDeque.\n *\n * @param {Iterable<any>} iterable\n */\nexport default function UnboundedDeque(iterable) {\n\tthis._growth = 2;\n\n\tthis._minsize = 10;\n\n\tthis._currentsize = this._minsize;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis._container = new Array(this._currentsize);\n\n\tthis._center = 0;\n\n\tthis.length = 0;\n\n\tif (iterable !== null) {\n\t\tthis.extend(iterable);\n\t}\n}\n\nUnboundedDeque.prototype = new ArbitrarySizeDeque();\n\nUnboundedDeque.prototype._copy = function (container) {\n\tconst length = this.length;\n\n\tfor (let i = 0; i < length; ++i) {\n\t\tcontainer[i] = this.get(i);\n\t}\n};\n\nUnboundedDeque.prototype._realloc = function (newsize) {\n\t// eslint-disable-next-line unicorn/no-new-array\n\tconst container = new Array(newsize);\n\n\tthis._copy(container);\n\n\tthis._container = container;\n\n\tthis._center = 0;\n\n\tthis._currentsize = newsize;\n};\n\nUnboundedDeque.prototype._shrink = function () {\n\tconst newsize = Math.max(this._minsize, this.length * this._growth);\n\n\tif (newsize * this._growth >= this._currentsize) {\n\t\treturn;\n\t}\n\n\tthis._realloc(newsize);\n};\n\nUnboundedDeque.prototype._grow = function (newlen) {\n\tif (newlen <= this._currentsize) {\n\t\treturn;\n\t}\n\n\tthis._realloc(newlen * this._growth);\n};\n\nUnboundedDeque.prototype.len = function () {\n\treturn this.length;\n};\n\nUnboundedDeque.prototype.capacity = function () {\n\treturn this._currentsize;\n};\n\nUnboundedDeque.prototype.append = function (x) {\n\tthis._grow(this.length + 1);\n\n\tconst i = (this._center + this.length) % this._currentsize;\n\tthis._container[i] = x;\n\t++this.length;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.appendleft = function (x) {\n\tthis._grow(this.length + 1);\n\n\t--this._center;\n\tthis._center += this._currentsize;\n\tthis._center %= this._currentsize;\n\tthis._container[this._center] = x;\n\n\t++this.length;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.clear = function () {\n\tthis._currentsize = this._minsize;\n\n\t// eslint-disable-next-line unicorn/no-new-array\n\tthis._container = new Array(this._currentsize);\n\n\tthis._center = 0;\n\n\tthis.length = 0;\n\n\treturn this;\n};\n\nUnboundedDeque.prototype.copy = function () {\n\treturn new UnboundedDeque(this);\n};\n\nUnboundedDeque.prototype._where = function (i) {\n\tthis._checkbounds(i);\n\n\treturn [this._container, (this._center + i) % this._currentsize];\n};\n\nUnboundedDeque.prototype._popindex = function (container, index) {\n\tconst value = container[index];\n\n\t// GC\n\t// TODO use null instead of 0 for non-Number deques\n\tcontainer[index] = 0;\n\n\t--this.length;\n\n\tthis._shrink();\n\n\treturn value;\n};\n",
     "static": true,
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/src/implementation/UnboundedDeque.js",
     "access": "public",
@@ -2220,7 +2435,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 114,
+    "__docId__": 115,
     "kind": "function",
     "name": "UnboundedDeque",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2232,21 +2447,24 @@
     "export": true,
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": "UnboundedDeque",
-    "description": null,
-    "lineNumber": 3,
-    "undocument": true,
+    "description": "UnboundedDeque.",
+    "lineNumber": 8,
     "params": [
       {
-        "name": "iterable",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Iterable<any>"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": ""
       }
     ],
     "return": null
   },
   {
-    "__docId__": 115,
+    "__docId__": 116,
     "kind": "function",
     "name": "_copy",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2259,7 +2477,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 24,
+    "lineNumber": 29,
     "undocument": true,
     "params": [
       {
@@ -2273,7 +2491,7 @@
     "ignore": true
   },
   {
-    "__docId__": 116,
+    "__docId__": 117,
     "kind": "function",
     "name": "_realloc",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2286,7 +2504,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 32,
+    "lineNumber": 37,
     "undocument": true,
     "params": [
       {
@@ -2300,7 +2518,7 @@
     "ignore": true
   },
   {
-    "__docId__": 117,
+    "__docId__": 118,
     "kind": "function",
     "name": "_shrink",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2313,14 +2531,14 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 45,
+    "lineNumber": 50,
     "undocument": true,
     "params": [],
     "return": null,
     "ignore": true
   },
   {
-    "__docId__": 118,
+    "__docId__": 119,
     "kind": "function",
     "name": "_grow",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2333,7 +2551,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 55,
+    "lineNumber": 60,
     "undocument": true,
     "params": [
       {
@@ -2347,7 +2565,7 @@
     "ignore": true
   },
   {
-    "__docId__": 119,
+    "__docId__": 120,
     "kind": "function",
     "name": "len",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2360,31 +2578,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 63,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 120,
-    "kind": "function",
-    "name": "capacity",
-    "memberof": "src/implementation/UnboundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/UnboundedDeque.js~capacity",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 67,
+    "lineNumber": 68,
     "undocument": true,
     "params": [],
     "return": {
@@ -2397,6 +2591,30 @@
   {
     "__docId__": 121,
     "kind": "function",
+    "name": "capacity",
+    "memberof": "src/implementation/UnboundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/UnboundedDeque.js~capacity",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 122,
+    "kind": "function",
     "name": "append",
     "memberof": "src/implementation/UnboundedDeque.js",
     "generator": false,
@@ -2408,38 +2626,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 71,
-    "undocument": true,
-    "params": [
-      {
-        "name": "x",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 122,
-    "kind": "function",
-    "name": "appendleft",
-    "memberof": "src/implementation/UnboundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/UnboundedDeque.js~appendleft",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 81,
+    "lineNumber": 76,
     "undocument": true,
     "params": [
       {
@@ -2459,6 +2646,37 @@
   {
     "__docId__": 123,
     "kind": "function",
+    "name": "appendleft",
+    "memberof": "src/implementation/UnboundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/UnboundedDeque.js~appendleft",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 86,
+    "undocument": true,
+    "params": [
+      {
+        "name": "x",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "function",
     "name": "clear",
     "memberof": "src/implementation/UnboundedDeque.js",
     "generator": false,
@@ -2470,31 +2688,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 94,
-    "undocument": true,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "ignore": true
-  },
-  {
-    "__docId__": 124,
-    "kind": "function",
-    "name": "copy",
-    "memberof": "src/implementation/UnboundedDeque.js",
-    "generator": false,
-    "async": false,
-    "static": true,
-    "longname": "src/implementation/UnboundedDeque.js~copy",
-    "access": "public",
-    "export": false,
-    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
-    "importStyle": null,
-    "description": null,
-    "lineNumber": 107,
+    "lineNumber": 99,
     "undocument": true,
     "params": [],
     "return": {
@@ -2507,6 +2701,30 @@
   {
     "__docId__": 125,
     "kind": "function",
+    "name": "copy",
+    "memberof": "src/implementation/UnboundedDeque.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/implementation/UnboundedDeque.js~copy",
+    "access": "public",
+    "export": false,
+    "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 112,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "function",
     "name": "_where",
     "memberof": "src/implementation/UnboundedDeque.js",
     "generator": false,
@@ -2518,7 +2736,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 111,
+    "lineNumber": 116,
     "undocument": true,
     "params": [
       {
@@ -2536,7 +2754,7 @@
     "ignore": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 127,
     "kind": "function",
     "name": "_popindex",
     "memberof": "src/implementation/UnboundedDeque.js",
@@ -2549,7 +2767,7 @@
     "importPath": "@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 117,
+    "lineNumber": 122,
     "undocument": true,
     "params": [
       {
@@ -2573,7 +2791,7 @@
     "ignore": true
   },
   {
-    "__docId__": 127,
+    "__docId__": 128,
     "kind": "file",
     "name": "src/implementation/index.js",
     "content": "import ArbitrarySizeDeque from './ArbitrarySizeDeque.js';\nimport BoundedDeque from './BoundedDeque.js';\nimport Deque from './Deque.js';\nimport EmptyDeque from './EmptyDeque.js';\nimport SingleElementDeque from './SingleElementDeque.js';\nimport UnboundedDeque from './UnboundedDeque.js';\n\nexport {\n\tArbitrarySizeDeque,\n\tBoundedDeque,\n\tDeque,\n\tEmptyDeque,\n\tSingleElementDeque,\n\tUnboundedDeque,\n};\n",
@@ -2584,7 +2802,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 128,
+    "__docId__": 129,
     "kind": "file",
     "name": "src/index.js",
     "content": "import deque from './deque.js';\nimport _deque from './_deque.js';\nimport {\n\tDeque,\n\tArbitrarySizeDeque,\n\tUnboundedDeque,\n\tBoundedDeque,\n\tSingleElementDeque,\n\tEmptyDeque,\n} from './implementation/index.js';\n\nexport default deque;\n\nexport {\n\tdeque,\n\t_deque,\n\tDeque,\n\tArbitrarySizeDeque,\n\tUnboundedDeque,\n\tBoundedDeque,\n\tSingleElementDeque,\n\tEmptyDeque,\n};\n",
@@ -2596,7 +2814,7 @@
   },
   {
     "kind": "index",
-    "content": ":snake: [@aureooms/js-collections-deque](https://aureooms.github.io/js-collections-deque)\n==\n\n<img src=\"https://wallazee.global.ssl.fastly.net/images/variant/20130718-89a718ff85be19c11c3b23029d6df275c65dd9a127126bc96e1924b-1024.png\" width=\"864\">\n\nPython's deque data structure for JavaScript.\nSee [docs](https://aureooms.github.io/js-collections-deque).\nParent is [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).\n\n```js\ndeque( 'abcde' , 3 ) ; // 'cde'\n```\n\n[![License](https://img.shields.io/github/license/aureooms/js-collections-deque.svg)](https://raw.githubusercontent.com/aureooms/js-collections-deque/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/@aureooms/js-collections-deque.svg)](https://www.npmjs.org/package/@aureooms/js-collections-deque)\n[![Build](https://img.shields.io/travis/aureooms/js-collections-deque/main.svg)](https://travis-ci.com/aureooms/js-collections-deque/branches)\n[![Dependencies](https://img.shields.io/david/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque)\n[![Dev dependencies](https://img.shields.io/david/dev/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/aureooms/js-collections-deque.svg)](https://github.com/aureooms/js-collections-deque/issues)\n[![Downloads](https://img.shields.io/npm/dm/@aureooms/js-collections-deque.svg)](https://www.npmjs.org/package/@aureooms/js-collections-deque)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/js-collections-deque/main.svg)](https://codecov.io/gh/aureooms/js-collections-deque)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/trends/technical_debt)\n[![Documentation](https://aureooms.github.io/js-collections-deque/badge.svg)](https://aureooms.github.io/js-collections-deque/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/@aureooms/js-collections-deque)](https://bundlephobia.com/result?p=@aureooms/js-collections-deque)\n",
+    "content": ":snake: [@aureooms/js-collections-deque](https://aureooms.github.io/js-collections-deque)\n==\n\n<img src=\"https://wallazee.global.ssl.fastly.net/images/variant/20130718-89a718ff85be19c11c3b23029d6df275c65dd9a127126bc96e1924b-1024.png\" width=\"864\">\n\nPython's deque data structure for JavaScript.\nSee [docs](https://aureooms.github.io/js-collections-deque).\nParent is [@aureooms/js-data-structures](https://github.com/aureooms/js-data-structures).\n\n```js\nimport {deque} from '@aureooms/js-collections-deque';\ndeque( 'abcde' , 3 ) ; // 'cde'\n```\n\n[![License](https://img.shields.io/github/license/aureooms/js-collections-deque.svg)](https://raw.githubusercontent.com/aureooms/js-collections-deque/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/@aureooms/js-collections-deque.svg)](https://www.npmjs.org/package/@aureooms/js-collections-deque)\n[![Build](https://img.shields.io/travis/aureooms/js-collections-deque/main.svg)](https://travis-ci.com/aureooms/js-collections-deque/branches)\n[![Dependencies](https://img.shields.io/david/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque)\n[![Dev dependencies](https://img.shields.io/david/dev/aureooms/js-collections-deque.svg)](https://david-dm.org/aureooms/js-collections-deque?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/aureooms/js-collections-deque.svg)](https://github.com/aureooms/js-collections-deque/issues)\n[![Downloads](https://img.shields.io/npm/dm/@aureooms/js-collections-deque.svg)](https://www.npmjs.org/package/@aureooms/js-collections-deque)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/aureooms/js-collections-deque/main.svg)](https://codecov.io/gh/aureooms/js-collections-deque)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/aureooms/js-collections-deque.svg)](https://codeclimate.com/github/aureooms/js-collections-deque/trends/technical_debt)\n[![Documentation](https://aureooms.github.io/js-collections-deque/badge.svg)](https://aureooms.github.io/js-collections-deque/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/@aureooms/js-collections-deque)](https://bundlephobia.com/result?p=@aureooms/js-collections-deque)\n",
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/README.md",
     "name": "./README.md",
     "static": true,
@@ -2604,7 +2822,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@aureooms/js-collections-deque\",\n  \"description\": \"Python's deque data structure for JavaScript\",\n  \"version\": \"5.0.0\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"Aurélien Ooms <aurelien.ooms@gmail.com>\",\n  \"homepage\": \"https://aureooms.github.io/js-collections-deque\",\n  \"repository\": {\n    \"url\": \"https://github.com/aureooms/js-collections-deque\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/aureooms/js-collections-deque/issues\"\n  },\n  \"keywords\": [\n    \"collection\",\n    \"collections\",\n    \"deque\",\n    \"javascript\",\n    \"js\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.js\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"c8 --all --src src --reporter=lcov npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"ava\",\n    \"travis\": \"npm run lint-config && npm run lint && npm run cover\"\n  },\n  \"dependencies\": {\n    \"@aureooms/js-error\": \"^5.0.1\"\n  },\n  \"devDependencies\": {\n    \"@aureooms/js-itertools\": \"4.1.0\",\n    \"@babel/core\": \"7.13.10\",\n    \"@babel/preset-env\": \"7.13.10\",\n    \"@babel/register\": \"7.13.8\",\n    \"@commitlint/cli\": \"12.0.1\",\n    \"@js-library/commitlint-config\": \"0.0.3\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.6.0\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"5.1.3\",\n    \"lint-staged\": \"10.5.4\",\n    \"microbundle\": \"0.13.0\",\n    \"np\": \"7.4.0\",\n    \"pinst\": \"2.1.6\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.7\",\n    \"xo\": \"0.38.2\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\",\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": [\n            \"defaults\",\n            \"maintained node versions\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"test\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"production\": {\n        \"plugins\": [\n          \"babel-plugin-unassert\",\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": [\n        \"error\",\n        {\n          \"cases\": {\n            \"camelCase\": true,\n            \"pascalCase\": true\n          }\n        }\n      ]\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
+    "content": "{\n  \"name\": \"@aureooms/js-collections-deque\",\n  \"description\": \"Python's deque data structure for JavaScript\",\n  \"version\": \"6.0.0\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"Aurélien Ooms <aurelien.ooms@gmail.com>\",\n  \"homepage\": \"https://aureooms.github.io/js-collections-deque\",\n  \"repository\": {\n    \"url\": \"https://github.com/aureooms/js-collections-deque\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/aureooms/js-collections-deque/issues\"\n  },\n  \"keywords\": [\n    \"collection\",\n    \"collections\",\n    \"deque\",\n    \"javascript\",\n    \"js\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.js\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"c8 --all --src src --reporter=lcov npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"ava\",\n    \"travis\": \"npm run lint-config && npm run lint && npm run cover\"\n  },\n  \"dependencies\": {\n    \"@aureooms/js-error\": \"^5.0.2\"\n  },\n  \"devDependencies\": {\n    \"@aureooms/js-itertools\": \"5.0.0\",\n    \"@babel/core\": \"7.13.10\",\n    \"@babel/preset-env\": \"7.13.10\",\n    \"@babel/register\": \"7.13.8\",\n    \"@commitlint/cli\": \"12.0.1\",\n    \"@js-library/commitlint-config\": \"0.0.4\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.6.0\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"5.1.3\",\n    \"lint-staged\": \"10.5.4\",\n    \"microbundle\": \"0.13.0\",\n    \"np\": \"7.4.0\",\n    \"pinst\": \"2.1.6\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.7\",\n    \"xo\": \"0.38.2\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\",\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": [\n            \"defaults\",\n            \"maintained node versions\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"test\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": \"current node\"\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"production\": {\n        \"plugins\": [\n          \"babel-plugin-unassert\",\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": [\n        \"error\",\n        {\n          \"cases\": {\n            \"camelCase\": true,\n            \"pascalCase\": true\n          }\n        }\n      ]\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/package.json",
     "name": "package.json",
     "static": true,
@@ -2638,7 +2856,7 @@
     "kind": "manual",
     "longname": "/home/runner/work/js-collections-deque/js-collections-deque/doc/manual/usage.md",
     "name": "./doc/manual/usage.md",
-    "content": "# Usage\nThe code needs a ES2015+ polyfill to work, for example\n[regenerator-runtime/runtime](https://babeljs.io/docs/usage/polyfill).\n```js\nrequire( 'regenerator-runtime/runtime' ) ;\n// or\nimport 'regenerator-runtime/runtime.js' ;\n```\n\nThen\n```js\nconst number = require( '@aureooms/js-collections-deque' ) ;\n// or\nimport number from '@aureooms/js-collections-deque' ;\n```\n",
+    "content": "# Usage\nThe code needs a ES2015+ polyfill to work, for example\n[regenerator-runtime/runtime](https://babeljs.io/docs/usage/polyfill).\n```js\nrequire( 'regenerator-runtime/runtime' ) ;\n// or\nimport 'regenerator-runtime/runtime.js' ;\n```\n\nThen\n```js\nconst {deque} = require( '@aureooms/js-collections-deque' ) ;\n// or\nimport {deque} from '@aureooms/js-collections-deque' ;\n```\n",
     "static": true,
     "access": "public"
   },

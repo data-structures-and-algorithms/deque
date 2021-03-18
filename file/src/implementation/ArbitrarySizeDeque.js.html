@@ -43,27 +43,42 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/implementation/ArbitrarySizeDeque.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Deque from &apos;./Deque.js&apos;;
+import {NotImplementedError} from &apos;@aureooms/js-error&apos;;
 
+/**
+ * ArbitrarySizeDeque.
+ */
 export default function ArbitrarySizeDeque() {}
 
 ArbitrarySizeDeque.prototype = new Deque();
 
 ArbitrarySizeDeque.prototype.values = function* () {
-	let i = this.center;
+	let i = this._center;
 	const _m = i + this.length;
 	const m = Math.min(this.capacity(), _m);
 
 	for (; i &lt; m; ++i) {
-		yield this.container[i];
+		yield this._container[i];
 	}
 
 	const n = _m % this.capacity();
 
 	if (n &lt; _m) {
 		for (i = 0; i &lt; n; ++i) {
-			yield this.container[i];
+			yield this._container[i];
 		}
 	}
+};
+
+/**
+ * ArbitrarySizeDeque.prototype._popindex.
+ *
+ * @param {any} _container
+ * @param {Number} _index
+ * @return {any}
+ */
+ArbitrarySizeDeque.prototype._popindex = function (_container, _index) {
+	throw new NotImplementedError(&apos;_popindex&apos;);
 };
 
 ArbitrarySizeDeque.prototype.pop = function () {
@@ -75,8 +90,8 @@ ArbitrarySizeDeque.prototype.pop = function () {
 ArbitrarySizeDeque.prototype.popleft = function () {
 	const [container, index] = this._where(0);
 
-	++this.center;
-	this.center %= this.capacity();
+	++this._center;
+	this._center %= this.capacity();
 
 	return this._popindex(container, index);
 };

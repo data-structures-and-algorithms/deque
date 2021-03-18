@@ -44,13 +44,27 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/_deque.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {TypeError, ValueError} from &apos;@aureooms/js-error&apos;;
 
+/**
+ * _deque.
+ *
+ * @param {Deque} UnboundedDeque
+ * @param {Deque} BoundedDeque
+ * @param {Deque} SingleElementDeque
+ * @param {Deque} EmptyDeque
+ */
 export default function _deque(
 	UnboundedDeque,
 	BoundedDeque,
 	SingleElementDeque,
 	EmptyDeque,
 ) {
-	const deque = function (iterable = null, maxlen = null) {
+	/**
+	 * Deque.
+	 *
+	 * @param {Iterable&lt;any&gt;} iterable
+	 * @param {Number} maxlen
+	 */
+	const deque = (iterable = null, maxlen = null) =&gt; {
 		if (maxlen === null) {
 			return new UnboundedDeque(iterable);
 		}
