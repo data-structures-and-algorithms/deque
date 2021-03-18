@@ -21,7 +21,7 @@
       "$_popindex": "p",
       "$_range": "r",
       "$_realloc": "a",
-      "$_shrink": "s",
+      "$_shrink": "z",
       "$_value": "v",
       "$_where": "w"
     }
