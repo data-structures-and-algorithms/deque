@@ -1,4 +1,5 @@
 import Deque from './Deque.js';
+import {NotImplementedError} from '@aureooms/js-error';
 
 /**
  * ArbitrarySizeDeque.
@@ -23,6 +24,17 @@ ArbitrarySizeDeque.prototype.values = function* () {
 			yield this._container[i];
 		}
 	}
+};
+
+/**
+ * ArbitrarySizeDeque.prototype._popindex.
+ *
+ * @param {any} _container
+ * @param {Number} _index
+ * @return {any}
+ */
+ArbitrarySizeDeque.prototype._popindex = function (_container, _index) {
+	throw new NotImplementedError('_popindex');
 };
 
 ArbitrarySizeDeque.prototype.pop = function () {
