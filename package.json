@@ -59,7 +59,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@aureooms/js-error": "^5.0.2"
+    "@aureooms/js-error": "^5.0.3"
   },
   "devDependencies": {
     "@aureooms/js-itertools": "5.1.0",
