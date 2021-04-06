@@ -1,7 +1,3 @@
-/*header > a[data-ice="testLink"] {*/
-	/*display: none;*/
-/*}*/
-
 h1,
 h2,
 .navigation,
@@ -49,7 +45,6 @@ footer
 	text-transform: capitalize;
 	background-color: #ccc;
 }
-
 
 span[data-ice="signature"] > span {
 	/*font-weight: bold;*/
