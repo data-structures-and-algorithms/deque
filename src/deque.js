@@ -1,9 +1,7 @@
-import {
-	UnboundedDeque,
-	BoundedDeque,
-	SingleElementDeque,
-	EmptyDeque,
-} from './implementation/index.js';
+import UnboundedDeque from './implementation/UnboundedDeque.js';
+import BoundedDeque from './implementation/BoundedDeque.js';
+import SingleElementDeque from './implementation/SingleElementDeque.js';
+import EmptyDeque from './implementation/EmptyDeque.js';
 
 import _deque from './_deque.js';
 
