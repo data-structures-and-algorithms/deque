@@ -378,12 +378,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/implementation/index.js",
-    "file/src/implementation/index.js.html",
-    "src/implementation/index.js",
-    "file"
-  ],
-  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",

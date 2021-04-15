@@ -42,29 +42,14 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import deque from &apos;./deque.js&apos;;
-import _deque from &apos;./_deque.js&apos;;
-import {
-	Deque,
-	ArbitrarySizeDeque,
-	UnboundedDeque,
-	BoundedDeque,
-	SingleElementDeque,
-	EmptyDeque,
-} from &apos;./implementation/index.js&apos;;
-
-export default deque;
-
-export {
-	deque,
-	_deque,
-	Deque,
-	ArbitrarySizeDeque,
-	UnboundedDeque,
-	BoundedDeque,
-	SingleElementDeque,
-	EmptyDeque,
-};
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export {default as ArbitrarySizeDeque} from &apos;./implementation/ArbitrarySizeDeque.js&apos;;
+export {default as BoundedDeque} from &apos;./implementation/BoundedDeque.js&apos;;
+export {default as Deque} from &apos;./implementation/Deque.js&apos;;
+export {default as EmptyDeque} from &apos;./implementation/EmptyDeque.js&apos;;
+export {default as SingleElementDeque} from &apos;./implementation/SingleElementDeque.js&apos;;
+export {default as UnboundedDeque} from &apos;./implementation/UnboundedDeque.js&apos;;
+export {default as _deque} from &apos;./_deque.js&apos;;
+export {default as deque} from &apos;./deque.js&apos;;
 </code></pre>
 
 </div>

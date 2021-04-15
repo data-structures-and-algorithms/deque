@@ -12,7 +12,7 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        10
+        8
       ]
     },
     "src/implementation/ArbitrarySizeDeque.js": {
