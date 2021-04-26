@@ -6,11 +6,11 @@
   "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
   "homepage": "https://make-github-pseudonymous-again.github.io/js-collections-deque",
   "repository": {
-    "url": "https://github.com/aureooms/js-collections-deque",
+    "url": "https://github.com/make-github-pseudonymous-again/js-collections-deque",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/aureooms/js-collections-deque/issues"
+    "url": "https://github.com/make-github-pseudonymous-again/js-collections-deque/issues"
   },
   "keywords": [
     "collection",
