@@ -3,7 +3,7 @@
 
 Python's deque data structure for JavaScript.
 See [docs](https://data-structures-and-algorithms.github.io/deque).
-Parent is [js-data-structures](https://github.com/data-structures-and-algorithms/data-structures).
+Parent is [js-data-structures](https://github.com/make-github-pseudonymous-again/js-data-structures).
 
 ```js
 import {deque} from '@data-structure/deque';
