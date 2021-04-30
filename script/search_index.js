@@ -1,50 +1,50 @@
 window.esdocSearchIndex = [
   [
-    "@aureooms/js-collections-deque/src/implementation/arbitrarysizedeque.js~arbitrarysizedeque",
+    "@data-structure/deque/src/implementation/arbitrarysizedeque.js~arbitrarysizedeque",
     "function/index.html#static-function-ArbitrarySizeDeque",
-    "<span>ArbitrarySizeDeque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/ArbitrarySizeDeque.js</span>",
+    "<span>ArbitrarySizeDeque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/ArbitrarySizeDeque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/implementation/boundeddeque.js~boundeddeque",
+    "@data-structure/deque/src/implementation/boundeddeque.js~boundeddeque",
     "function/index.html#static-function-BoundedDeque",
-    "<span>BoundedDeque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/BoundedDeque.js</span>",
+    "<span>BoundedDeque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/BoundedDeque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/implementation/deque.js~deque",
+    "@data-structure/deque/src/implementation/deque.js~deque",
     "function/index.html#static-function-Deque",
-    "<span>Deque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/Deque.js</span>",
+    "<span>Deque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/Deque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/implementation/emptydeque.js~emptydeque",
+    "@data-structure/deque/src/implementation/emptydeque.js~emptydeque",
     "function/index.html#static-function-EmptyDeque",
-    "<span>EmptyDeque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/EmptyDeque.js</span>",
+    "<span>EmptyDeque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/EmptyDeque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/implementation/singleelementdeque.js~singleelementdeque",
+    "@data-structure/deque/src/implementation/singleelementdeque.js~singleelementdeque",
     "function/index.html#static-function-SingleElementDeque",
-    "<span>SingleElementDeque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/SingleElementDeque.js</span>",
+    "<span>SingleElementDeque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/SingleElementDeque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/implementation/unboundeddeque.js~unboundeddeque",
+    "@data-structure/deque/src/implementation/unboundeddeque.js~unboundeddeque",
     "function/index.html#static-function-UnboundedDeque",
-    "<span>UnboundedDeque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/implementation/UnboundedDeque.js</span>",
+    "<span>UnboundedDeque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/implementation/UnboundedDeque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/_deque.js~_deque",
+    "@data-structure/deque/src/_deque.js~_deque",
     "function/index.html#static-function-_deque",
-    "<span>_deque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/_deque.js</span>",
+    "<span>_deque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/_deque.js</span>",
     "function"
   ],
   [
-    "@aureooms/js-collections-deque/src/deque.js~deque",
+    "@data-structure/deque/src/deque.js~deque",
     "variable/index.html#static-variable-deque",
-    "<span>deque</span> <span class=\"search-result-import-path\">@aureooms/js-collections-deque/src/deque.js</span>",
+    "<span>deque</span> <span class=\"search-result-import-path\">@data-structure/deque/src/deque.js</span>",
     "variable"
   ],
   [
