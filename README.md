@@ -1,8 +1,6 @@
 :snake: [@aureooms/js-collections-deque](https://make-github-pseudonymous-again.github.io/js-collections-deque)
 ==
 
-<img src="https://wallazee.global.ssl.fastly.net/images/variant/20130718-89a718ff85be19c11c3b23029d6df275c65dd9a127126bc96e1924b-1024.png" width="864">
-
 Python's deque data structure for JavaScript.
 See [docs](https://make-github-pseudonymous-again.github.io/js-collections-deque).
 Parent is [@aureooms/js-data-structures](https://github.com/make-github-pseudonymous-again/js-data-structures).
