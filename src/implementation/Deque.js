@@ -1,4 +1,8 @@
-import {NotImplementedError, IndexError, ValueError} from '@aureooms/js-error';
+import {
+	NotImplementedError,
+	IndexError,
+	ValueError,
+} from '@failure-abstraction/error';
 
 /**
  * Deque.

@@ -17,7 +17,7 @@
           "autoPrivate": true
         },
         "brand": {
-          "title": "@aureooms/js-collections-deque"
+          "title": "@data-structure/deque"
         },
         "test": {
           "type": "ava",

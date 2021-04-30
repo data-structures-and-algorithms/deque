@@ -1,16 +1,16 @@
 {
-  "name": "@aureooms/js-collections-deque",
+  "name": "@data-structure/deque",
   "description": "Python's deque data structure for JavaScript",
   "version": "7.0.0",
   "license": "AGPL-3.0",
-  "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
-  "homepage": "https://make-github-pseudonymous-again.github.io/js-collections-deque",
+  "author": "make-github-pseudonymous-again",
+  "homepage": "https://data-structures-and-algorithms.github.io/deque",
   "repository": {
-    "url": "https://github.com/make-github-pseudonymous-again/js-collections-deque",
+    "url": "https://github.com/data-structures-and-algorithms/deque",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/make-github-pseudonymous-again/js-collections-deque/issues"
+    "url": "https://github.com/data-structures-and-algorithms/deque/issues"
   },
   "keywords": [
     "collection",
@@ -60,7 +60,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@aureooms/js-error": "^5.0.3"
+    "@failure-abstraction/error": "^5.0.3"
   },
   "devDependencies": {
     "@aureooms/js-itertools": "5.1.1",

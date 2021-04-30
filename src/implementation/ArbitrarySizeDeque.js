@@ -1,5 +1,5 @@
 import Deque from './Deque.js';
-import {NotImplementedError} from '@aureooms/js-error';
+import {NotImplementedError} from '@failure-abstraction/error';
 
 /**
  * ArbitrarySizeDeque.

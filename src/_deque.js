@@ -1,4 +1,4 @@
-import {TypeError, ValueError} from '@aureooms/js-error';
+import {TypeError, ValueError} from '@failure-abstraction/error';
 
 /**
  * _deque.

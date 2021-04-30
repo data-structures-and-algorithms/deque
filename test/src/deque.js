@@ -8,7 +8,11 @@ import {
 	filter as f,
 } from '@aureooms/js-itertools';
 
-import {IndexError, ValueError, NotImplementedError} from '@aureooms/js-error';
+import {
+	IndexError,
+	ValueError,
+	NotImplementedError,
+} from '@failure-abstraction/error';
 
 import {deque, Deque, SingleElementDeque, EmptyDeque} from '../../src/index.js';
 

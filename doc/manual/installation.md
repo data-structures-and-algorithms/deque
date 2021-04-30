@@ -5,10 +5,10 @@ or [npm](https://github.com/npm/npm).
 
 ### jspm
 ```terminal
-jspm install npm:@aureooms/js-collections-deque
+jspm install npm:@data-structure/deque
 ```
 
 ### npm
 ```terminal
-npm install @aureooms/js-collections-deque --save
+npm install @data-structure/deque --save
 ```

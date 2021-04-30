@@ -9,7 +9,7 @@ import 'regenerator-runtime/runtime.js' ;
 
 Then
 ```js
-const {deque} = require( '@aureooms/js-collections-deque' ) ;
+const {deque} = require( '@data-structure/deque' ) ;
 // or
-import {deque} from '@aureooms/js-collections-deque' ;
+import {deque} from '@data-structure/deque' ;
 ```
