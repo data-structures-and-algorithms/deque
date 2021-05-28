@@ -31,7 +31,7 @@
       {
         "type": "ImportDeclaration",
         "start": 0,
-        "end": 31,
+        "end": 63,
         "loc": {
           "start": {
             "line": 1,
@@ -39,35 +39,121 @@
           },
           "end": {
             "line": 1,
+            "column": 63
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 8,
+            "end": 27,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 8
+              },
+              "end": {
+                "line": 1,
+                "column": 27
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 8,
+              "end": 27,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 8
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27
+                },
+                "identifierName": "NotImplementedError"
+              },
+              "name": "NotImplementedError"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 8,
+              "end": 27,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 8
+                },
+                "end": {
+                  "line": 1,
+                  "column": 27
+                },
+                "identifierName": "NotImplementedError"
+              },
+              "name": "NotImplementedError"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 34,
+          "end": 62,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 34
+            },
+            "end": {
+              "line": 1,
+              "column": 62
+            }
+          },
+          "extra": {
+            "rawValue": "@failure-abstraction/error",
+            "raw": "'@failure-abstraction/error'"
+          },
+          "value": "@failure-abstraction/error"
+        }
+      },
+      {
+        "type": "ImportDeclaration",
+        "start": 64,
+        "end": 95,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
             "column": 31
           }
         },
         "specifiers": [
           {
             "type": "ImportDefaultSpecifier",
-            "start": 7,
-            "end": 12,
+            "start": 71,
+            "end": 76,
             "loc": {
               "start": {
-                "line": 1,
+                "line": 2,
                 "column": 7
               },
               "end": {
-                "line": 1,
+                "line": 2,
                 "column": 12
               }
             },
             "local": {
               "type": "Identifier",
-              "start": 7,
-              "end": 12,
+              "start": 71,
+              "end": 76,
               "loc": {
                 "start": {
-                  "line": 1,
+                  "line": 2,
                   "column": 7
                 },
                 "end": {
-                  "line": 1,
+                  "line": 2,
                   "column": 12
                 },
                 "identifierName": "Deque"
@@ -78,15 +164,15 @@
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 18,
-          "end": 30,
+          "start": 82,
+          "end": 94,
           "loc": {
             "start": {
-              "line": 1,
+              "line": 2,
               "column": 18
             },
             "end": {
-              "line": 1,
+              "line": 2,
               "column": 30
             }
           },
@@ -95,92 +181,6 @@
             "raw": "'./Deque.js'"
           },
           "value": "./Deque.js"
-        }
-      },
-      {
-        "type": "ImportDeclaration",
-        "start": 32,
-        "end": 95,
-        "loc": {
-          "start": {
-            "line": 2,
-            "column": 0
-          },
-          "end": {
-            "line": 2,
-            "column": 63
-          }
-        },
-        "specifiers": [
-          {
-            "type": "ImportSpecifier",
-            "start": 40,
-            "end": 59,
-            "loc": {
-              "start": {
-                "line": 2,
-                "column": 8
-              },
-              "end": {
-                "line": 2,
-                "column": 27
-              }
-            },
-            "imported": {
-              "type": "Identifier",
-              "start": 40,
-              "end": 59,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 8
-                },
-                "end": {
-                  "line": 2,
-                  "column": 27
-                },
-                "identifierName": "NotImplementedError"
-              },
-              "name": "NotImplementedError"
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 40,
-              "end": 59,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 8
-                },
-                "end": {
-                  "line": 2,
-                  "column": 27
-                },
-                "identifierName": "NotImplementedError"
-              },
-              "name": "NotImplementedError"
-            }
-          }
-        ],
-        "source": {
-          "type": "StringLiteral",
-          "start": 66,
-          "end": 94,
-          "loc": {
-            "start": {
-              "line": 2,
-              "column": 34
-            },
-            "end": {
-              "line": 2,
-              "column": 62
-            }
-          },
-          "extra": {
-            "rawValue": "@failure-abstraction/error",
-            "raw": "'@failure-abstraction/error'"
-          },
-          "value": "@failure-abstraction/error"
         },
         "trailingComments": [
           {
@@ -3337,139 +3337,6 @@
     },
     {
       "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "Deque",
-      "start": 7,
-      "end": 12,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 7
-        },
-        "end": {
-          "line": 1,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "from",
-      "start": 13,
-      "end": 17,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 13
-        },
-        "end": {
-          "line": 1,
-          "column": 17
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "string",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "./Deque.js",
-      "start": 18,
-      "end": 30,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 18
-        },
-        "end": {
-          "line": 1,
-          "column": 30
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 30,
-      "end": 31,
-      "loc": {
-        "start": {
-          "line": 1,
-          "column": 30
-        },
-        "end": {
-          "line": 1,
-          "column": 31
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "import",
-        "keyword": "import",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "import",
-      "start": 32,
-      "end": 38,
-      "loc": {
-        "start": {
-          "line": 2,
-          "column": 0
-        },
-        "end": {
-          "line": 2,
-          "column": 6
-        }
-      }
-    },
-    {
-      "type": {
         "label": "{",
         "beforeExpr": true,
         "startsExpr": true,
@@ -3480,15 +3347,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 39,
-      "end": 40,
+      "start": 7,
+      "end": 8,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 7
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 8
         }
       }
@@ -3506,15 +3373,15 @@
         "binop": null
       },
       "value": "NotImplementedError",
-      "start": 40,
-      "end": 59,
+      "start": 8,
+      "end": 27,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 8
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 27
         }
       }
@@ -3531,15 +3398,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 59,
-      "end": 60,
+      "start": 27,
+      "end": 28,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 27
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 28
         }
       }
@@ -3557,15 +3424,15 @@
         "binop": null
       },
       "value": "from",
-      "start": 61,
-      "end": 65,
+      "start": 29,
+      "end": 33,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 1,
           "column": 29
         },
         "end": {
-          "line": 2,
+          "line": 1,
           "column": 33
         }
       }
@@ -3584,16 +3451,149 @@
         "updateContext": null
       },
       "value": "@failure-abstraction/error",
-      "start": 66,
+      "start": 34,
+      "end": 62,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 34
+        },
+        "end": {
+          "line": 1,
+          "column": 62
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 62,
+      "end": 63,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 62
+        },
+        "end": {
+          "line": 1,
+          "column": 63
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 64,
+      "end": 70,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "Deque",
+      "start": 71,
+      "end": 76,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 7
+        },
+        "end": {
+          "line": 2,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 77,
+      "end": 81,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 13
+        },
+        "end": {
+          "line": 2,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./Deque.js",
+      "start": 82,
       "end": 94,
       "loc": {
         "start": {
           "line": 2,
-          "column": 34
+          "column": 18
         },
         "end": {
           "line": 2,
-          "column": 62
+          "column": 30
         }
       }
     },
@@ -3615,11 +3615,11 @@
       "loc": {
         "start": {
           "line": 2,
-          "column": 62
+          "column": 30
         },
         "end": {
           "line": 2,
-          "column": 63
+          "column": 31
         }
       }
     },
