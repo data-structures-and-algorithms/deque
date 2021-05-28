@@ -1,12 +1,10 @@
 import test from 'ava';
 
-import {
-	list as l,
-	range as r,
-	chain as c,
-	map as m,
-	filter as f,
-} from '@aureooms/js-itertools';
+import {list as l} from '@iterable-iterator/list';
+import {range as r} from '@iterable-iterator/range';
+import {_chain as c} from '@iterable-iterator/chain';
+import {map as m} from '@iterable-iterator/map';
+import {filter as f} from '@iterable-iterator/filter';
 
 import {
 	IndexError,
