@@ -204,7 +204,7 @@ test('SingleElementDeque', (t) => {
 test('unbounded', (t) => {
 	let i = 0;
 
-	let j = 10000;
+	let j = 10_000;
 
 	const d = deque(r(i, j, 1));
 
@@ -234,11 +234,11 @@ test('unbounded', (t) => {
 
 	t.is(d.len(), 0, 'unbounded is empty');
 
-	d.extend(r(5000, 10000, 1));
+	d.extend(r(5000, 10_000, 1));
 
 	d.extendleft(r(4999, -1, -1));
 
-	t.deepEqual(l(d), l(r(0, 10000, 1)), 'big unbounded extend');
+	t.deepEqual(l(d), l(r(0, 10_000, 1)), 'big unbounded extend');
 
 	t.deepEqual(l(d.copy()), l(d), 'big unbounded copy');
 });
@@ -246,7 +246,7 @@ test('unbounded', (t) => {
 test('bounded without overflow', (t) => {
 	let i = 0;
 
-	let j = 10000;
+	let j = 10_000;
 
 	const d = deque(r(i, j, 1), j - i);
 
@@ -276,11 +276,11 @@ test('bounded without overflow', (t) => {
 
 	t.is(d.len(), 0, 'bounded(10000) is empty');
 
-	d.extend(r(5000, 10000, 1));
+	d.extend(r(5000, 10_000, 1));
 
 	d.extendleft(r(4999, -1, -1));
 
-	t.deepEqual(l(d), l(r(0, 10000, 1)), 'big bounded(10000) extend');
+	t.deepEqual(l(d), l(r(0, 10_000, 1)), 'big bounded(10000) extend');
 
 	t.deepEqual(l(d.copy()), l(d), 'big bounded(10000) copy');
 });
@@ -288,9 +288,9 @@ test('bounded without overflow', (t) => {
 test('bounded with overflow', (t) => {
 	const d = deque([], 5000);
 
-	d.extend(r(0, 10000, 1));
+	d.extend(r(0, 10_000, 1));
 
-	t.deepEqual(l(d), l(r(5000, 10000, 1)), 'bounded overflow extend');
+	t.deepEqual(l(d), l(r(5000, 10_000, 1)), 'bounded overflow extend');
 
 	d.extendleft(r(0, 2500, 1));
 
@@ -304,7 +304,7 @@ test('bounded with overflow', (t) => {
 test('count', (t) => {
 	const d = deque([], 5000);
 
-	d.extend(r(0, 10000, 1));
+	d.extend(r(0, 10_000, 1));
 
 	d.extendleft(r(0, 2500, 1));
 
@@ -330,7 +330,7 @@ test('count', (t) => {
 test('miscellaneous', (t) => {
 	const d = deque([], 5000);
 
-	d.extend(r(0, 10000, 1));
+	d.extend(r(0, 10_000, 1));
 
 	d.extendleft(r(0, 2500, 1));
 

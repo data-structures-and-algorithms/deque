@@ -1,5 +1,5 @@
-import Deque from './Deque.js';
 import {NotImplementedError} from '@failure-abstraction/error';
+import Deque from './Deque.js';
 
 /**
  * ArbitrarySizeDeque.
