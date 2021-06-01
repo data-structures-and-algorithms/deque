@@ -60,7 +60,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@failure-abstraction/error": "^5.0.7"
+    "@failure-abstraction/error": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.14.3",
