@@ -70,7 +70,7 @@
     "@iterable-iterator/chain": "1.0.0",
     "@iterable-iterator/filter": "0.1.2",
     "@iterable-iterator/list": "0.0.2",
-    "@iterable-iterator/map": "0.1.0",
+    "@iterable-iterator/map": "1.0.0",
     "@iterable-iterator/range": "1.0.0",
     "@js-library/commitlint-config": "0.0.4",
     "ava": "3.15.0",
