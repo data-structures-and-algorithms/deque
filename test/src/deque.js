@@ -4,7 +4,6 @@ import {list as l} from '@iterable-iterator/list';
 import {range as r} from '@iterable-iterator/range';
 import {_chain as c} from '@iterable-iterator/chain';
 import {map as m} from '@iterable-iterator/map';
-import {filter as f} from '@iterable-iterator/filter';
 
 import {
 	IndexError,
@@ -316,9 +315,13 @@ test('count', (t) => {
 
 	t.is(deque(m(p, d)).count(true), 2500, 'count true');
 
-	t.is(deque(m(p, f(p, d)), 10).count(true), 10, 'count true bounded filter');
+	t.is(deque(m(p, d), 5000).count(true), 2500, 'count true bounded');
 
-	t.is(deque(m(p, d), 10).count(true), 0, 'count true bounded map');
+	t.is(deque(m(p, d), 2510).count(true), 10, 'count true bounded');
+
+	t.is(deque(m(p, d), 2500).count(true), 0, 'count true bounded');
+
+	t.is(deque(m(p, d), 10).count(true), 0, 'count true bounded');
 
 	t.is(deque('aaa', 0).count('a'), 0, 'count empty');
 	t.is(deque('aaa', 1).count('a'), 1, 'count single a');
