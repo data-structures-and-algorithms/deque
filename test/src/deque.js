@@ -1,15 +1,14 @@
 import test from 'ava';
 
-import {list as l} from '@iterable-iterator/list';
-import {range as r} from '@iterable-iterator/range';
-import {_chain as c} from '@iterable-iterator/chain';
-import {map as m} from '@iterable-iterator/map';
-
 import {
 	IndexError,
 	ValueError,
 	NotImplementedError,
 } from '@failure-abstraction/error';
+import {_chain as c} from '@iterable-iterator/chain';
+import {list as l} from '@iterable-iterator/list';
+import {map as m} from '@iterable-iterator/map';
+import {range as r} from '@iterable-iterator/range';
 
 import {deque, Deque, SingleElementDeque, EmptyDeque} from '#module';
 
