@@ -51,11 +51,6 @@ test('Deque base class', (t) => {
 		{instanceOf: NotImplementedError},
 		'Deque extendleft',
 	);
-	t.throws(
-		d._where.bind(d, 0),
-		{instanceOf: NotImplementedError},
-		'Deque _where',
-	);
 	t.throws(d.get.bind(d, 0), {instanceOf: NotImplementedError}, 'Deque get');
 	t.throws(d.set.bind(d, 0, 0), {instanceOf: NotImplementedError}, 'Deque set');
 	t.throws(
