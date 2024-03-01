@@ -11,7 +11,7 @@ import {
 	NotImplementedError,
 } from '@failure-abstraction/error';
 
-import {deque, Deque, SingleElementDeque, EmptyDeque} from '../../src/index.js';
+import {deque, Deque, SingleElementDeque, EmptyDeque} from '#module';
 
 test('Deque base class', (t) => {
 	const d = new Deque();

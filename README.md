@@ -12,7 +12,7 @@ deque( 'abcde' , 3 ) ; // 'cde'
 
 [![License](https://img.shields.io/github/license/data-structures-and-algorithms/deque.svg)](https://raw.githubusercontent.com/data-structures-and-algorithms/deque/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@data-structure/deque.svg)](https://www.npmjs.org/package/@data-structure/deque)
-[![Tests](https://img.shields.io/github/workflow/status/data-structures-and-algorithms/deque/ci:cover?event=push&label=tests)](https://github.com/data-structures-and-algorithms/deque/actions/workflows/ci:cover.yml?query=branch:main)
+[![Tests](https://img.shields.io/github/workflow/status/data-structures-and-algorithms/deque/ci?event=push&label=tests)](https://github.com/data-structures-and-algorithms/deque/actions/workflows/ci.yml?query=branch:main)
 [![Dependencies](https://img.shields.io/librariesio/github/data-structures-and-algorithms/deque.svg)](https://github.com/data-structures-and-algorithms/deque/network/dependencies)
 [![GitHub issues](https://img.shields.io/github/issues/data-structures-and-algorithms/deque.svg)](https://github.com/data-structures-and-algorithms/deque/issues)
 [![Downloads](https://img.shields.io/npm/dm/@data-structure/deque.svg)](https://www.npmjs.org/package/@data-structure/deque)
