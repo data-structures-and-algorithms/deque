@@ -1,14 +1,11 @@
 import test from 'ava';
 
-import {
-	IndexError,
-	ValueError,
-	NotImplementedError,
-} from '@failure-abstraction/error';
 import {_chain as c} from '@iterable-iterator/chain';
 import {list as l} from '@iterable-iterator/list';
 import {map as m} from '@iterable-iterator/map';
 import {range as r} from '@iterable-iterator/range';
+
+import {IndexError, ValueError, NotImplementedError} from './_fixtures.js';
 
 import {deque, Deque, SingleElementDeque, EmptyDeque} from '#module';
 

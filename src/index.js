@@ -6,3 +6,9 @@ export {default as SingleElementDeque} from './implementation/SingleElementDeque
 export {default as UnboundedDeque} from './implementation/UnboundedDeque.js';
 export {default as _deque} from './_deque.js';
 export {default as deque} from './deque.js';
+
+export {
+	IndexError,
+	ValueError,
+	NotImplementedError,
+} from '@failure-abstraction/error';
